@@ -1,0 +1,36 @@
+{
+  "note": "Model parameters, not statistics. Values come from docs/state-model.md unless marked \"assumption\", which means the author should review them. Tune with tools/simulate.mjs.",
+  "saveVersion": 2,
+  "stats": ["academics", "finances", "network", "wellbeing", "resilience"],
+  "startingStat": 50,
+  "startBounds": [15, 85],
+  "maxEffect": 15,
+  "maxStatsPerChoice": 3,
+  "diminishingReturns": { "above": 80, "below": 20, "factor": 0.5 },
+  "resourceMultiplier": { "low": 1.5, "high": 0.5, "default": 1 },
+  "probabilityBounds": [0.02, 0.95],
+  "eventSlotFireRate": 0.7,
+  "careerEventFireRate": { "value": 0.3, "assumption": true, "note": "How often a career event fires in a given year, 23 to 25." },
+  "jobSearchRate": { "value": 0.5, "assumption": true, "note": "Chance per year of landing a job while searching." },
+  "partTimeHoursPerWeek": { "value": 20, "assumption": true, "note": "Hours for part-time jobs during college. 20 is the threshold state-model.md uses for completion odds." },
+  "nonCompleterDebtShare": { "value": 0.5, "assumption": true, "note": "Share of projected debt a student who leaves without finishing carries." },
+  "minAnnualGrowth": { "value": 0, "assumption": true, "note": "Floor for Scorecard-derived salary growth, some of which is negative." },
+  "loanRepaymentYears": 10,
+  "loanInterestRate": { "value": null, "note": "Needs the federal Direct Loan rate with a source. Until then, repayment is modeled with no interest." },
+  "yearsByTier": { "community": 2, "regional": 4, "hbcu": 4, "flagship": 4, "elite_private": 4 },
+  "debtBandByBracket": {
+    "low": "0_30000",
+    "lower_middle": "30001_75000",
+    "middle": "30001_75000",
+    "upper_middle": "75001_plus",
+    "high": "75001_plus"
+  },
+  "offers": { "base": 2, "max": 3, "bonusNetworkAt": 65, "bonusTiers": ["elite_private"] },
+  "earlyIncome": { "partTimeRole": "cashier", "fullTimeRole": "retail_salesperson" },
+  "gradSchool": { "finishAge": 25 },
+  "compare": {
+    "lowBrackets": ["low", "lower_middle"],
+    "highStart": "graduate_or_professional",
+    "lowStart": "no_hs_diploma"
+  }
+}

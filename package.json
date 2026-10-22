@@ -1,0 +1,12 @@
+{
+  "name": "life-path",
+  "private": true,
+  "type": "module",
+  "description": "Interactive story about inequality in the US, birth to 25. Static site; no dependencies.",
+  "scripts": {
+    "serve": "python3 -m http.server 8000",
+    "validate": "node tools/validate.mjs",
+    "simulate": "node tools/simulate.mjs --runs 10000",
+    "check-links": "node tools/check-links.mjs"
+  }
+}

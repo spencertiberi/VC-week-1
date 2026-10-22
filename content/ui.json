@@ -1,0 +1,189 @@
+{
+  "siteTitle": "Life Path",
+  "tagline": "One American life, from birth to 25",
+  "opening": {
+    "title": "This is {name}.",
+    "text": "{name} is about to be born. Over the next 25 years, some of what happens to {obj} will be chosen, some will be luck, and some was settled before {subj} arrived.\n\nThe story follows {obj} in the third person. At each turning point, you make the call: first for {poss} family, then for {name}.",
+    "nameNote": "{Poss} name was drawn at random from the 200 most common names given to babies in the United States in {namesYear}.",
+    "sourceIds": [
+      "ssa_names"
+    ],
+    "start": "Begin"
+  },
+  "chooser": {
+    "family": "Family decision",
+    "child": "{name}'s decision"
+  },
+  "continue": "Continue",
+  "letChance": "Let chance decide",
+  "letChanceNote": "Picks {poss} parents and hometown at random, weighted by how common each is in the US.",
+  "longShot": "Long shot",
+  "stretch": "Stretch",
+  "unavailable": "Not available",
+  "sourcesHeading": "Sources",
+  "sourceLabel": "Source",
+  "sourceDetails": "in the bibliography",
+  "newTab": "(opens in a new tab)",
+  "eventTag": "Life event",
+  "impactHeading": "How this affects {name}",
+  "noteTag": "Behind the story",
+  "ageLabel": "Age {age}",
+  "menu": {
+    "sources": "Sources",
+    "restart": "Start over",
+    "back": "Back to the story",
+    "restartConfirm": "Start a new life? This one will be lost."
+  },
+  "storageWarning": "Progress can't be saved in this browser, so it will be lost if you leave the page.",
+  "results": {
+    "odds": "{name}'s odds: about {odds}",
+    "helped": "What helped",
+    "hurt": "What hurt",
+    "missing": "What wasn't available to {name}",
+    "birthLotteryTitle": "Chance Decides",
+    "birthLotteryText": "Nobody chooses their parents or where they grow up. The draw is weighted by how many US households look like each option.",
+    "aidRows": {
+      "costOfAttendance": "Full cost of attendance per year",
+      "grants": "Grants and scholarships per year",
+      "netPrice": "Net price per year (what the family pays)",
+      "years": "Years to finish on time",
+      "projectedDebt": "Typical federal loan debt for borrowers like {name}"
+    },
+    "aidNote": "National averages for this type of college ({tierLabel}), {academicYear}, for families earning {bracketLabel}.",
+    "offerVia": {
+      "search": "Found through applications",
+      "referral": "Came through a referral"
+    },
+    "referralHit": "One offer came through someone {name} knows. Referrals like this depend on who is in a person's network.",
+    "salaryBasis": {
+      "scorecard": "Median first-year earnings for graduates of this kind of program",
+      "scorecard_tier": "Median first-year earnings for graduates of this kind of program, adjusted for the type of college",
+      "ooh_p10": "Pay near the bottom of the range for this job (a stand-in for starting pay)",
+      "ooh_p10_hourly": "Hourly pay near the bottom of the range, times a full-time year"
+    },
+    "yearRows": {
+      "income": "Income this year",
+      "job": "Job",
+      "raise": "Raise",
+      "loanPayment": "Monthly loan payment",
+      "loanBalance": "Loan balance at year's end"
+    },
+    "yearStatus": {
+      "working": "Working",
+      "found_job": "Found a job",
+      "searching": "Still looking for work",
+      "grad_school": "In graduate school",
+      "grad_finished": "Finished graduate school"
+    },
+    "noInterestNote": "Loan interest isn't modeled yet."
+  },
+  "profile": {
+    "heading": "{name} at 25",
+    "snapshot": "Snapshot",
+    "education": "Education",
+    "job": "Job",
+    "income25": "Income at 25 (estimate)",
+    "debt": "Student debt",
+    "earned": "Earned from 18 to 25",
+    "incomeTable": "Income by age",
+    "ageColumn": "Age",
+    "attribution": "Where the changes came from",
+    "attributionLabels": {
+      "start": "Starting point",
+      "choice": "Choices",
+      "chance": "Chance"
+    },
+    "attributionCaveat": "This is a model, not a measurement.",
+    "turningPoints": "Turning points",
+    "compare": "Same choices, different start",
+    "compareSubstitution": "Not available for this family",
+    "usedSources": "Sources used in {name}'s story",
+    "allSources": "Full bibliography",
+    "playAgain": "Play again",
+    "none": "None",
+    "dataNeeded": "[data needed]",
+    "headline": {
+      "working": "{name} at 25: {jobTitle}",
+      "searching": "{name} at 25: between jobs, and looking"
+    },
+    "startLine": "{name} grew up in a family earning about {startIncome} a year.",
+    "educationLines": {
+      "hs_diploma": "{Subj} finished high school and went to work.",
+      "some_college": "{Subj} started college but left without a degree.",
+      "associate": "{Subj} earned an associate degree at a community college.",
+      "bachelors": "{Subj} earned a bachelor's degree from {tierPhrase}.",
+      "graduate": "{Subj} finished college, then graduate school.",
+      "apprenticeship": "{Subj} trained through a registered apprenticeship.",
+      "military_service": "{Subj} enlisted in the military after high school."
+    },
+    "tierPhrases": {
+      "elite_private": "an elite private college",
+      "flagship": "the state flagship university",
+      "regional": "a regional public university",
+      "hbcu": "an HBCU",
+      "community": "a community college"
+    },
+    "debtLine": "{Subj} still owes about {amount} in student loans.",
+    "noDebtLine": "{Subj} has no student debt.",
+    "strengthsHeading": "Strengths",
+    "strengths": {
+      "academics": "Skills and credentials that open doors",
+      "finances": "A financial cushion for hard months",
+      "network": "People who can vouch for {obj} and explain how things work",
+      "wellbeing": "Steady health and a sense of belonging",
+      "resilience": "A knack for getting back up after setbacks"
+    },
+    "notEstimated": "not estimated",
+    "notEstimatedNote": "Pay during apprenticeship training and military service isn't in the model yet, so those years are left out of the totals.",
+    "compareIntro": "The same seed, the same hometown, and the same choices wherever they were open, with a different family background. Chance events are the same; how hard they land is not.",
+    "policiesHeading": "What could change this",
+    "policyConnection": "How it connects to {name}",
+    "policyEvidence": "What the evidence says",
+    "policyTradeoffs": "Trade-offs and open questions",
+    "policyLearnMore": "Learn more",
+    "leavesOutHeading": "What the model leaves out",
+    "leavesOut": "This model doesn't assign race or ethnicity, disability, immigration status, or sexual orientation, and gender sets only pronouns. Research shows each of these shapes opportunity in the US. Racial gaps in upward mobility, for example, are large even among children whose parents earned the same income.",
+    "leavesOutSourceIds": [
+      "oi_race"
+    ],
+    "takeActionHeading": "Take action",
+    "takeAction": [
+      {
+        "label": "Find and contact your elected officials",
+        "sourceId": "usa_officials"
+      },
+      {
+        "label": "See how upward mobility differs where you live, in the Opportunity Atlas",
+        "sourceId": "oi_atlas"
+      },
+      {
+        "label": "Explore cross-class friendship in your area, in the Social Capital Atlas",
+        "sourceId": "oi_social_capital"
+      }
+    ],
+    "takeActionNote": "Local school board meetings are public, and most post their schedules on the district's website."
+  },
+  "credentials": {
+    "hs_diploma": "High school diploma",
+    "certificate": "Certificate",
+    "associate": "Associate degree",
+    "bachelors": "Bachelor's degree",
+    "graduate": "Graduate degree",
+    "apprenticeship": "Completed apprenticeship",
+    "military_service": "Military service"
+  },
+  "tiers": {
+    "elite_private": "Elite private college",
+    "flagship": "Public flagship university",
+    "regional": "Regional public university",
+    "hbcu": "HBCU",
+    "community": "Community college"
+  },
+  "stats": {
+    "academics": "Academics",
+    "finances": "Finances",
+    "network": "Network",
+    "wellbeing": "Wellbeing",
+    "resilience": "Resilience"
+  }
+}

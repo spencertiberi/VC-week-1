@@ -1,0 +1,236 @@
+{
+  "updated": "2026-10-22",
+  "note": "Policy cards for the ending. Evidence text describes findings only in the direction and size the cited sources report; numbers come from benchmarks.json or net-price.json through tokens. The profile shows the first 4 policies whose relevantIf matches the playthrough, in this order, then fills from the rest. Author: review every card before launch.",
+  "policies": [
+    {
+      "id": "need_based_aid",
+      "name": "Need-based aid and Pell Grants",
+      "connectsTo": [
+        "R5",
+        "R6"
+      ],
+      "relevantIf": {
+        "hasFlag": "path_college"
+      },
+      "summary": "Grants that cover more of the cost of college for students from lower-income families, so fewer have to borrow or work long hours while in school.",
+      "connection": "{name}'s aid offer depended on {poss} family's income, and debt and work hours shaped the odds of finishing.",
+      "evidence": "Net prices already vary widely by family income: at elite private colleges with large aid budgets, families earning under $30,000 pay about {usd:net-price:tiers.elite_private.netPriceByBracket.values.low.value} a year on average, less than at a typical public research university ({usd:net-price:tiers.flagship_proxy_public_r1.netPriceByBracket.values.low.value}). Pell Grants, which don't have to be repaid, are the main federal grant for students with financial need.",
+      "tradeoffs": "Federal and state budgets pay the cost. Researchers debate how much colleges raise prices when aid grows, and how to target aid to the students most likely to finish.",
+      "sourceIds": [
+        "college_scorecard",
+        "fsa_pell",
+        "oi_mobility_report_cards"
+      ],
+      "learnMoreUrl": "https://studentaid.gov/understand-aid/types/grants/pell"
+    },
+    {
+      "id": "end_legacy_preferences",
+      "name": "Ending legacy preferences in admissions",
+      "connectsTo": [
+        "R4"
+      ],
+      "relevantIf": {
+        "attempted": "elite_private"
+      },
+      "summary": "Admitting applicants without a boost for having a parent who attended the college.",
+      "connection": "When {name} applied to an elite private college, some applicants with the same grades had advantages {subj} didn't: legacy status, recruited-athlete spots, and paid admissions help.",
+      "evidence": "A study of highly selective private colleges found that, among applicants with the same test scores, those from the richest families were admitted more often, mostly because of legacy preferences, recruited athletics, and higher non-academic ratings. Attending these colleges raised students' chances of reaching top jobs and top incomes.",
+      "tradeoffs": "Colleges say legacy ties support alumni giving and community. Ending preferences changes who is admitted only modestly unless other factors (athletics, non-academic ratings) change too.",
+      "sourceIds": [
+        "oi_college_admissions"
+      ],
+      "learnMoreUrl": "https://opportunityinsights.org/paper/collegeadmissions/"
+    },
+    {
+      "id": "counselor_ratios",
+      "name": "More school counselors",
+      "connectsTo": [
+        "D8",
+        "R4"
+      ],
+      "relevantIf": {
+        "any": [
+          {
+            "attempted": "elite_private"
+          },
+          {
+            "attempted": "flagship"
+          },
+          {
+            "startBracket": [
+              "low",
+              "lower_middle"
+            ]
+          }
+        ]
+      },
+      "summary": "Funding enough school counselors that each student gets real help choosing courses, finding aid, and applying after high school.",
+      "connection": "{name}'s school shared each counselor among hundreds of students, so help with applications depended on what {poss} family knew or could pay for.",
+      "evidence": "The national average is {stat:counselor_ratio} students per school counselor, compared with the {stat:counselor_ratio_recommended} the American School Counselor Association recommends.",
+      "tradeoffs": "Counselors cost money that schools could spend on teachers or other staff, and how much a lower ratio changes outcomes depends on how counselors' time is used.",
+      "sourceIds": [
+        "asca_ratios"
+      ],
+      "learnMoreUrl": "https://www.schoolcounselor.org/About-School-Counseling/School-Counselor-Roles-Ratios"
+    },
+    {
+      "id": "school_funding_reform",
+      "name": "School funding reform",
+      "connectsTo": [
+        "D2",
+        "D4"
+      ],
+      "relevantIf": {
+        "any": [
+          {
+            "hasFlag": "high_poverty_area"
+          },
+          {
+            "hasFlag": "region_rural"
+          },
+          {
+            "hasFlag": "region_town"
+          },
+          {
+            "startBracket": [
+              "low",
+              "lower_middle"
+            ]
+          }
+        ]
+      },
+      "summary": "State funding formulas that send more money to districts with lower property wealth or more students from low-income families.",
+      "connection": "The school {name} was assigned at five was decided by {poss} family's address, and so was much of its budget.",
+      "evidence": "A large study of court-ordered funding reforms found that a 10% increase in per-pupil spending in every year of school led to {stat:school_spending_effect} higher adult wages, with much larger effects for children from low-income families.",
+      "tradeoffs": "More state money means higher state taxes or cuts elsewhere, and results depend on how districts spend it. Some communities value local control of school budgets.",
+      "sourceIds": [
+        "jackson_school_spending"
+      ],
+      "learnMoreUrl": "https://www.nber.org/papers/w20847"
+    },
+    {
+      "id": "housing_mobility",
+      "name": "Housing mobility programs",
+      "connectsTo": [
+        "D2"
+      ],
+      "relevantIf": {
+        "hasFlag": "high_poverty_area"
+      },
+      "summary": "Housing vouchers paired with help finding and moving to lower-poverty neighborhoods, for families who want to move.",
+      "connection": "{name} grew up in a high-poverty neighborhood, chosen by what {poss} family could afford.",
+      "evidence": "In the Moving to Opportunity experiment, children whose families moved to lower-poverty neighborhoods when they were young went to college more often and earned more as adults. A later program found that hands-on search help sharply increased how many families with vouchers moved to higher-opportunity areas.",
+      "tradeoffs": "Vouchers and search help cost money, and moving can mean leaving family, friends, and jobs behind. Benefits were largest for young children; moving as a teenager helped less.",
+      "sourceIds": [
+        "oi_mto",
+        "oi_cmto"
+      ],
+      "learnMoreUrl": "https://opportunityinsights.org/paper/cmto/"
+    },
+    {
+      "id": "paid_leave_health",
+      "name": "Paid sick leave and health coverage",
+      "connectsTo": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "relevantIf": {
+        "hasAnyFlag": [
+          "parent_ill",
+          "parent_job_loss"
+        ]
+      },
+      "summary": "Paid time off when a worker is sick, and health coverage that keeps a diagnosis from becoming a debt.",
+      "connection": "When {name}'s family was hit by an illness or a lost job, how hard it landed depended on savings, sick leave, and insurance.",
+      "evidence": "Research on health costs documents how medical bills push families into debt, and a parent's job loss has been linked to lower adult earnings for their children.",
+      "tradeoffs": "Employers or taxpayers bear the cost, and small businesses face different burdens than large ones. Designs differ in who is covered and how leave is funded.",
+      "sourceIds": [
+        "kff_health_costs",
+        "oreopoulos_displacement"
+      ],
+      "learnMoreUrl": "https://www.kff.org/topic/health-costs/"
+    },
+    {
+      "id": "universal_prek",
+      "name": "Universal or expanded pre-K",
+      "connectsTo": [
+        "D3"
+      ],
+      "relevantIf": {
+        "notFlag": "care_public_prek"
+      },
+      "summary": "Free, public preschool available to every family that wants it, instead of by lottery or income limit.",
+      "connection": "At three, {name}'s care depended on what {poss} family could arrange and pay for, and whether a lottery number came up.",
+      "evidence": "In Boston, where pre-K seats were assigned by lottery, children who attended were more likely to graduate from high school, take the SAT, and go to college, even though their test scores were no higher.",
+      "tradeoffs": "States and cities pay the cost, and quality varies from program to program. Some studies, including of Head Start, find that early test-score gains fade even when longer-term benefits appear.",
+      "sourceIds": [
+        "boston_prek",
+        "nieer_yearbook",
+        "hhs_head_start_impact"
+      ],
+      "learnMoreUrl": "https://nieer.org/state-preschool-yearbook"
+    },
+    {
+      "id": "child_tax_credit",
+      "name": "Child tax credit",
+      "connectsTo": [
+        "D1"
+      ],
+      "relevantIf": {
+        "startBracket": [
+          "low",
+          "lower_middle",
+          "middle"
+        ]
+      },
+      "summary": "A regular payment to families with children, which can be paid in full to families with little or no income tax.",
+      "connection": "{name}'s family started out earning about {startIncome} a year when {subj} was born, before any of {poss} own choices.",
+      "evidence": "Researchers tracking the temporary 2021 expansion, paid monthly, found child poverty fell while it was paid and rose after it ended.",
+      "tradeoffs": "It is expensive, and economists disagree about how much it affects parents' work. Design choices (who qualifies, how much, how often) change both cost and effect.",
+      "sourceIds": [
+        "columbia_ctc"
+      ],
+      "learnMoreUrl": "https://www.povertycenter.columbia.edu/"
+    },
+    {
+      "id": "apprenticeship_expansion",
+      "name": "Registered apprenticeship expansion",
+      "connectsTo": [
+        "D11"
+      ],
+      "relevantIf": {
+        "hasAnyFlag": [
+          "path_apprenticeship",
+          "path_work"
+        ]
+      },
+      "summary": "Public support for employers to offer paid, structured training that leads to a recognized credential.",
+      "connection": "{name} went to work after high school, where paid training could turn a job into a credential.",
+      "evidence": "Registered apprenticeships let people earn wages while they train, without the tuition and debt of a degree program.",
+      "tradeoffs": "Programs depend on employers being willing to train, and completion rates vary widely by trade and program.",
+      "sourceIds": [
+        "dol_apprenticeship"
+      ],
+      "learnMoreUrl": "https://www.apprenticeship.gov/"
+    },
+    {
+      "id": "cross_class_connections",
+      "name": "Programs that build cross-class friendships",
+      "connectsTo": [
+        "D6"
+      ],
+      "relevantIf": {
+        "any": []
+      },
+      "summary": "School assignment, activities, and community programs designed so that kids from different income levels actually spend time together.",
+      "connection": "Who {name} sat with in seventh grade shaped who {subj} knew, and who could vouch for {obj}, years later.",
+      "evidence": "If children from low-income families grew up with the cross-class connections of the average higher-income child, their adult incomes would rise by {stat:economic_connectedness_effect} on average.",
+      "tradeoffs": "Friendships can't be assigned. Programs that mix students can change who meets whom, but integration efforts are often contested locally.",
+      "sourceIds": [
+        "oi_social_capital"
+      ],
+      "learnMoreUrl": "https://www.socialcapital.org/"
+    }
+  ]
+}

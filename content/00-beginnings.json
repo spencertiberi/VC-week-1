@@ -1,0 +1,258 @@
+{
+  "stage": "beginnings",
+  "title": "Beginnings",
+  "ageRange": [
+    0,
+    0
+  ],
+  "firstScene": "beg_parents",
+  "scenes": [
+    {
+      "id": "beg_parents",
+      "kind": "decision",
+      "decisionId": "D1",
+      "category": "start",
+      "age": 0,
+      "chooser": "family",
+      "title": "Before {name} Remembers",
+      "allowSecondPerson": true,
+      "text": "{name} arrives on a Tuesday in March, a little early and very loud. {Subj} won't remember this room, or the nurse who calls {obj} \"the opinionated one,\" or the way {poss} father holds {obj} like {subj} might break.\n\nWhat {name} grows up inside of started long before today. It's in the books on the shelf at home, or the lack of them. It's in whether {poss} parents know what a FAFSA is, which teacher to ask for, or what to say when the school calls. It's in what they learned and what they had to figure out alone.\n\n{name} doesn't get to choose any of this. For now, you do.",
+      "sourceIds": [
+        "census_income_report",
+        "census_h13",
+        "oi_land_of_opportunity",
+        "lareau_unequal"
+      ],
+      "lottery": {
+        "weights": "family-income:model.birthLottery.d1.weights",
+        "alsoDraws": [
+          {
+            "scene": "beg_place",
+            "weights": "family-income:model.birthLottery.d2.weights"
+          }
+        ],
+        "sourceIds": [
+          "census_income_report",
+          "census_h13"
+        ]
+      },
+      "choices": [
+        {
+          "id": "no_hs_diploma",
+          "label": "Neither parent finished high school",
+          "description": "Hourly jobs with shifting schedules. Household income: about {usd:family-income:model.d1HouseholdIncome.values.no_hs_diploma.median}",
+          "effects": {
+            "academics": -10,
+            "finances": -18,
+            "network": -15
+          },
+          "economy": {
+            "setFamilyIncome": {
+              "data": "family-income:model.d1HouseholdIncome.values.no_hs_diploma.median"
+            }
+          },
+          "setFlags": [
+            "first_gen",
+            "parents_no_hs"
+          ],
+          "next": "beg_place"
+        },
+        {
+          "id": "hs_diploma",
+          "label": "{Poss} parents finished high school",
+          "description": "Steady jobs in retail and a trade. Household income: about {usd:family-income:model.d1HouseholdIncome.values.hs_diploma.median}",
+          "effects": {
+            "academics": -5,
+            "finances": -10,
+            "network": -8
+          },
+          "economy": {
+            "setFamilyIncome": {
+              "data": "family-income:model.d1HouseholdIncome.values.hs_diploma.median"
+            }
+          },
+          "setFlags": [
+            "first_gen",
+            "parents_hs"
+          ],
+          "next": "beg_place"
+        },
+        {
+          "id": "some_college_or_associate",
+          "label": "{Poss} mom has an associate degree; {poss} dad did some college",
+          "description": "A medical assistant and a warehouse manager. Household income: about {usd:family-income:model.d1HouseholdIncome.values.some_college_or_associate.median}",
+          "effects": {
+            "finances": -4,
+            "network": -3
+          },
+          "economy": {
+            "setFamilyIncome": {
+              "data": "family-income:model.d1HouseholdIncome.values.some_college_or_associate.median"
+            }
+          },
+          "setFlags": [
+            "first_gen",
+            "parents_some_college"
+          ],
+          "next": "beg_place"
+        },
+        {
+          "id": "bachelors",
+          "label": "Both parents have bachelor's degrees",
+          "description": "Salaried jobs and a mortgage. Household income: about {usd:family-income:model.d1HouseholdIncome.values.bachelors.median}",
+          "effects": {
+            "academics": 6,
+            "finances": 10,
+            "network": 10
+          },
+          "economy": {
+            "setFamilyIncome": {
+              "data": "family-income:model.d1HouseholdIncome.values.bachelors.median"
+            }
+          },
+          "setFlags": [
+            "parents_bachelors"
+          ],
+          "next": "beg_place"
+        },
+        {
+          "id": "graduate_or_professional",
+          "label": "Both parents have master's degrees",
+          "description": "A school counselor and an engineering manager. Household income: about {usd:family-income:model.d1HouseholdIncome.values.graduate_or_professional.median}",
+          "effects": {
+            "academics": 9,
+            "finances": 15,
+            "network": 14
+          },
+          "economy": {
+            "setFamilyIncome": {
+              "data": "family-income:model.d1HouseholdIncome.values.graduate_or_professional.median"
+            }
+          },
+          "setFlags": [
+            "parents_graduate"
+          ],
+          "next": "beg_place"
+        }
+      ]
+    },
+    {
+      "id": "beg_place",
+      "kind": "decision",
+      "decisionId": "D2",
+      "category": "start",
+      "age": 0,
+      "chooser": "family",
+      "title": "Home",
+      "text": "Home, for now, is wherever {poss} parents can make the rent or the mortgage work. They are thinking about the commute, the cost, and whether the nearest playground is safe after dark. They aren't thinking about schools yet, but the address will decide which one {name} attends, and which kids {subj} grows up beside.\n\nPlace changes the money too. Wages and prices differ between a city neighborhood, a suburb, and a small town, and so does the chance that a kid who starts near the bottom ends up near the top.",
+      "sourceIds": [
+        "oi_atlas",
+        "oi_mto",
+        "census_income_report"
+      ],
+      "choices": [
+        {
+          "id": "high_poverty_city",
+          "label": "An apartment in a high-poverty city neighborhood",
+          "effects": {
+            "network": -8,
+            "academics": -4
+          },
+          "economy": {
+            "familyIncomeMultiplier": {
+              "data": "family-income:model.d2PlaceRatio.values.high_poverty_city.ratio"
+            }
+          },
+          "setFlags": [
+            "region_city",
+            "high_poverty_area"
+          ],
+          "next": "@nextStage"
+        },
+        {
+          "id": "working_class_suburb",
+          "label": "A small house in a working-class suburb",
+          "effects": {
+            "network": -2
+          },
+          "economy": {
+            "familyIncomeMultiplier": {
+              "data": "family-income:model.d2PlaceRatio.values.working_class_suburb.ratio"
+            }
+          },
+          "setFlags": [
+            "region_suburb"
+          ],
+          "next": "@nextStage",
+          "authorFlag": "D2 effects other than the two examples in state-model.md are placeholders."
+        },
+        {
+          "id": "affluent_suburb",
+          "label": "A house in an affluent suburb",
+          "effects": {
+            "network": 8,
+            "academics": 4
+          },
+          "economy": {
+            "familyIncomeMultiplier": {
+              "data": "family-income:model.d2PlaceRatio.values.affluent_suburb.ratio"
+            }
+          },
+          "setFlags": [
+            "region_suburb",
+            "affluent_area"
+          ],
+          "next": "@nextStage"
+        },
+        {
+          "id": "small_town",
+          "label": "A small town an hour from the nearest city",
+          "effects": {
+            "network": -3
+          },
+          "economy": {
+            "familyIncomeMultiplier": {
+              "data": "family-income:model.d2PlaceRatio.values.small_town.ratio"
+            }
+          },
+          "setFlags": [
+            "region_town"
+          ],
+          "next": "@nextStage",
+          "authorFlag": "D2 effects other than the two examples in state-model.md are placeholders."
+        },
+        {
+          "id": "rural",
+          "label": "A rural area with a long bus ride to school",
+          "effects": {
+            "network": -4,
+            "academics": -2
+          },
+          "economy": {
+            "familyIncomeMultiplier": {
+              "data": "family-income:model.d2PlaceRatio.values.rural.ratio"
+            }
+          },
+          "setFlags": [
+            "region_rural"
+          ],
+          "next": "@nextStage",
+          "authorFlag": "D2 effects other than the two examples in state-model.md are placeholders."
+        }
+      ]
+    }
+  ],
+  "researchNote": {
+    "id": "n0_birth",
+    "title": "Behind the Story: Where a Life Starts",
+    "text": "Children's adult incomes track their parents'. On average, every 10-percentile rise in parent income comes with a {stat:mobility_parent_income}-percentile rise in the child's adult income. Place matters too: a child from the bottom fifth had a {stat:mobility_bottom_to_top_charlotte} chance of reaching the top fifth in Charlotte, and a {stat:mobility_bottom_to_top_san_jose} chance in San Jose.",
+    "benchmarkIds": [
+      "mobility_parent_income",
+      "mobility_bottom_to_top_charlotte",
+      "mobility_bottom_to_top_san_jose"
+    ],
+    "sourceIds": [
+      "oi_land_of_opportunity"
+    ]
+  }
+}

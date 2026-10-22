@@ -1,0 +1,144 @@
+{
+  "stage": "elementary",
+  "title": "Elementary School",
+  "ageRange": [
+    5,
+    10
+  ],
+  "firstScene": "el_school",
+  "scenes": [
+    {
+      "id": "el_school",
+      "kind": "decision",
+      "decisionId": "D4",
+      "age": 5,
+      "chooser": "family",
+      "title": "The First Day",
+      "text": "Kindergarten registration opens in March. The district has already decided which school {name} will attend, based on the family's address.\n\nThere are other options, if the family wants to try them. A magnet school across town admits students by lottery, and its bus leaves before seven. Homeschooling is legal and free, but it needs a parent at home all day to teach.\n\n{name}, for {poss} part, mostly wants to know whether there will be a class pet.",
+      "textVariants": [
+        {
+          "if": {
+            "hasFlag": "high_poverty_area"
+          },
+          "append": "The assigned school lost two teachers last year and hasn't replaced them."
+        },
+        {
+          "if": {
+            "hasFlag": "affluent_area"
+          },
+          "append": "The assigned school's parent association raised money for a new science lab."
+        }
+      ],
+      "sourceIds": [
+        "jackson_school_spending",
+        "nces_coe"
+      ],
+      "choices": [
+        {
+          "id": "assigned_public",
+          "label": "{Subj} goes to the assigned public school",
+          "description": "Close to home, with kids from the neighborhood.",
+          "effects": {
+            "network": 3,
+            "academics": 2,
+            "finances": -1
+          },
+          "setFlags": [
+            "school_public"
+          ],
+          "next": "el_e1"
+        },
+        {
+          "id": "magnet_lottery",
+          "label": "The family enters the magnet school lottery",
+          "description": "A longer bus ride and a chance at a specialized program.",
+          "effects": {
+            "academics": 2,
+            "wellbeing": -2
+          },
+          "longShot": {
+            "label": "the magnet school",
+            "probability": {
+              "base": 0.3,
+              "terms": []
+            },
+            "resultScene": "el_magnet_lottery",
+            "onSuccess": {
+              "effects": {
+                "academics": 5,
+                "network": 4
+              },
+              "setFlags": [
+                "school_magnet"
+              ]
+            },
+            "onFailure": {
+              "setFlags": [
+                "school_public"
+              ]
+            },
+            "sourceIds": [
+              "nces_coe"
+            ]
+          },
+          "authorFlag": "Magnet lottery odds (0.3) are a placeholder."
+        },
+        {
+          "id": "homeschool",
+          "label": "A parent homeschools {obj}",
+          "description": "Lessons at the kitchen table, on {poss} own schedule.",
+          "effects": {
+            "academics": 3,
+            "network": -6,
+            "finances": -4
+          },
+          "setFlags": [
+            "school_home"
+          ],
+          "availability": {
+            "unavailableIf": {
+              "notFlag": "parent_at_home"
+            },
+            "reason": "No parent is home during the day to teach {obj}",
+            "sourceIds": [
+              "nces_coe"
+            ]
+          },
+          "next": "el_e1"
+        }
+      ]
+    },
+    {
+      "id": "el_magnet_lottery",
+      "kind": "result",
+      "resultType": "lottery",
+      "age": 5,
+      "title": "The Magnet Lottery",
+      "textIfSuccess": "{name}'s number comes up. The magnet school has a robotics room, a garden, and a bus that leaves at 6:50 in the morning. {name} falls asleep on it most days and doesn't mind.",
+      "textIfFailure": "{name}'s number doesn't come up. In August, {subj} starts at the neighborhood school with half the kids from {poss} street, which has its own advantages.",
+      "showFactors": false,
+      "sourceIds": [
+        "nces_coe"
+      ],
+      "next": "el_e1"
+    },
+    {
+      "id": "el_e1",
+      "kind": "event_slot",
+      "slot": "E1",
+      "age": 9,
+      "next": "@nextStage"
+    }
+  ],
+  "researchNote": {
+    "id": "n2_school_spending",
+    "title": "Behind the Story: School Funding",
+    "text": "Many public schools are funded partly by local property taxes, so spending per student depends on where a family can afford to live. A large study found that raising per-pupil spending by 10% in every year of school led to {stat:school_spending_effect} higher adult wages, with much larger effects for children from low-income families.",
+    "benchmarkIds": [
+      "school_spending_effect"
+    ],
+    "sourceIds": [
+      "jackson_school_spending"
+    ]
+  }
+}

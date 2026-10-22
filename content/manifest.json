@@ -1,0 +1,15 @@
+{
+  "stages": [
+    "00-beginnings.json",
+    "01-early-childhood.json",
+    "02-elementary.json",
+    "03-middle-school.json",
+    "04-high-school.json",
+    "05-after-high-school.json",
+    "06-early-adulthood.json"
+  ],
+  "events": "events.json",
+  "rules": "rules.json",
+  "ui": "ui.json",
+  "data": ["sources", "names", "benchmarks", "family-income", "net-price", "salaries", "policies"]
+}

@@ -121,6 +121,34 @@
         "small_town":           { "category": "outside_metro",            "ratio": 0.785, "gap": "CPS does not separate small towns from rural areas; both use all nonmetro households." },
         "rural":                { "category": "outside_metro",            "ratio": 0.785, "gap": "CPS does not separate small towns from rural areas; both use all nonmetro households." }
       }
+    },
+    "birthLottery": {
+      "description": "Weights for 'Let chance decide' (D1 and D2 drawn independently). Each weight is a household count in thousands taken from the tables above.",
+      "derived": true,
+      "assumption": true,
+      "assumptionNote": "Counts cover all households with a householder 25+ (D1) or all households (D2), not only households with children. D2 splits suburbs and nonmetro areas evenly between their two options, and gives the whole principal-city count to the high-poverty city option, which overstates it. Replace with the share of children by neighborhood type if a source is added.",
+      "d1": {
+        "sourceIds": ["census_income_report", "census_h13"],
+        "year": 2025,
+        "weights": {
+          "no_hs_diploma":            { "weight": 9288,  "from": "householdIncomeByHouseholderEducation.no_hs_diploma.householdsThousands" },
+          "hs_diploma":               { "weight": 32830, "from": "householdIncomeByHouseholderEducation.hs_no_college.householdsThousands" },
+          "some_college_or_associate":{ "weight": 34670, "from": "householdIncomeByHouseholderEducation.some_college.householdsThousands" },
+          "bachelors":                { "weight": 32680, "from": "householdIncomeByHouseholderEducationDetailed.bachelors.householdsThousands" },
+          "graduate_or_professional": { "weight": 22071, "from": "householdIncomeByHouseholderEducationDetailed masters + professional + doctorate householdsThousands" }
+        }
+      },
+      "d2": {
+        "sourceIds": ["census_income_report"],
+        "year": 2025,
+        "weights": {
+          "high_poverty_city":    { "weight": 46440, "from": "householdIncomeByResidence.inside_principal_cities.householdsThousands" },
+          "working_class_suburb": { "weight": 36020, "from": "householdIncomeByResidence.outside_principal_cities.householdsThousands / 2" },
+          "affluent_suburb":      { "weight": 36020, "from": "householdIncomeByResidence.outside_principal_cities.householdsThousands / 2" },
+          "small_town":           { "weight": 9285,  "from": "householdIncomeByResidence.outside_metro.householdsThousands / 2" },
+          "rural":                { "weight": 9285,  "from": "householdIncomeByResidence.outside_metro.householdsThousands / 2" }
+        }
+      }
     }
   },
 

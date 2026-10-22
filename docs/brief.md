@@ -53,19 +53,16 @@ in `sources.md`. Real numbers appear on screen in research notes, results screen
 profile, always with a linked source.
 
 ## Open questions for the author
-- **TODO(author): Race and ethnicity.** Racial gaps in US opportunity are large and well
-  documented (see `oi_race` in `sources.md`). Options:
-  (a) don't assign race; say clearly on the profile that the model leaves it out, and cite
-  the research on racial gaps in a research note; or
-  (b) model it explicitly with research-backed effects.
-  Recommendation for v1: (a), because modeling race responsibly takes much more care.
-- **TODO(author): Gender.** The name list includes the sex SSA records, which sets the
-  child's pronouns. Should gender affect outcomes (for example, the pay gap at 25)? If yes,
-  it must be shown explicitly and cited, never applied silently. Recommendation for v1: no
-  effect on outcomes, plus a research note about the gender pay gap.
-- **TODO(author): Birth lottery.** Should the first screen offer "Let chance decide" for the
-  family background (D1–D2), alongside choosing it? Recommendation: yes. It makes the
-  point that nobody chooses their parents.
+- **Decided: Race and ethnicity.** v1 does not assign race. The profile's "What the model
+  leaves out" section says so plainly and cites `oi_race`, and a research note covers
+  racial gaps in opportunity.
+- **Decided: Gender.** Gender sets pronouns only and has no effect on outcomes. The profile
+  includes a research note about the gender pay gap (needs a source added to
+  `sources.md`).
+- **Decided: Birth lottery.** The first screen offers "Let chance decide" for D1–D2,
+  weighted by national shares (see `birthLottery` in `content/data/family-income.json`).
+- **Decided: Graduate-degree parents.** D1's top option uses the master's-degree household
+  median (`census_h13`), so that option describes a master's degree, not a physician.
 
 ## In scope (v1)
 - 7 life stages, 13 decisions, 3 random-event slots, and automatic results screens

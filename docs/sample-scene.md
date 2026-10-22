@@ -32,7 +32,7 @@ not data.
 - **His parents finished high school.** *Steady jobs in retail and a trade. Household income: about [$X].*
 - **His mom has an associate degree; his dad did some college.** *She's a medical assistant; he manages a warehouse. Household income: about [$X].*
 - **Both parents have bachelor's degrees.** *Salaried jobs, a mortgage, and an assumption that Mateo will go to college. Household income: about [$X].*
-- **One parent is a physician; the other has a master's degree.** *More money and more pressure. Household income: about [$X].*
+- **Both parents have master's degrees.** *A school counselor and an engineering manager. More money and more pressure. Household income: about [$X].*
 
 Button below the list: **Let chance decide.**
 

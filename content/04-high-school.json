@@ -1,0 +1,108 @@
+{
+  "stage": "high_school",
+  "title": "High School",
+  "ageRange": [
+    14,
+    18
+  ],
+  "firstScene": "hs_friday_party",
+  "scenes": [
+    {
+      "id": "hs_friday_party",
+      "kind": "decision",
+      "decisionId": "D10",
+      "age": 16,
+      "chooser": "child",
+      "title": "Friday Night",
+      "text": "Jordan's parents are out of town, and by third period everyone knows it. By lunch the group chat has a playlist. By the last bell somebody's older brother has agreed to \"help with supplies,\" which everyone understands to mean exactly what it sounds like.\n\n{name} has a chemistry test Monday. {Subj} also has a feeling, the kind that only comes at sixteen, that this is one of those nights people will talk about for years, and that {subj}'ll either be in the stories or hear them secondhand.",
+      "textVariants": [
+        {
+          "if": {
+            "hasFlag": "varsity"
+          },
+          "append": "Coach has a 7 a.m. practice tomorrow, and he notices who's tired."
+        },
+        {
+          "if": {
+            "hasFlag": "had_job"
+          },
+          "append": "{Subj} is on the schedule at the grocery store at 9."
+        }
+      ],
+      "sourceIds": [
+        "cdc_yrbs",
+        "add_health"
+      ],
+      "choices": [
+        {
+          "id": "stay_late",
+          "label": "{Subj} goes and stays until the end",
+          "effects": {
+            "network": 8,
+            "wellbeing": 3,
+            "academics": -4
+          },
+          "setFlags": [
+            "party_regular"
+          ],
+          "chanceEvent": {
+            "eventId": "party_consequence",
+            "probability": 0.1
+          },
+          "outcome": "{name} gets home at 2:40. It's the best night of the year, and the chemistry test goes about as well as anyone would expect.",
+          "next": "hs_e2"
+        },
+        {
+          "id": "leave_early",
+          "label": "{Subj} shows up for an hour, then heads home",
+          "effects": {
+            "network": 4,
+            "academics": -1
+          },
+          "outcome": "{Subj}'s there long enough to be in the photos and home in time to sleep. Nobody remembers that {subj} left.",
+          "next": "hs_e2"
+        },
+        {
+          "id": "stay_home",
+          "label": "{Subj} stays home tonight",
+          "effects": {
+            "academics": 4,
+            "network": -3
+          },
+          "outcome": "{Subj} aces the test. On Monday, everyone has an inside joke {subj} doesn't get.",
+          "next": "hs_e2"
+        },
+        {
+          "id": "host",
+          "label": "{Subj} invites a few friends over instead",
+          "effects": {
+            "wellbeing": 5,
+            "network": 2,
+            "academics": -1
+          },
+          "outcome": "Five friends, two pizzas, a movie nobody watches. It's quieter, and {subj}'ll remember it longer than {subj} expects.",
+          "next": "hs_e2"
+        }
+      ]
+    },
+    {
+      "id": "hs_e2",
+      "kind": "event_slot",
+      "slot": "E2",
+      "age": 16,
+      "next": "@nextStage"
+    }
+  ],
+  "researchNote": {
+    "id": "n4_counselors",
+    "title": "Behind the Story: Who Gets Help Applying",
+    "text": "School counselors help students choose classes, find scholarships, and apply to college. The national average is {stat:counselor_ratio} students per counselor, compared with the {stat:counselor_ratio_recommended} the American School Counselor Association recommends. Families who can pay for private admissions help can make up the difference. Many can't.",
+    "benchmarkIds": [
+      "counselor_ratio",
+      "counselor_ratio_recommended"
+    ],
+    "sourceIds": [
+      "asca_ratios"
+    ]
+  }
+}

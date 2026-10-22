@@ -245,3 +245,48 @@ Warn on:
 - Second-person words ("you," "your") in narrative text
 - "good," "bad," "right," "wrong," "smart," "stupid," "lazy" in labels or outcomes
 - A benchmark whose `value` or `year` is still 0
+
+## Additions made while building the engine
+These extend the formats above. See `docs/build-plan.md` for how the engine uses them.
+
+- **`content/manifest.json`** lists the stage files in order, plus the events, rules, UI,
+  and data files to load.
+- **`content/rules.json`** holds model parameters (stat bounds, event fire rates, resource
+  multipliers, offer counts). These are modeling choices, not statistics. Entries marked
+  `"assumption": true` need author review.
+- **`content/ui.json`** holds interface text (buttons, labels, result-table rows, profile
+  headings), so no text is hardcoded in JavaScript.
+- **Scene kind `event_slot`**: `{ "id", "kind": "event_slot", "slot": "E1", "age", "next" }`.
+  It rolls the slot and shows an event card only if one fires.
+- **`category: "start"`** on D1–D2 marks them as the starting point for attribution.
+- **`lottery`** on D1: `{ "weights": "<data ref>", "alsoDraws": [{ "scene", "weights" }], "sourceIds" }`
+  adds the "Let chance decide" button and shows the draw on a card.
+- **`retryOf`** on a decision reuses another decision's options, minus the ones already
+  tried (used after a failed lottery or admission).
+- **`next`** can also be `{ "ifSuccess", "ifFailure" }` (result scenes) or a list of
+  `{ "if": <condition>, "to": "<id>" }` entries, where the first match wins.
+- **`hiddenIf`** on a choice hides it when a condition is true.
+- **`authorFlag`** on any item is a note for the author; the validator lists them.
+- **`onEnter`** on a stage applies a change when the stage begins (no card).
+- **Conditions:** `hasFlag`, `notFlag`, `hasAnyFlag`, `{ "stat", "gte"/"lt" }`,
+  `{ "bracket": [...] }`, `{ "economy", "eq"/"in"/"notIn" }`, `{ "costShareAbove", "cost" }`,
+  `{ "incomeAbove" }`, and `all` / `any` / `not`.
+- **Data references:** `"<file>:<dot.path>"`, e.g.
+  `"net-price:tiers.[tier].netPriceByBracket.values.[bracket].value"`. `[bracket]` and
+  `[tier]` are filled from the current state. Wherever a number is expected, a value can be
+  a number or `{ "data": "<ref>" }`.
+- **Probability formulas:** `{ "base", "min"?, "max"?, "terms": [...] }`. A stat term
+  `{ "stat", "above", "per", "add", "label" }` adds `add` for every `per` points above
+  `above`. A condition term `{ "if", "add", "label", "missingLabel"? }` adds `add` when
+  `if` is true. Labels become the "what helped / what hurt" lists, and `missingLabel`
+  becomes the "what wasn't available" list.
+- **Result-scene fields:** completion scenes take `probability`, `credentialByTier`,
+  `onSuccess`, and `onFailure`; job-offer scenes take `referral.probability`; year-review
+  scenes take `ages`.
+- **Dynamic choices:** `"dynamicChoices": "jobOffers"` with an `offerChoice` template adds
+  one choice per job offer.
+- **Events:** `impactText` can be a string or `{ "low", "default", "high" }` for the
+  resource buffer. `career: { "salaryMultiplier" }` or `career: { "jobLoss", "incomeShareThisYear" }`
+  apply to the R8 year cards.
+- **More tokens:** `{usd:<ref>}`, `{pct:<ref>}`, `{namesYear}`, plus card tokens (`{cost}`,
+  `{costShare}`, `{odds}`, `{college}`, `{jobTitle}`, `{salary}`, `{age}`).

@@ -1,0 +1,238 @@
+{
+  "events": [
+    {
+      "id": "parent_illness",
+      "slots": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "baseProbability": 0.12,
+      "tone": "negative",
+      "title": "A Diagnosis",
+      "text": "{name}'s dad has been tired for months. He blames the double shifts. In October, a doctor at the urgent care clinic tells him to see a specialist, and by Thanksgiving there's a word nobody in the family can pronounce taped to the refrigerator.\n\nHe keeps working as long as he can. Then he can't.",
+      "impactText": {
+        "low": "His job has no paid sick leave, so the family's income drops this year. {name}'s aunt picks {obj} up now, and homework happens at her kitchen table, when it happens.",
+        "default": "Money gets tight, and the household runs on less sleep. {name} learns to make dinner.",
+        "high": "His employer covers short-term disability, and the family has savings. The bills get paid. Mostly, {name} notices that {poss} dad is home more, and that he's quieter."
+      },
+      "effects": {
+        "finances": -10,
+        "wellbeing": -8,
+        "resilience": 5
+      },
+      "scaleByResources": true,
+      "setFlags": [
+        "parent_ill"
+      ],
+      "sourceIds": [
+        "kff_health_costs",
+        "oreopoulos_displacement"
+      ],
+      "authorFlag": "Needs a sourced income loss for the low-income version.",
+      "profileLine": "{Poss} dad's illness changed what the family could afford, and who was home after school."
+    },
+    {
+      "id": "parent_job_loss",
+      "slots": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "baseProbability": 0.12,
+      "modifiers": [
+        {
+          "if": {
+            "bracket": [
+              "low",
+              "lower_middle"
+            ]
+          },
+          "multiply": 1.5
+        }
+      ],
+      "tone": "negative",
+      "title": "The Layoff",
+      "text": "The plant where {name}'s mom has worked for nine years announces it's closing. She gets sixty days' notice and a letter about \"transition resources.\"\n\nShe updates her résumé at the kitchen table after everyone is asleep, and starts driving farther and farther for interviews.",
+      "impactText": {
+        "low": "With no savings to fall back on, the family cuts everything it can. {name} stops asking for things.",
+        "default": "The family tightens up for a few months until she finds something new, for less money.",
+        "high": "Severance and savings carry the family through. {name} hears about it mostly through closed doors."
+      },
+      "effects": {
+        "finances": -8,
+        "wellbeing": -5,
+        "resilience": 3
+      },
+      "scaleByResources": true,
+      "setFlags": [
+        "parent_job_loss"
+      ],
+      "sourceIds": [
+        "oreopoulos_displacement"
+      ],
+      "authorFlag": "Likelihood modifier (1.5x for lower brackets) and income loss need sizes from oreopoulos_displacement.",
+      "profileLine": "{Poss} mom's layoff squeezed the family's budget for a long stretch."
+    },
+    {
+      "id": "family_move",
+      "slots": [
+        "E1",
+        "E2"
+      ],
+      "baseProbability": 0.1,
+      "tone": "mixed",
+      "title": "Moving Day",
+      "text": "The landlord sells the building, and the new owner raises the rent. The family finds a place across town and packs in a weekend. {name} starts at a new school in the middle of the year, in a classroom where everyone already knows where to sit.",
+      "impactText": "{name} has to make friends all over again, and {subj} gets better at it than {subj} expected.",
+      "effects": {
+        "network": -5,
+        "resilience": 4
+      },
+      "sourceIds": [
+        "oi_mto"
+      ],
+      "profileLine": "A move in the middle of the school year meant starting over with new friends."
+    },
+    {
+      "id": "exceptional_teacher",
+      "slots": [
+        "E1",
+        "E2"
+      ],
+      "baseProbability": 0.12,
+      "tone": "positive",
+      "title": "Ms. Alvarez",
+      "text": "Ms. Alvarez keeps {name} after class one afternoon, not because {subj}'s in trouble, but because she wants to lend {obj} a book. Then another. By spring, she's the one who notices when {name} is quiet, and the one who puts {poss} name on the list for the advanced program.",
+      "impactText": "For the first time, an adult outside the family tells {name} {subj}'s good at something, and {subj} believes it.",
+      "effects": {
+        "academics": 6,
+        "network": 3
+      },
+      "setFlags": [
+        "mentor_teacher"
+      ],
+      "sourceIds": [
+        "jackson_school_spending"
+      ],
+      "authorFlag": "Needs a better source for teacher effects.",
+      "profileLine": "A teacher who noticed {obj}, Ms. Alvarez, opened a door {subj} hadn't known was there."
+    },
+    {
+      "id": "windfall",
+      "slots": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "baseProbability": 0.08,
+      "tone": "positive",
+      "title": "A Little Extra",
+      "text": "A great-aunt {name} met twice leaves the family a small inheritance. Nobody saw it coming, least of all {name}, who mostly remembers her dog, a beagle named Biscuit.",
+      "impactText": "It isn't life-changing, but it covers a car repair and a few months of breathing room.",
+      "effects": {
+        "finances": 5,
+        "wellbeing": 2
+      },
+      "sourceIds": [
+        "putnam_our_kids"
+      ],
+      "profileLine": "A small, unexpected inheritance gave the family some breathing room."
+    },
+    {
+      "id": "friend_moves_away",
+      "slots": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "baseProbability": 0.1,
+      "tone": "negative",
+      "title": "Goodbye",
+      "text": "{name}'s closest friend moves three states away for a parent's new job. They promise to text every day, and for a while they do. Then it's every week. Then it's birthdays.",
+      "impactText": "{name} is lonelier for a while, and learns how to be on {poss} own.",
+      "effects": {
+        "wellbeing": -5,
+        "resilience": 3
+      },
+      "sourceIds": [
+        "add_health"
+      ],
+      "profileLine": "{Poss} closest friend moved away, and {subj} learned how to be on {poss} own."
+    },
+    {
+      "id": "party_consequence",
+      "baseProbability": 1,
+      "tone": "negative",
+      "title": "Monday Morning",
+      "text": "Somebody called the police around midnight. Nobody is arrested, but on Monday the vice principal has a list of names, and {name}'s is on it.",
+      "impactText": {
+        "low": "{name}'s family can't pay for a lawyer or take time off to argue with the school, so the suspension stands and goes on {poss} record.",
+        "default": "{name} gets a week of detention and a long talk at home.",
+        "high": "{name}'s parents know someone who knows the principal. It turns into a warning."
+      },
+      "effects": {
+        "academics": -5,
+        "wellbeing": -4
+      },
+      "scaleByResources": true,
+      "sourceIds": [
+        "cdc_yrbs"
+      ],
+      "profileLine": "One Friday night ended up on {poss} school record."
+    },
+    {
+      "id": "promotion",
+      "slots": [
+        "career"
+      ],
+      "baseProbability": 0.5,
+      "tone": "positive",
+      "title": "A Promotion",
+      "text": "{name}'s manager asks to talk on a Friday afternoon, which usually means bad news. This time it's a new title, more responsibility, and a raise.",
+      "impactText": "A new title and a raise.",
+      "effects": {
+        "finances": 4,
+        "wellbeing": 2
+      },
+      "career": {
+        "salaryMultiplier": 1.05
+      },
+      "sourceIds": [
+        "bls_ooh"
+      ],
+      "authorFlag": "Promotion raise size (5%) needs a source.",
+      "profileLine": "An early promotion raised {poss} pay."
+    },
+    {
+      "id": "layoff",
+      "slots": [
+        "career"
+      ],
+      "baseProbability": 0.3,
+      "tone": "negative",
+      "title": "Restructuring",
+      "text": "The all-hands meeting lasts fifteen minutes. {name}'s team is \"being restructured,\" which means {name}'s job ends in two weeks.",
+      "impactText": {
+        "low": "With no savings and loan payments due, {name} takes the first job {subj} can find.",
+        "default": "{name} spends the rest of the year looking for work.",
+        "high": "{name}'s parents cover rent for a few months while {subj} looks."
+      },
+      "effects": {
+        "finances": -8,
+        "wellbeing": -5,
+        "resilience": 4
+      },
+      "scaleByResources": true,
+      "career": {
+        "jobLoss": true,
+        "incomeShareThisYear": 0.5
+      },
+      "sourceIds": [
+        "oreopoulos_displacement"
+      ],
+      "authorFlag": "Income lost in a layoff year (half) needs a source.",
+      "profileLine": "A layoff cost {obj} a job and part of a year's income."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "updated": "2026-10-22",
+  "note": "Statistics shown on screen. Values of 0 still need to be filled in from the source by hand, with the source open. Never estimate.",
+  "benchmarks": [
+    {
+      "id": "recent_grad_median_wage",
+      "claim": "Median annual wage of full-time workers aged 22–27 with a bachelor's degree, not enrolled in school",
+      "value": 60000,
+      "unit": "USD",
+      "population": "US, full-time workers aged 22–27",
+      "year": 2025,
+      "sourceId": "nyfed_recent_grads",
+      "from": "salaries.json recentGradWages.bachelors_median"
+    },
+    {
+      "id": "recent_hs_median_wage",
+      "claim": "Median annual wage of full-time workers aged 22–27 with only a high school diploma",
+      "value": 40000,
+      "unit": "USD",
+      "population": "US, full-time workers aged 22–27",
+      "year": 2025,
+      "sourceId": "nyfed_recent_grads",
+      "from": "salaries.json recentGradWages.hs_diploma_median"
+    },
+    {
+      "id": "flagship_completion_rate",
+      "claim": "Share of first-time, full-time students at public research universities who finish within six years at the same college",
+      "value": 0.75,
+      "unit": "share",
+      "population": "Public R1 universities (flagship proxy), entering fall 2019",
+      "year": 2026,
+      "sourceId": "college_scorecard",
+      "from": "net-price.json tiers.flagship_proxy_public_r1.completionRate150"
+    },
+    {
+      "id": "mobility_parent_income",
+      "claim": "Percentile increase in a child's adult income rank for every 10-percentile increase in parent income rank",
+      "value": 3.4,
+      "unit": "number",
+      "population": "US children born 1980–82",
+      "year": 2014,
+      "sourceId": "oi_land_of_opportunity",
+      "retrieved": "2026-10-22",
+      "quote": "On average, a 10 percentile increase in parent income is associated with a 3.4 percentile increase in a child's income."
+    },
+    {
+      "id": "school_spending_effect",
+      "claim": "Higher adult wages from a 10% increase in per-pupil spending in every year of K–12 (all children; effects are larger for children from low-income families)",
+      "value": 7.25,
+      "unit": "percent",
+      "population": "US children born 1955–1985",
+      "year": 2015,
+      "sourceId": "jackson_school_spending",
+      "retrieved": "2026-10-22",
+      "quote": "7.25 percent higher wages",
+      "sourceNote": "NBER Working Paper 20847 (2015 revision); the QJE version reports somewhat different estimates."
+    },
+    {
+      "id": "economic_connectedness_effect",
+      "claim": "Average increase in adult income if children with low-SES parents grew up with the cross-class connectedness of the average child with high-SES parents",
+      "value": 20,
+      "unit": "percent",
+      "population": "US",
+      "year": 2022,
+      "sourceId": "oi_social_capital",
+      "retrieved": "2026-10-22",
+      "quote": "their incomes in adulthood would increase by 20% on average"
+    },
+    {
+      "id": "counselor_ratio",
+      "claim": "National average number of students per school counselor, 2024–25 (ASCA recommends 250)",
+      "value": 372,
+      "unit": "number",
+      "population": "US public schools, 2024–25",
+      "year": 2025,
+      "sourceId": "asca_ratios",
+      "retrieved": "2026-10-22",
+      "quote": "the national average is actually 372-to-1"
+    },
+    {
+      "id": "median_income_25",
+      "claim": "Median earnings of 25-to-29-year-olds working full time",
+      "value": 0,
+      "unit": "USD",
+      "population": "US, full-time workers",
+      "year": 0,
+      "sourceId": "census_acs"
+    },
+    {
+      "id": "mobility_bottom_to_top_charlotte",
+      "claim": "Chance a child from a bottom-fifth family reaches the top fifth, Charlotte",
+      "value": 0.044,
+      "unit": "share",
+      "population": "Children born 1980–82, Charlotte area",
+      "year": 2014,
+      "sourceId": "oi_land_of_opportunity",
+      "retrieved": "2026-10-22",
+      "quote": "4.4% in Charlotte"
+    },
+    {
+      "id": "mobility_bottom_to_top_san_jose",
+      "claim": "Chance a child from a bottom-fifth family reaches the top fifth, San Jose",
+      "value": 0.129,
+      "unit": "share",
+      "population": "Children born 1980–82, San Jose area",
+      "year": 2014,
+      "sourceId": "oi_land_of_opportunity",
+      "retrieved": "2026-10-22",
+      "quote": "12.9% in San Jose"
+    },
+    {
+      "id": "counselor_ratio_recommended",
+      "claim": "Students per school counselor recommended by ASCA",
+      "value": 250,
+      "unit": "number",
+      "population": "Recommendation",
+      "year": 2025,
+      "sourceId": "asca_ratios",
+      "retrieved": "2026-10-22",
+      "quote": "ASCA recommends a 250-to-1 ratio of students to school counselors"
+    }
+  ],
+  "missing": [
+    "Boston pre-K effect size on college enrollment (the NBER abstract reports direction only; take the number from the paper).",
+    "Median earnings of 25-to-29-year-olds working full time (census_acs); N6 uses the NY Fed figures instead.",
+    "National share of 4-year-olds in state-funded pre-K from the 2024 NIEER Yearbook (the national profile page gives only total enrollment).",
+    "Apprentice wages during training and registered-apprenticeship completion rates (apprenticeship.gov dashboards are interactive).",
+    "Military basic pay (dfas.mil blocks automated requests)."
+  ]
+}

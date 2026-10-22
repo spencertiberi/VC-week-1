@@ -1,0 +1,513 @@
+{
+  "stage": "after_high_school",
+  "title": "After High School",
+  "ageRange": [
+    18,
+    22
+  ],
+  "firstScene": "ahs_path",
+  "onEnter": {
+    "economy": {
+      "set": {
+        "credential": "hs_diploma"
+      }
+    }
+  },
+  "scenes": [
+    {
+      "id": "ahs_path",
+      "kind": "decision",
+      "decisionId": "D11",
+      "age": 18,
+      "chooser": "child",
+      "title": "What Comes Next",
+      "text": "Graduation is in June, and at every family party someone asks, \"So what's next?\"\n\n{name}'s family earns about {familyIncome} a year. Some of {poss} friends committed somewhere months ago. Others are waiting on financial aid letters to learn what they can actually afford. A few have stopped answering the question.\n\nThe options don't all cost the same, and they don't all say yes. The price under each college is its net price: what families at {poss} family's income typically pay each year after grants.",
+      "sourceIds": [
+        "oi_college_admissions",
+        "oi_mobility_report_cards",
+        "college_scorecard",
+        "dol_apprenticeship"
+      ],
+      "choices": [
+        {
+          "id": "elite_private",
+          "label": "{Subj} applies to an elite private college",
+          "description": "Net price at {poss} family's income: about {usd:net-price:tiers.elite_private.netPriceByBracket.values.[bracket].value} a year",
+          "effects": {
+            "academics": 2,
+            "wellbeing": -3
+          },
+          "longShot": {
+            "label": "an elite private college",
+            "probability": {
+              "base": 0.03,
+              "max": 0.6,
+              "terms": [
+                {
+                  "stat": "academics",
+                  "above": 70,
+                  "per": 10,
+                  "add": 0.05,
+                  "label": "strong grades and test scores"
+                },
+                {
+                  "if": {
+                    "hasAnyFlag": [
+                      "activity_deep",
+                      "leadership",
+                      "varsity"
+                    ]
+                  },
+                  "add": 0.04,
+                  "label": "activities {subj} stuck with for years"
+                },
+                {
+                  "if": {
+                    "stat": "network",
+                    "gte": 65
+                  },
+                  "add": 0.05,
+                  "label": "counselor attention, essay help, and test prep",
+                  "missingLabel": "a private admissions counselor or paid test prep"
+                },
+                {
+                  "if": {
+                    "hasFlag": "legacy"
+                  },
+                  "add": 0.15,
+                  "label": "a parent who went there (legacy status)",
+                  "missingLabel": "legacy status"
+                },
+                {
+                  "if": {
+                    "hasFlag": "recruited_athlete"
+                  },
+                  "add": 0.2,
+                  "label": "a recruited-athlete spot",
+                  "missingLabel": "a recruited-athlete spot"
+                }
+              ]
+            },
+            "resultScene": "ahs_admission_result",
+            "onSuccess": {
+              "economy": {
+                "set": {
+                  "collegeTier": "elite_private"
+                }
+              },
+              "setFlags": [
+                "path_college"
+              ],
+              "effects": {
+                "network": 8
+              }
+            },
+            "onFailure": {
+              "effects": {
+                "wellbeing": -3
+              }
+            },
+            "sourceIds": [
+              "oi_college_admissions"
+            ]
+          }
+        },
+        {
+          "id": "flagship",
+          "label": "{Subj} applies to the state flagship university",
+          "description": "Net price at {poss} family's income: about {usd:net-price:tiers.flagship_proxy_public_r1.netPriceByBracket.values.[bracket].value} a year",
+          "effects": {
+            "academics": 1,
+            "wellbeing": -1
+          },
+          "longShot": {
+            "label": "the state flagship",
+            "probability": {
+              "base": 0.5,
+              "max": 0.92,
+              "terms": [
+                {
+                  "stat": "academics",
+                  "above": 55,
+                  "per": 10,
+                  "add": 0.08,
+                  "label": "strong grades"
+                }
+              ]
+            },
+            "resultScene": "ahs_admission_result",
+            "onSuccess": {
+              "economy": {
+                "set": {
+                  "collegeTier": "flagship"
+                }
+              },
+              "setFlags": [
+                "path_college"
+              ],
+              "effects": {
+                "network": 4
+              }
+            },
+            "onFailure": {
+              "effects": {
+                "wellbeing": -2
+              }
+            },
+            "sourceIds": [
+              "college_scorecard"
+            ]
+          }
+        },
+        {
+          "id": "regional",
+          "label": "{Subj} enrolls at a regional public university",
+          "description": "Net price at {poss} family's income: about {usd:net-price:tiers.regional_public.netPriceByBracket.values.[bracket].value} a year",
+          "effects": {
+            "academics": 3,
+            "finances": -4
+          },
+          "economy": {
+            "set": {
+              "collegeTier": "regional"
+            }
+          },
+          "setFlags": [
+            "path_college"
+          ],
+          "next": "ahs_aid"
+        },
+        {
+          "id": "community",
+          "label": "{Subj} starts at community college, planning to transfer",
+          "description": "Net price at {poss} family's income: about {usd:net-price:tiers.community_college.netPriceByBracket.values.[bracket].value} a year",
+          "effects": {
+            "finances": 2,
+            "network": -2
+          },
+          "economy": {
+            "set": {
+              "collegeTier": "community"
+            }
+          },
+          "setFlags": [
+            "path_college"
+          ],
+          "next": "ahs_aid"
+        },
+        {
+          "id": "apprenticeship",
+          "label": "{Subj} starts a registered apprenticeship",
+          "description": "Paid training on the job, with classes at night.",
+          "effects": {
+            "finances": 5,
+            "network": 2,
+            "wellbeing": -2
+          },
+          "economy": {
+            "set": {
+              "credential": "apprenticeship"
+            }
+          },
+          "setFlags": [
+            "path_apprenticeship"
+          ],
+          "next": "ahs_field",
+          "authorFlag": "Apprenticeship completion and wages need data from dol_apprenticeship; for now the credential is granted on choosing."
+        },
+        {
+          "id": "military",
+          "label": "{Subj} enlists in the military",
+          "description": "Steady pay, training, and benefits, a long way from home.",
+          "effects": {
+            "resilience": 6,
+            "finances": 4,
+            "wellbeing": -3
+          },
+          "economy": {
+            "set": {
+              "credential": "military_service"
+            }
+          },
+          "setFlags": [
+            "path_military",
+            "field_public_service"
+          ],
+          "next": "ahs_e3",
+          "authorFlag": "Military pay (dfas_pay) is not in the data yet."
+        },
+        {
+          "id": "work",
+          "label": "{Subj} starts working full time",
+          "description": "A paycheck now, and time to figure out what's next.",
+          "effects": {
+            "finances": 6,
+            "academics": -3
+          },
+          "setFlags": [
+            "path_work"
+          ],
+          "next": "ahs_field"
+        }
+      ]
+    },
+    {
+      "id": "ahs_admission_result",
+      "kind": "result",
+      "resultType": "admission",
+      "age": 18,
+      "title": "The Email",
+      "textIfSuccess": "The email from {college} starts with \"Congratulations.\" {name} reads it four times in the school parking lot, then calls home and can't get the words out in the right order.",
+      "textIfFailure": "It isn't an envelope, of course. It's an email from {college}, and the first word is \"Unfortunately.\"\n\n{name} reads it twice in the school parking lot, then a third time at home with the door closed.",
+      "showFactors": true,
+      "sourceIds": [
+        "oi_college_admissions"
+      ],
+      "next": {
+        "ifSuccess": "ahs_aid",
+        "ifFailure": "ahs_path_retry"
+      }
+    },
+    {
+      "id": "ahs_path_retry",
+      "kind": "decision",
+      "decisionId": "D11",
+      "retryOf": "ahs_path",
+      "age": 18,
+      "chooser": "child",
+      "title": "What's Still Open",
+      "text": "A no from one place isn't a no from everywhere. Some deadlines have passed, but plenty of doors are still open, and {name} looks at them again with clearer eyes.",
+      "sourceIds": [
+        "college_scorecard"
+      ]
+    },
+    {
+      "id": "ahs_aid",
+      "kind": "result",
+      "resultType": "aid",
+      "age": 18,
+      "title": "The Financial Aid Offer",
+      "text": "The financial aid offer arrives as a PDF with a lot of numbers and very few explanations. Grants don't have to be paid back; loans do. Here's what the numbers add up to for a family earning what {name}'s family earns.",
+      "sourceIds": [
+        "college_scorecard",
+        "cb_trends",
+        "fsa_pell"
+      ],
+      "next": "ahs_field"
+    },
+    {
+      "id": "ahs_field",
+      "kind": "decision",
+      "decisionId": "D12",
+      "age": 18,
+      "chooser": "child",
+      "title": "A Direction",
+      "text": "{name} has to pick a direction, or at least a first one. Different fields lead to different jobs, and different jobs pay very differently, especially in the first few years.\n\nSome of {poss} friends picked whatever their parents do. Some picked whatever sounded most like a steady paycheck. {name} thinks about what {subj} is good at, what {subj} might get good at, and what {subj} can't stand.",
+      "sourceIds": [
+        "college_scorecard",
+        "nyfed_recent_grads",
+        "bls_ooh"
+      ],
+      "choices": [
+        {
+          "id": "health",
+          "label": "Health care",
+          "effects": {
+            "academics": 3,
+            "wellbeing": -2
+          },
+          "setFlags": [
+            "field_health"
+          ],
+          "next": "ahs_e3"
+        },
+        {
+          "id": "technology",
+          "label": "Technology",
+          "effects": {
+            "academics": 3,
+            "network": -1
+          },
+          "setFlags": [
+            "field_technology"
+          ],
+          "next": "ahs_e3"
+        },
+        {
+          "id": "skilled_trades",
+          "label": "Skilled trades",
+          "effects": {
+            "finances": 3,
+            "network": -1
+          },
+          "setFlags": [
+            "field_skilled_trades"
+          ],
+          "next": "ahs_e3"
+        },
+        {
+          "id": "business",
+          "label": "Business",
+          "effects": {
+            "network": 3,
+            "wellbeing": -1
+          },
+          "setFlags": [
+            "field_business"
+          ],
+          "next": "ahs_e3",
+          "hiddenIf": {
+            "hasFlag": "path_apprenticeship"
+          }
+        },
+        {
+          "id": "education",
+          "label": "Education",
+          "effects": {
+            "wellbeing": 3,
+            "finances": -2
+          },
+          "setFlags": [
+            "field_education"
+          ],
+          "next": "ahs_e3",
+          "hiddenIf": {
+            "hasFlag": "path_apprenticeship"
+          }
+        },
+        {
+          "id": "creative",
+          "label": "Creative work",
+          "effects": {
+            "wellbeing": 4,
+            "finances": -3
+          },
+          "setFlags": [
+            "field_creative"
+          ],
+          "next": "ahs_e3",
+          "hiddenIf": {
+            "hasFlag": "path_apprenticeship"
+          }
+        },
+        {
+          "id": "public_service",
+          "label": "Public service",
+          "effects": {
+            "network": 2,
+            "finances": -2
+          },
+          "setFlags": [
+            "field_public_service"
+          ],
+          "next": "ahs_e3",
+          "hiddenIf": {
+            "hasFlag": "path_apprenticeship"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ahs_e3",
+      "kind": "event_slot",
+      "slot": "E3",
+      "age": 20,
+      "next": [
+        {
+          "if": {
+            "hasFlag": "path_college"
+          },
+          "to": "ahs_completion"
+        },
+        {
+          "to": "@nextStage"
+        }
+      ]
+    },
+    {
+      "id": "ahs_completion",
+      "kind": "result",
+      "resultType": "completion",
+      "age": 22,
+      "title": "Finishing",
+      "textIfSuccess": "{name} walks across the stage in a gown that doesn't quite fit. Somebody in the back yells {poss} name too loudly, and {subj} pretends to be embarrassed.",
+      "textIfFailure": "{name} stops out with credits but no degree. The reasons are ordinary ones: money, work hours, and a family that needed {obj}. Credits don't expire, and plenty of people go back. For now, {subj} goes to work.",
+      "showFactors": true,
+      "probability": {
+        "base": {
+          "data": "net-price:tiers.[tier].completionRate150.value"
+        },
+        "terms": [
+          {
+            "if": {
+              "stat": "finances",
+              "lt": 35
+            },
+            "add": -0.1,
+            "label": "money pressure and work hours"
+          },
+          {
+            "if": {
+              "stat": "finances",
+              "gte": 65
+            },
+            "add": 0.05,
+            "label": "a family that could cover surprises"
+          },
+          {
+            "if": {
+              "stat": "wellbeing",
+              "lt": 35
+            },
+            "add": -0.08,
+            "label": "stress and health"
+          },
+          {
+            "if": {
+              "hasFlag": "parent_ill"
+            },
+            "add": -0.1,
+            "label": "a parent's illness"
+          }
+        ]
+      },
+      "credentialByTier": {
+        "community": "associate",
+        "default": "bachelors"
+      },
+      "onSuccess": {
+        "effects": {
+          "academics": 5,
+          "network": 4
+        }
+      },
+      "onFailure": {
+        "effects": {
+          "wellbeing": -4,
+          "resilience": 4
+        },
+        "setFlags": [
+          "some_college"
+        ]
+      },
+      "sourceIds": [
+        "college_scorecard",
+        "nsc_completion"
+      ],
+      "next": "@nextStage",
+      "authorFlag": "Completion odds use Scorecard same-institution completion; nsc_completion figures are not in the data yet. Modifier sizes are placeholders."
+    }
+  ],
+  "researchNote": {
+    "id": "n5_completion",
+    "title": "Behind the Story: Who Finishes College",
+    "text": "Getting in is only half of it. Students from lower-income families are less likely to finish a degree once they start, often because of cost, work hours, and family emergencies rather than grades. At public research universities, {stat:flagship_completion_rate} of students finish within six years at the college where they started.",
+    "benchmarkIds": [
+      "flagship_completion_rate"
+    ],
+    "sourceIds": [
+      "nsc_completion",
+      "college_scorecard"
+    ]
+  }
+}

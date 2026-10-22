@@ -1,0 +1,94 @@
+{
+  "stage": "middle_school",
+  "title": "Middle School",
+  "ageRange": [
+    11,
+    13
+  ],
+  "firstScene": "ms_friends",
+  "scenes": [
+    {
+      "id": "ms_friends",
+      "kind": "decision",
+      "decisionId": "D6",
+      "age": 12,
+      "chooser": "child",
+      "title": "Who Sits Where",
+      "text": "Seventh grade rearranges everything. {name} has a phone now, with a cracked corner, and the group chats sorted themselves out over the summer before anyone said a word in person.\n\nThe cafeteria has a map that nobody drew but everyone can read. {Poss} oldest friends still sit by the windows. The robotics club has taken over a table near the vending machines. The loudest table, the one everyone watches, has an open seat today.\n\nWho {name} sits with this year will shape who {subj} knows at eighteen.",
+      "sourceIds": [
+        "oi_social_capital",
+        "surgeon_general_social_media",
+        "add_health"
+      ],
+      "choices": [
+        {
+          "id": "childhood_friends",
+          "label": "{Subj} sticks with {poss} childhood friends",
+          "effects": {
+            "wellbeing": 5,
+            "network": -2
+          },
+          "setFlags": [
+            "friend_group_old"
+          ],
+          "next": "@nextStage",
+          "outcome": "{name} keeps the same seat by the window all year. It's comfortable, and the jokes go back to second grade."
+        },
+        {
+          "id": "shared_interests",
+          "label": "{Subj} joins a club and finds kids who like what {subj} likes",
+          "effects": {
+            "network": 6,
+            "academics": 2,
+            "wellbeing": -1
+          },
+          "setFlags": [
+            "friend_group_club",
+            "activity_deep"
+          ],
+          "next": "@nextStage",
+          "outcome": "The robotics club meets Tuesdays and Thursdays. {name} learns to solder and makes friends from three different neighborhoods."
+        },
+        {
+          "id": "popular_crowd",
+          "label": "{Subj} tries to get in with the popular crowd",
+          "effects": {
+            "network": 5,
+            "wellbeing": -3,
+            "academics": -2
+          },
+          "setFlags": [
+            "friend_group_popular"
+          ],
+          "next": "@nextStage",
+          "outcome": "{name} learns the rules fast: what to wear, who to text back, when to laugh. Some days it feels like winning. Some days it feels like work."
+        },
+        {
+          "id": "online",
+          "label": "{Subj} keeps mostly to {refl} and spends a lot of time online",
+          "effects": {
+            "academics": 2,
+            "wellbeing": -4,
+            "network": -3
+          },
+          "setFlags": [
+            "friend_group_online"
+          ],
+          "next": "@nextStage",
+          "outcome": "{name}'s closest friends live in {poss} phone, across three time zones. They're real friends, and the hallway stays a little lonely."
+        }
+      ]
+    }
+  ],
+  "researchNote": {
+    "id": "n3_connectedness",
+    "title": "Behind the Story: Friendship and Mobility",
+    "text": "Researchers mapping friendships across the US found that how often friendships cross class lines in a community is one of the strongest predictors of upward mobility there. If children from low-income families grew up with the cross-class connections of the average higher-income child, their adult incomes would rise by {stat:economic_connectedness_effect} on average.",
+    "benchmarkIds": [
+      "economic_connectedness_effect"
+    ],
+    "sourceIds": [
+      "oi_social_capital"
+    ]
+  }
+}

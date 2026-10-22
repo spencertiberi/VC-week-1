@@ -1,0 +1,141 @@
+{
+  "stage": "early_adulthood",
+  "title": "Early Adulthood",
+  "ageRange": [
+    22,
+    25
+  ],
+  "firstScene": "adult_offers",
+  "scenes": [
+    {
+      "id": "adult_offers",
+      "kind": "result",
+      "resultType": "job_offers",
+      "age": 22,
+      "title": "The Offers",
+      "text": "After months of applications and a lot of waiting, the offers come in. Some come through job boards. Some come through people: a professor, a former boss, a friend's parent. Who {name} knows shapes which doors open, and the pay behind them.",
+      "referral": {
+        "probability": {
+          "base": 0.05,
+          "terms": [
+            {
+              "if": {
+                "stat": "network",
+                "gte": 65
+              },
+              "add": 0.25,
+              "label": "people who could vouch for {obj}"
+            },
+            {
+              "if": {
+                "economy": "collegeTier",
+                "eq": "elite_private"
+              },
+              "add": 0.2,
+              "label": "a college with recruiting pipelines"
+            }
+          ]
+        }
+      },
+      "sourceIds": [
+        "bls_ooh",
+        "college_scorecard",
+        "oi_social_capital"
+      ],
+      "next": "adult_job",
+      "authorFlag": "Referral odds are placeholders; oi_college_admissions and oi_social_capital support the direction, not the size."
+    },
+    {
+      "id": "adult_job",
+      "kind": "decision",
+      "decisionId": "D13",
+      "age": 22,
+      "chooser": "child",
+      "title": "A First Real Job",
+      "text": "{name} has to decide what to do with the offers, and with the next few years. A job that pays more might mean moving somewhere expensive. A job closer to home might pay less but come with dinner at {poss} parents' place on Sundays.\n\nSome of {poss} friends are taking the first thing that pays. Others are holding out for something better, which is easier when someone else is covering the rent.",
+      "sourceIds": [
+        "bls_ooh",
+        "nyfed_recent_grads",
+        "pew"
+      ],
+      "dynamicChoices": "jobOffers",
+      "offerChoice": {
+        "label": "{Subj} takes the offer: {jobTitle}",
+        "description": "Starting pay about {salary} a year",
+        "effects": {
+          "finances": 6,
+          "wellbeing": -1
+        },
+        "setFlags": [
+          "took_offer"
+        ],
+        "startAge": 23,
+        "next": "adult_years"
+      },
+      "choices": [
+        {
+          "id": "grad_school",
+          "label": "{Subj} goes to graduate school",
+          "description": "Two more years of school, and more debt, for a higher ceiling.",
+          "effects": {
+            "academics": 6,
+            "finances": -6
+          },
+          "setFlags": [
+            "in_grad_school"
+          ],
+          "hiddenIf": {
+            "economy": "credential",
+            "notIn": [
+              "bachelors"
+            ]
+          },
+          "next": "adult_years",
+          "authorFlag": "Graduate school cost and stipends are not in the data yet."
+        },
+        {
+          "id": "move_home",
+          "label": "{Subj} moves home to save money and keeps looking",
+          "effects": {
+            "finances": 4,
+            "wellbeing": -3
+          },
+          "setFlags": [
+            "lives_with_family"
+          ],
+          "next": "adult_years"
+        }
+      ]
+    },
+    {
+      "id": "adult_years",
+      "kind": "result",
+      "resultType": "year_review",
+      "age": 23,
+      "ages": [
+        23,
+        24,
+        25
+      ],
+      "title": "Age {age}",
+      "text": "Another year goes by: rent, work, calls home, a friend's wedding. Here's how the money looks.",
+      "sourceIds": [
+        "bls_ooh",
+        "college_scorecard"
+      ],
+      "next": "@nextStage"
+    }
+  ],
+  "researchNote": {
+    "id": "n6_young_adults",
+    "title": "Behind the Story: Twenty-Five",
+    "text": "Young full-time workers with a bachelor's degree earn a median of {stat:recent_grad_median_wage} a year, compared with {stat:recent_hs_median_wage} for those with only a high school diploma. The gap is real, but so is the debt, and the degree has to be finished to pay off.",
+    "benchmarkIds": [
+      "recent_grad_median_wage",
+      "recent_hs_median_wage"
+    ],
+    "sourceIds": [
+      "nyfed_recent_grads"
+    ]
+  }
+}

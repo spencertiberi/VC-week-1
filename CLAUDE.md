@@ -70,6 +70,9 @@ docs/          planning documents
   distributions by starting background, unreachable scenes, dead ends, and event rates
 - `node tools/validate.mjs` — check content and data files against the schema
 - `node tools/check-links.mjs` — check that every source and policy URL responds
+- Deploy: pushing the `production` branch runs `.github/workflows/deploy.yml` (validate,
+  simulate, then publish `index.html`, `styles.css`, `engine/`, `profile/`, `content/` to
+  GitHub Pages). Other branches run the same checks in `ci.yml`.
 
 ## Working agreements
 - Build the engine with placeholder content before writing real story content.

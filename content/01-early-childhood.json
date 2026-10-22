@@ -1,0 +1,136 @@
+{
+  "stage": "early_childhood",
+  "title": "Early Childhood",
+  "ageRange": [
+    3,
+    4
+  ],
+  "firstScene": "ec_care",
+  "scenes": [
+    {
+      "id": "ec_care",
+      "kind": "decision",
+      "decisionId": "D3",
+      "age": 3,
+      "chooser": "family",
+      "title": "Somewhere to Be All Day",
+      "text": "{name} is three, and {subj} has opinions about everything: socks, bedtime, the exact color of a cup. {Poss} days need a shape, and the grown-ups need to work.\n\nThe household brings in about {familyIncome} a year, and every way of filling the daytime hours costs something. Keeping {obj} home costs a paycheck or a grandparent's time. A daycare costs money every week. The free public pre-K program across town costs nothing at all, but it has more applicants than seats, and the seats go by lottery.",
+      "sourceIds": [
+        "dol_childcare_prices",
+        "nieer_yearbook",
+        "boston_prek"
+      ],
+      "choices": [
+        {
+          "id": "family_at_home",
+          "label": "A parent or grandparent keeps {obj} at home",
+          "description": "Familiar faces all day, and one less paycheck or a grandparent's time.",
+          "effects": {
+            "wellbeing": 5,
+            "finances": -6,
+            "network": -2
+          },
+          "setFlags": [
+            "care_family",
+            "parent_at_home"
+          ],
+          "outcome": "{name} learns every word of three picture books and the bus schedule by heart.",
+          "next": "@nextStage",
+          "authorFlag": "Needs a sourced estimate of the income a family gives up when a parent stays home."
+        },
+        {
+          "id": "home_daycare",
+          "label": "A home-based daycare down the street",
+          "description": "Six kids, one living room, and a backyard.",
+          "effects": {
+            "network": 3,
+            "finances": -5,
+            "academics": 1
+          },
+          "setFlags": [
+            "care_home_daycare"
+          ],
+          "outcome": "{name} comes home with a new best friend and a new cold every other week.",
+          "next": "@nextStage"
+        },
+        {
+          "id": "public_prek",
+          "label": "The family enters the lottery for free public pre-K",
+          "description": "Free if {subj} gets a seat. Seats are limited.",
+          "effects": {
+            "finances": 3,
+            "wellbeing": -2
+          },
+          "longShot": {
+            "label": "public pre-K",
+            "probability": {
+              "base": 0.5,
+              "terms": []
+            },
+            "resultScene": "ec_prek_lottery",
+            "onSuccess": {
+              "effects": {
+                "academics": 6,
+                "network": 3
+              },
+              "setFlags": [
+                "care_public_prek"
+              ]
+            },
+            "onFailure": {
+              "effects": {
+                "wellbeing": -2
+              }
+            },
+            "sourceIds": [
+              "nieer_yearbook",
+              "boston_prek"
+            ]
+          },
+          "authorFlag": "Pre-K lottery odds (0.5) are a placeholder; needs a source such as nieer_yearbook."
+        }
+      ]
+    },
+    {
+      "id": "ec_prek_lottery",
+      "kind": "result",
+      "resultType": "lottery",
+      "age": 4,
+      "title": "The Lottery",
+      "textIfSuccess": "The email arrives on a Thursday in April: {name} has a seat. In September, {subj} finds a cubby with {poss} name on it in green tape and decides, after some thought, to allow it.",
+      "textIfFailure": "The email arrives on a Thursday in April. {name} is on the waitlist, far enough down that nobody expects a call. The family has until September to find another plan.",
+      "showFactors": false,
+      "sourceIds": [
+        "nieer_yearbook",
+        "boston_prek"
+      ],
+      "next": {
+        "ifSuccess": "@nextStage",
+        "ifFailure": "ec_care_retry"
+      }
+    },
+    {
+      "id": "ec_care_retry",
+      "kind": "decision",
+      "decisionId": "D3",
+      "retryOf": "ec_care",
+      "age": 4,
+      "chooser": "family",
+      "title": "Plan B",
+      "text": "No seat this year. The family sits at the kitchen table with a calculator and a list of phone numbers, and by the end of the night there's a plan B.",
+      "sourceIds": [
+        "dol_childcare_prices"
+      ]
+    }
+  ],
+  "researchNote": {
+    "id": "n1_preschool",
+    "title": "Behind the Story: Preschool",
+    "text": "In Boston, seats in public preschool were assigned by lottery, which let researchers compare children who won a seat with children who didn't. Years later, the children who attended were more likely to graduate from high school, take the SAT, and go to college, even though their state test scores were no higher. Preschool seems to build something that tests don't measure.",
+    "benchmarkIds": [],
+    "sourceIds": [
+      "boston_prek"
+    ],
+    "authorFlag": "No statistic yet: the Boston pre-K abstract reports direction only. Add the college-enrollment effect from the paper."
+  }
+}
