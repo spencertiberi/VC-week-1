@@ -512,6 +512,18 @@
       "checkManually": true
     },
     {
+      "id": "bls_oews_technical",
+      "type": "report",
+      "authors": "U.S. Bureau of Labor Statistics",
+      "year": 2024,
+      "title": "Technical Notes for May 2024 OEWS Estimates",
+      "publisher": "U.S. Bureau of Labor Statistics",
+      "url": "https://www.bls.gov/oes/current/oes_tec.htm",
+      "topic": "after_high_school",
+      "useFor": "The 2,080-hour work year BLS uses to annualize hourly wages (salaries.json)",
+      "checkManually": true
+    },
+    {
       "id": "cew_college_payoff",
       "type": "report",
       "authors": "Anthony P. Carnevale, Ban Cheah & Emma Wenzinger",

@@ -96,6 +96,7 @@ and the story ends with a linked list of the sources used plus the full bibliogr
 | `dfas_pay` | Defense Finance and Accounting Service, Military Pay Tables | https://www.dfas.mil/MilitaryMembers/payentitlements/Pay-Tables/ | Military pay (income model) |
 | `nyfed_recent_grads` | Federal Reserve Bank of New York, The Labor Market for Recent College Graduates | https://www.newyorkfed.org/research/college-labor-market | Early-career wages and underemployment by major (D12, R7) |
 | `bls_ooh` | U.S. Bureau of Labor Statistics, *Occupational Outlook Handbook* | https://www.bls.gov/ooh/ | Pay and education requirements by role (`salaries.json`) |
+| `bls_oews_technical` | U.S. Bureau of Labor Statistics, Technical Notes for May 2024 OEWS Estimates | https://www.bls.gov/oes/current/oes_tec.htm | The 2,080-hour work year BLS uses to annualize hourly wages (`salaries.json`) |
 | `cew_college_payoff` | Georgetown University Center on Education and the Workforce, *The College Payoff* (2021) | https://cew.georgetown.edu/cew-reports/collegepayoff2021/ | Lifetime earnings by education (projection beyond 25) |
 | `pew` | Pew Research Center | https://www.pewresearch.org/ | Young-adult living arrangements, debt, attitudes (D13) |
 

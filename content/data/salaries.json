@@ -3817,8 +3817,10 @@
     },
     "hoursPerYearFullTime": {
       "value": 2080,
+      "sourceId": "bls_oews_technical",
+      "year": 2024,
       "assumption": true,
-      "note": "40 hours × 52 weeks, the convention BLS uses to annualize hourly wages. Part-time teen jobs need their own hours assumption."
+      "note": "BLS annualizes hourly wages by multiplying by \"a typical work year of 2,080 hours\" (OEWS technical notes). Part-time teen jobs need their own hours assumption."
     }
   },
   "missing": [
