@@ -1,0 +1,3834 @@
+{
+  "updated": "2026-10-22",
+  "notes": [
+    "BLS OOH pay is for all workers in an occupation (any experience level), May 2025, nominal dollars. The 10th percentile is the closest OOH gives to a starting wage.",
+    "College Scorecard earnings are medians for graduates working and not enrolled, measured in 2022–2023 and inflation-adjusted to 2024 dollars. 'Pell' medians are for graduates who received a Pell Grant, a proxy for lower-income students.",
+    "NY Fed outcomes by major are for 2024 (American Community Survey). Early career = ages 22–27, mid-career = ages 35–45; wages are for full-time workers with only a bachelor's degree.",
+    "Fields marked \"derived\": true are computed from published values using the stated method. Fields marked \"assumption\": true are modeling choices for the author to confirm.",
+    "Scorecard rows with fewer than 100 graduates are left out because their medians are unstable."
+  ],
+  "roles": {
+    "description": "Job titles the story can offer, linked to one BLS OOH occupation and (where a matching program exists) one Scorecard field of study. 'field' matches the career fields in docs/profile-spec.md; 'entry_level' roles are for teens and workers without a credential.",
+    "values": [
+      {
+        "id": "medical_assistant",
+        "title": "Medical assistant",
+        "field": "health",
+        "typicalCredential": "certificate",
+        "ooh": {
+          "profile": "Medical assistants",
+          "occupation": "medical assistants",
+          "url": "https://www.bls.gov/ooh/healthcare/medical-assistants.htm",
+          "entryEducation": "Postsecondary nondegree award",
+          "experience": "None",
+          "training": "None",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 45690,
+          "p10Annual": 36050,
+          "p90Annual": 59310
+        },
+        "scorecardLink": {
+          "cip": "5108",
+          "credential": "certificate"
+        }
+      },
+      {
+        "id": "emt",
+        "title": "Emergency medical technician",
+        "field": "health",
+        "typicalCredential": "certificate",
+        "ooh": {
+          "profile": "EMTs and paramedics",
+          "occupation": "emergency medical technicians",
+          "url": "https://www.bls.gov/ooh/healthcare/emts-and-paramedics.htm",
+          "entryEducation": "Postsecondary nondegree award",
+          "experience": "See How to Become One",
+          "training": "None",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 44470,
+          "p10Annual": 34130,
+          "p90Annual": 62500
+        },
+        "scorecardLink": {
+          "cip": "5109",
+          "credential": "certificate"
+        }
+      },
+      {
+        "id": "paramedic",
+        "title": "Paramedic",
+        "field": "health",
+        "typicalCredential": "certificate",
+        "ooh": {
+          "profile": "EMTs and paramedics",
+          "occupation": "paramedics",
+          "url": "https://www.bls.gov/ooh/healthcare/emts-and-paramedics.htm",
+          "entryEducation": "Postsecondary nondegree award",
+          "experience": "See How to Become One",
+          "training": "None",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 60600,
+          "p10Annual": 44230,
+          "p90Annual": 84850
+        },
+        "scorecardLink": {
+          "cip": "5109",
+          "credential": "associate"
+        }
+      },
+      {
+        "id": "registered_nurse",
+        "title": "Registered nurse",
+        "field": "health",
+        "typicalCredential": "bachelors",
+        "ooh": {
+          "profile": "Registered nurses",
+          "occupation": "registered nurses",
+          "url": "https://www.bls.gov/ooh/healthcare/registered-nurses.htm",
+          "entryEducation": "Bachelor's degree",
+          "experience": "None",
+          "training": "None",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 97550,
+          "p10Annual": 68940,
+          "p90Annual": 137470
+        },
+        "scorecardLink": {
+          "cip": "5138",
+          "credential": "bachelors"
+        }
+      },
+      {
+        "id": "physical_therapist",
+        "title": "Physical therapist",
+        "field": "health",
+        "typicalCredential": "doctoral",
+        "ooh": {
+          "profile": "Physical therapists",
+          "occupation": "physical therapists",
+          "url": "https://www.bls.gov/ooh/healthcare/physical-therapists.htm",
+          "entryEducation": "Doctoral or professional degree",
+          "experience": "None",
+          "training": "None",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 102760,
+          "p10Annual": 77140,
+          "p90Annual": 135140
+        },
+        "scorecardLink": {
+          "cip": "5123",
+          "credential": "doctoral"
+        }
+      },
+      {
+        "id": "it_support",
+        "title": "IT support specialist",
+        "field": "technology",
+        "typicalCredential": "associate",
+        "ooh": {
+          "profile": "Computer support specialists",
+          "occupation": "computer user support specialists",
+          "url": "https://www.bls.gov/ooh/computer-and-information-technology/computer-support-specialists.htm",
+          "entryEducation": "See How to Become One",
+          "experience": "None",
+          "training": "Moderate-term on-the-job training",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 61860,
+          "p10Annual": 40980,
+          "p90Annual": 100540
+        },
+        "scorecardLink": {
+          "cip": "1110",
+          "credential": "associate"
+        }
+      },
+      {
+        "id": "web_developer",
+        "title": "Web developer",
+        "field": "technology",
+        "typicalCredential": "bachelors",
+        "ooh": {
+          "profile": "Web developers and digital designers",
+          "occupation": "web developers",
+          "url": "https://www.bls.gov/ooh/computer-and-information-technology/web-developers.htm",
+          "entryEducation": "Bachelor's degree",
+          "experience": "None",
+          "training": "None",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 92650,
+          "p10Annual": 48100,
+          "p90Annual": 162290
+        },
+        "scorecardLink": {
+          "cip": "1101",
+          "credential": "bachelors"
+        }
+      },
+      {
+        "id": "software_engineer",
+        "title": "Software engineer",
+        "field": "technology",
+        "typicalCredential": "bachelors",
+        "ooh": {
+          "profile": "Software developers",
+          "occupation": "software developers",
+          "url": "https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm",
+          "entryEducation": "Bachelor's degree",
+          "experience": "None",
+          "training": "None",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 135980,
+          "p10Annual": 82460,
+          "p90Annual": 214670
+        },
+        "scorecardLink": {
+          "cip": "1107",
+          "credential": "bachelors"
+        }
+      },
+      {
+        "id": "data_scientist",
+        "title": "Data scientist",
+        "field": "technology",
+        "typicalCredential": "masters",
+        "ooh": {
+          "profile": "Data scientists",
+          "occupation": "data scientists",
+          "url": "https://www.bls.gov/ooh/math/data-scientists.htm",
+          "entryEducation": "Bachelor's degree",
+          "experience": "None",
+          "training": "None",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 120230,
+          "p10Annual": 67240,
+          "p90Annual": 199130
+        },
+        "scorecardLink": {
+          "cip": "1107",
+          "credential": "masters"
+        }
+      },
+      {
+        "id": "food_service_manager",
+        "title": "Restaurant or food service manager",
+        "field": "business",
+        "typicalCredential": "hs_diploma",
+        "ooh": {
+          "profile": "Food service managers",
+          "occupation": "food service managers",
+          "url": "https://www.bls.gov/ooh/management/food-service-managers.htm",
+          "entryEducation": "High school diploma or equivalent",
+          "experience": "Less than 5 years",
+          "training": "Short-term on-the-job training",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 69390,
+          "p10Annual": 45960,
+          "p90Annual": 107640
+        },
+        "scorecardLink": null
+      },
+      {
+        "id": "sales_rep",
+        "title": "Sales representative",
+        "field": "business",
+        "typicalCredential": "bachelors",
+        "ooh": {
+          "profile": "Wholesale and manufacturing sales representatives",
+          "occupation": "sales representatives, wholesale and manufacturing, except technical and scientific products",
+          "url": "https://www.bls.gov/ooh/sales/wholesale-and-manufacturing-sales-representatives.htm",
+          "entryEducation": "See How to Become One",
+          "experience": "None",
+          "training": "Moderate-term on-the-job training",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 72080,
+          "p10Annual": 39090,
+          "p90Annual": 137550
+        },
+        "scorecardLink": {
+          "cip": "5214",
+          "credential": "bachelors"
+        }
+      },
+      {
+        "id": "accountant",
+        "title": "Accountant",
+        "field": "business",
+        "typicalCredential": "bachelors",
+        "ooh": {
+          "profile": "Accountants and auditors",
+          "occupation": "accountants and auditors",
+          "url": "https://www.bls.gov/ooh/business-and-financial/accountants-and-auditors.htm",
+          "entryEducation": "Bachelor's degree",
+          "experience": "None",
+          "training": "None",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 83680,
+          "p10Annual": 56020,
+          "p90Annual": 144090
+        },
+        "scorecardLink": {
+          "cip": "5203",
+          "credential": "bachelors"
+        }
+      },
+      {
+        "id": "consultant",
+        "title": "Management consultant",
+        "field": "business",
+        "typicalCredential": "bachelors",
+        "ooh": {
+          "profile": "Management analysts",
+          "occupation": "management analysts",
+          "url": "https://www.bls.gov/ooh/business-and-financial/management-analysts.htm",
+          "entryEducation": "Bachelor's degree",
+          "experience": "Less than 5 years",
+          "training": "None",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 101860,
+          "p10Annual": 60640,
+          "p90Annual": 171640
+        },
+        "scorecardLink": {
+          "cip": "5202",
+          "credential": "bachelors"
+        }
+      },
+      {
+        "id": "electrician",
+        "title": "Electrician",
+        "field": "skilled_trades",
+        "typicalCredential": "apprenticeship",
+        "ooh": {
+          "profile": "Electricians",
+          "occupation": "electricians",
+          "url": "https://www.bls.gov/ooh/construction-and-extraction/electricians.htm",
+          "entryEducation": "High school diploma or equivalent",
+          "experience": "None",
+          "training": "Apprenticeship",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 63190,
+          "p10Annual": 42640,
+          "p90Annual": 108510
+        },
+        "scorecardLink": {
+          "cip": "4603",
+          "credential": "certificate"
+        }
+      },
+      {
+        "id": "welder",
+        "title": "Welder",
+        "field": "skilled_trades",
+        "typicalCredential": "certificate",
+        "ooh": {
+          "profile": "Welders",
+          "occupation": "welders, cutters, solderers, and brazers",
+          "url": "https://www.bls.gov/ooh/production/welders-cutters-solderers-and-brazers.htm",
+          "entryEducation": "High school diploma or equivalent",
+          "experience": "None",
+          "training": "Moderate-term on-the-job training",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 53750,
+          "p10Annual": 39240,
+          "p90Annual": 77530
+        },
+        "scorecardLink": {
+          "cip": "4805",
+          "credential": "certificate"
+        }
+      },
+      {
+        "id": "hvac_technician",
+        "title": "HVAC technician",
+        "field": "skilled_trades",
+        "typicalCredential": "certificate",
+        "ooh": {
+          "profile": "HVAC mechanics",
+          "occupation": "heating, air conditioning, and refrigeration mechanics and installers",
+          "url": "https://www.bls.gov/ooh/installation-maintenance-and-repair/heating-air-conditioning-and-refrigeration-mechanics-and-installers.htm",
+          "entryEducation": "Postsecondary nondegree award",
+          "experience": "None",
+          "training": "Long-term on-the-job training",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 61010,
+          "p10Annual": 40050,
+          "p90Annual": 95210
+        },
+        "scorecardLink": {
+          "cip": "4702",
+          "credential": "certificate"
+        }
+      },
+      {
+        "id": "construction_manager",
+        "title": "Construction manager",
+        "field": "skilled_trades",
+        "typicalCredential": "bachelors",
+        "ooh": {
+          "profile": "Construction managers",
+          "occupation": "construction managers",
+          "url": "https://www.bls.gov/ooh/management/construction-managers.htm",
+          "entryEducation": "Bachelor's degree",
+          "experience": "None",
+          "training": "Moderate-term on-the-job training",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 114990,
+          "p10Annual": 69690,
+          "p90Annual": 189440
+        },
+        "scorecardLink": null
+      },
+      {
+        "id": "teacher_aide",
+        "title": "Teacher's aide",
+        "field": "education",
+        "typicalCredential": "some_college",
+        "ooh": {
+          "profile": "Teacher assistants",
+          "occupation": "teacher assistants",
+          "url": "https://www.bls.gov/ooh/education-training-and-library/teacher-assistants.htm",
+          "entryEducation": "Some college, no degree",
+          "experience": "None",
+          "training": "None",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 36780,
+          "p10Annual": 27150,
+          "p90Annual": 50040
+        },
+        "scorecardLink": {
+          "cip": "1315",
+          "credential": "certificate"
+        }
+      },
+      {
+        "id": "coach",
+        "title": "Coach",
+        "field": "education",
+        "typicalCredential": "bachelors",
+        "ooh": {
+          "profile": "Coaches and scouts",
+          "occupation": "coaches and scouts",
+          "url": "https://www.bls.gov/ooh/entertainment-and-sports/coaches-and-scouts.htm",
+          "entryEducation": "Bachelor's degree",
+          "experience": "None",
+          "training": "None",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 47320,
+          "p10Annual": 28790,
+          "p90Annual": 98860
+        },
+        "scorecardLink": null
+      },
+      {
+        "id": "elementary_teacher",
+        "title": "Elementary school teacher",
+        "field": "education",
+        "typicalCredential": "bachelors",
+        "ooh": {
+          "profile": "Kindergarten and elementary school teachers",
+          "occupation": "elementary school teachers, except special education",
+          "url": "https://www.bls.gov/ooh/education-training-and-library/kindergarten-and-elementary-school-teachers.htm",
+          "entryEducation": "Bachelor's degree",
+          "experience": "None",
+          "training": "None",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 63970,
+          "p10Annual": 47960,
+          "p90Annual": 104340
+        },
+        "scorecardLink": {
+          "cip": "1312",
+          "credential": "bachelors"
+        }
+      },
+      {
+        "id": "high_school_teacher",
+        "title": "High school teacher",
+        "field": "education",
+        "typicalCredential": "bachelors",
+        "ooh": {
+          "profile": "High school teachers",
+          "occupation": "high school teachers",
+          "url": "https://www.bls.gov/ooh/education-training-and-library/high-school-teachers.htm",
+          "entryEducation": "Bachelor's degree",
+          "experience": "None",
+          "training": "None",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 72040,
+          "p10Annual": 48780,
+          "p90Annual": 107600
+        },
+        "scorecardLink": {
+          "cip": "1312",
+          "credential": "bachelors"
+        }
+      },
+      {
+        "id": "graphic_designer",
+        "title": "Graphic designer",
+        "field": "creative",
+        "typicalCredential": "bachelors",
+        "ooh": {
+          "profile": "Graphic designers",
+          "occupation": "graphic designers",
+          "url": "https://www.bls.gov/ooh/arts-and-design/graphic-designers.htm",
+          "entryEducation": "Bachelor's degree",
+          "experience": "None",
+          "training": "None",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 62960,
+          "p10Annual": 39520,
+          "p90Annual": 104910
+        },
+        "scorecardLink": {
+          "cip": "5004",
+          "credential": "bachelors"
+        }
+      },
+      {
+        "id": "musician",
+        "title": "Musician",
+        "field": "creative",
+        "typicalCredential": "none",
+        "ooh": {
+          "profile": "Musicians and singers",
+          "occupation": "musicians and singers",
+          "url": "https://www.bls.gov/ooh/entertainment-and-sports/musicians-and-singers.htm",
+          "entryEducation": "No formal educational credential",
+          "experience": "None",
+          "training": "Long-term on-the-job training",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianHourly": 47.8,
+          "p10Hourly": 20.35
+        },
+        "scorecardLink": {
+          "cip": "5009",
+          "credential": "bachelors"
+        }
+      },
+      {
+        "id": "video_editor",
+        "title": "Video editor",
+        "field": "creative",
+        "typicalCredential": "bachelors",
+        "ooh": {
+          "profile": "Film and video editors",
+          "occupation": "film and video editors",
+          "url": "https://www.bls.gov/ooh/media-and-communication/film-and-video-editors-and-camera-operators.htm",
+          "entryEducation": "Bachelor's degree",
+          "experience": "None",
+          "training": "None",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 75420,
+          "p10Annual": 40280,
+          "p90Annual": 148550
+        },
+        "scorecardLink": {
+          "cip": "5006",
+          "credential": "bachelors"
+        }
+      },
+      {
+        "id": "writer",
+        "title": "Writer",
+        "field": "creative",
+        "typicalCredential": "bachelors",
+        "ooh": {
+          "profile": "Writers and authors",
+          "occupation": "writers and authors",
+          "url": "https://www.bls.gov/ooh/media-and-communication/writers-and-authors.htm",
+          "entryEducation": "Bachelor's degree",
+          "experience": "None",
+          "training": "Long-term on-the-job training",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 76910,
+          "p10Annual": 44310,
+          "p90Annual": 139870
+        },
+        "scorecardLink": {
+          "cip": "2313",
+          "credential": "bachelors"
+        }
+      },
+      {
+        "id": "firefighter",
+        "title": "Firefighter",
+        "field": "public_service",
+        "typicalCredential": "certificate",
+        "ooh": {
+          "profile": "Firefighters",
+          "occupation": "firefighters",
+          "url": "https://www.bls.gov/ooh/protective-service/firefighters.htm",
+          "entryEducation": "Postsecondary nondegree award",
+          "experience": "None",
+          "training": "Long-term on-the-job training",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 59280,
+          "p10Annual": 34910,
+          "p90Annual": 101040
+        },
+        "scorecardLink": {
+          "cip": "4302",
+          "credential": "certificate"
+        }
+      },
+      {
+        "id": "police_officer",
+        "title": "Police officer",
+        "field": "public_service",
+        "typicalCredential": "hs_diploma",
+        "ooh": {
+          "profile": "Police and detectives",
+          "occupation": "police and detectives",
+          "url": "https://www.bls.gov/ooh/protective-service/police-and-detectives.htm",
+          "entryEducation": "See How to Become One",
+          "experience": "See How to Become One",
+          "training": "Moderate-term on-the-job training",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 77310,
+          "p10Annual": 48160,
+          "p90Annual": 121600
+        },
+        "scorecardLink": {
+          "cip": "4301",
+          "credential": "associate"
+        }
+      },
+      {
+        "id": "nonprofit_staff",
+        "title": "Nonprofit or social service staff",
+        "field": "public_service",
+        "typicalCredential": "hs_diploma",
+        "ooh": {
+          "profile": "Social and human service assistants",
+          "occupation": "social and human service assistants",
+          "url": "https://www.bls.gov/ooh/community-and-social-service/social-and-human-service-assistants.htm",
+          "entryEducation": "High school diploma or equivalent",
+          "experience": "None",
+          "training": "Short-term on-the-job training",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 45930,
+          "p10Annual": 34200,
+          "p90Annual": 63290
+        },
+        "scorecardLink": {
+          "cip": "4407",
+          "credential": "bachelors"
+        }
+      },
+      {
+        "id": "policy_analyst",
+        "title": "Policy analyst",
+        "field": "public_service",
+        "typicalCredential": "masters",
+        "ooh": {
+          "profile": "Political scientists",
+          "occupation": "political scientists",
+          "url": "https://www.bls.gov/ooh/life-physical-and-social-science/political-scientists.htm",
+          "entryEducation": "Master's degree",
+          "experience": "None",
+          "training": "None",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 142080,
+          "p10Annual": 83350,
+          "p90Annual": 195190
+        },
+        "scorecardLink": {
+          "cip": "4405",
+          "credential": "masters"
+        }
+      },
+      {
+        "id": "cashier",
+        "title": "Cashier",
+        "field": "entry_level",
+        "typicalCredential": "none",
+        "ooh": {
+          "profile": "Cashiers",
+          "occupation": "cashiers",
+          "url": "https://www.bls.gov/ooh/sales/cashiers.htm",
+          "entryEducation": "No formal educational credential",
+          "experience": "None",
+          "training": "Short-term on-the-job training",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianHourly": 15.81,
+          "p10Hourly": 11.79,
+          "medianAnnual": 32880
+        },
+        "scorecardLink": null
+      },
+      {
+        "id": "retail_salesperson",
+        "title": "Retail salesperson",
+        "field": "entry_level",
+        "typicalCredential": "none",
+        "ooh": {
+          "profile": "Retail sales workers",
+          "occupation": "retail salespersons",
+          "url": "https://www.bls.gov/ooh/sales/retail-sales-workers.htm",
+          "entryEducation": "No formal educational credential",
+          "experience": "None",
+          "training": "See How to Become One",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianHourly": 17.03,
+          "p10Hourly": 13.08
+        },
+        "scorecardLink": null
+      },
+      {
+        "id": "customer_service_rep",
+        "title": "Customer service representative",
+        "field": "entry_level",
+        "typicalCredential": "hs_diploma",
+        "ooh": {
+          "profile": "Customer service representatives",
+          "occupation": "customer service representatives",
+          "url": "https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm",
+          "entryEducation": "High school diploma or equivalent",
+          "experience": "None",
+          "training": "Short-term on-the-job training",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianHourly": 21.53,
+          "p10Hourly": 15.27,
+          "medianAnnual": 44770
+        },
+        "scorecardLink": null
+      },
+      {
+        "id": "warehouse_worker",
+        "title": "Warehouse worker or material mover",
+        "field": "entry_level",
+        "typicalCredential": "none",
+        "ooh": {
+          "profile": "Hand laborers and material movers",
+          "occupation": "hand laborers and material movers",
+          "url": "https://www.bls.gov/ooh/transportation-and-material-moving/hand-laborers-and-material-movers.htm",
+          "entryEducation": "No formal educational credential",
+          "experience": "None",
+          "training": "Short-term on-the-job training",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianAnnual": 38220,
+          "p10Annual": 30190,
+          "p90Annual": 52340
+        },
+        "scorecardLink": null
+      },
+      {
+        "id": "food_server",
+        "title": "Restaurant server or food service worker",
+        "field": "entry_level",
+        "typicalCredential": "none",
+        "ooh": {
+          "profile": "Food and beverage serving workers",
+          "occupation": "food and beverage serving and related workers",
+          "url": "https://www.bls.gov/ooh/food-preparation-and-serving/food-and-beverage-serving-and-related-workers.htm",
+          "entryEducation": "No formal educational credential",
+          "experience": "None",
+          "training": "Short-term on-the-job training",
+          "sourceId": "bls_ooh",
+          "year": 2025,
+          "period": "May 2025",
+          "medianHourly": 15.24,
+          "p10Hourly": 10.98,
+          "medianAnnual": 31710
+        },
+        "scorecardLink": null
+      }
+    ]
+  },
+  "earningsByFieldOfStudy": {
+    "description": "National median earnings by field of study (4-digit CIP) and credential level, all institutions combined, as published by College Scorecard.",
+    "sourceId": "college_scorecard",
+    "year": 2024,
+    "dollarYear": 2024,
+    "measured": "Calendar years 2022 and 2023 (pooled)",
+    "cohorts": {
+      "1yr": "Completed in AY 2020-21 or 2021-22",
+      "5yr": "Completed in AY 2016-17 or 2017-18"
+    },
+    "fields": "EARN_MDN_1YR_NAT, EARN_P25_1YR_NAT, EARN_P75_1YR_NAT, EARN_MDN_PELL_1YR_NAT, EARN_MDN_5YR_NAT, EARN_MDN_PELL_5YR_NAT, EARN_COUNT_WNE_1YR_NAT",
+    "values": {
+      "technology": [
+        {
+          "cip": "1101",
+          "cipDesc": "Computer and Information Sciences, General",
+          "credential": "associate",
+          "earn1yrMedian": 43763,
+          "earn1yrP25": 28133,
+          "earn1yrP75": 60544,
+          "earn1yrMedianPell": 42748,
+          "earn5yrMedian": 56211,
+          "earn5yrMedianPell": 54344,
+          "graduates1yr": 6586
+        },
+        {
+          "cip": "1101",
+          "cipDesc": "Computer and Information Sciences, General",
+          "credential": "bachelors",
+          "earn1yrMedian": 70762,
+          "earn1yrP25": 48087,
+          "earn1yrP75": 94103,
+          "earn1yrMedianPell": 67458,
+          "earn5yrMedian": 98966,
+          "earn5yrMedianPell": 93687,
+          "graduates1yr": 44537
+        },
+        {
+          "cip": "1101",
+          "cipDesc": "Computer and Information Sciences, General",
+          "credential": "certificate",
+          "earn1yrMedian": 44167,
+          "earn1yrP25": 28349,
+          "earn1yrP75": 62194,
+          "earn1yrMedianPell": 42726,
+          "earn5yrMedian": 53621,
+          "earn5yrMedianPell": 51755,
+          "graduates1yr": 2963
+        },
+        {
+          "cip": "1101",
+          "cipDesc": "Computer and Information Sciences, General",
+          "credential": "doctoral",
+          "earn1yrMedian": 140683,
+          "earn1yrP25": 97716,
+          "earn1yrP75": 190124,
+          "earn1yrMedianPell": 128954,
+          "earn5yrMedian": 150017,
+          "earn5yrMedianPell": 138891,
+          "graduates1yr": 330
+        },
+        {
+          "cip": "1101",
+          "cipDesc": "Computer and Information Sciences, General",
+          "credential": "masters",
+          "earn1yrMedian": 101139,
+          "earn1yrP25": 74009,
+          "earn1yrP75": 138123,
+          "earn1yrMedianPell": 97075,
+          "earn5yrMedian": 127423,
+          "earn5yrMedianPell": 117583,
+          "graduates1yr": 7348
+        },
+        {
+          "cip": "1107",
+          "cipDesc": "Computer Science",
+          "credential": "associate",
+          "earn1yrMedian": 41515,
+          "earn1yrP25": 22750,
+          "earn1yrP75": 63406,
+          "earn1yrMedianPell": 40341,
+          "earn5yrMedian": 65421,
+          "earn5yrMedianPell": 62749,
+          "graduates1yr": 993
+        },
+        {
+          "cip": "1107",
+          "cipDesc": "Computer Science",
+          "credential": "bachelors",
+          "earn1yrMedian": 80182,
+          "earn1yrP25": 53663,
+          "earn1yrP75": 106060,
+          "earn1yrMedianPell": 76958,
+          "earn5yrMedian": 116280,
+          "earn5yrMedianPell": 111304,
+          "graduates1yr": 35263
+        },
+        {
+          "cip": "1107",
+          "cipDesc": "Computer Science",
+          "credential": "certificate",
+          "earn1yrMedian": 72159,
+          "earn1yrP25": 46928,
+          "earn1yrP75": 99634,
+          "earn1yrMedianPell": 71044,
+          "earn5yrMedian": 55506,
+          "earn5yrMedianPell": 44182,
+          "graduates1yr": 139
+        },
+        {
+          "cip": "1107",
+          "cipDesc": "Computer Science",
+          "credential": "doctoral",
+          "earn1yrMedian": 154893,
+          "earn1yrP25": 98384,
+          "earn1yrP75": 225929,
+          "earn1yrMedianPell": 151468,
+          "earn5yrMedian": 174607,
+          "earn5yrMedianPell": 170759,
+          "graduates1yr": 316
+        },
+        {
+          "cip": "1107",
+          "cipDesc": "Computer Science",
+          "credential": "masters",
+          "earn1yrMedian": 116146,
+          "earn1yrP25": 86039,
+          "earn1yrP75": 158162,
+          "earn1yrMedianPell": 111824,
+          "earn5yrMedian": 152128,
+          "earn5yrMedianPell": 146705,
+          "graduates1yr": 3499
+        },
+        {
+          "cip": "1110",
+          "cipDesc": "Computer/Information Technology Administration and Management",
+          "credential": "associate",
+          "earn1yrMedian": 46417,
+          "earn1yrP25": 32368,
+          "earn1yrP75": 61307,
+          "earn1yrMedianPell": 45633,
+          "earn5yrMedian": 56943,
+          "earn5yrMedianPell": 55489,
+          "graduates1yr": 4766
+        },
+        {
+          "cip": "1110",
+          "cipDesc": "Computer/Information Technology Administration and Management",
+          "credential": "bachelors",
+          "earn1yrMedian": 69677,
+          "earn1yrP25": 48891,
+          "earn1yrP75": 94749,
+          "earn1yrMedianPell": 68311,
+          "earn5yrMedian": 88171,
+          "earn5yrMedianPell": 84383,
+          "graduates1yr": 10572
+        },
+        {
+          "cip": "1110",
+          "cipDesc": "Computer/Information Technology Administration and Management",
+          "credential": "certificate",
+          "earn1yrMedian": 47595,
+          "earn1yrP25": 31808,
+          "earn1yrP75": 68008,
+          "earn1yrMedianPell": 44317,
+          "earn5yrMedian": 51851,
+          "earn5yrMedianPell": 49569,
+          "graduates1yr": 3416
+        },
+        {
+          "cip": "1110",
+          "cipDesc": "Computer/Information Technology Administration and Management",
+          "credential": "doctoral",
+          "earn1yrMedian": 165005,
+          "earn1yrP25": 105941,
+          "earn1yrP75": 229379,
+          "earn1yrMedianPell": 166667,
+          "earn5yrMedian": 118630,
+          "earn5yrMedianPell": 128400,
+          "graduates1yr": 130
+        },
+        {
+          "cip": "1110",
+          "cipDesc": "Computer/Information Technology Administration and Management",
+          "credential": "masters",
+          "earn1yrMedian": 102108,
+          "earn1yrP25": 73404,
+          "earn1yrP75": 141044,
+          "earn1yrMedianPell": 98196,
+          "earn5yrMedian": 125372,
+          "earn5yrMedianPell": 121956,
+          "graduates1yr": 5700
+        }
+      ],
+      "education": [
+        {
+          "cip": "1301",
+          "cipDesc": "Education, General",
+          "credential": "associate",
+          "earn1yrMedian": 28911,
+          "earn1yrP25": 19661,
+          "earn1yrP75": 40699,
+          "earn1yrMedianPell": 28862,
+          "earn5yrMedian": 43237,
+          "earn5yrMedianPell": 42235,
+          "graduates1yr": 649
+        },
+        {
+          "cip": "1301",
+          "cipDesc": "Education, General",
+          "credential": "bachelors",
+          "earn1yrMedian": 44614,
+          "earn1yrP25": 33739,
+          "earn1yrP75": 53730,
+          "earn1yrMedianPell": 44143,
+          "earn5yrMedian": 51407,
+          "earn5yrMedianPell": 50346,
+          "graduates1yr": 9571
+        },
+        {
+          "cip": "1301",
+          "cipDesc": "Education, General",
+          "credential": "certificate",
+          "earn1yrMedian": 53127,
+          "earn1yrP25": 36717,
+          "earn1yrP75": 76047,
+          "earn1yrMedianPell": 48968,
+          "earn5yrMedian": 48125,
+          "earn5yrMedianPell": 43412,
+          "graduates1yr": 150
+        },
+        {
+          "cip": "1301",
+          "cipDesc": "Education, General",
+          "credential": "doctoral",
+          "earn1yrMedian": 84643,
+          "earn1yrP25": 63516,
+          "earn1yrP75": 110648,
+          "earn1yrMedianPell": 81264,
+          "earn5yrMedian": 90259,
+          "earn5yrMedianPell": 88048,
+          "graduates1yr": 2763
+        },
+        {
+          "cip": "1301",
+          "cipDesc": "Education, General",
+          "credential": "masters",
+          "earn1yrMedian": 60851,
+          "earn1yrP25": 49739,
+          "earn1yrP75": 72722,
+          "earn1yrMedianPell": 60890,
+          "earn5yrMedian": 67422,
+          "earn5yrMedianPell": 66848,
+          "graduates1yr": 21247
+        },
+        {
+          "cip": "1301",
+          "cipDesc": "Education, General",
+          "credential": "professional",
+          "earn1yrMedian": 57614,
+          "earn1yrP25": 45937,
+          "earn1yrP75": 79100,
+          "earn1yrMedianPell": 55816,
+          "earn5yrMedian": 70415,
+          "earn5yrMedianPell": 68283,
+          "graduates1yr": 172
+        },
+        {
+          "cip": "1312",
+          "cipDesc": "Teacher Education and Professional Development, Specific Levels and Methods",
+          "credential": "associate",
+          "earn1yrMedian": 30190,
+          "earn1yrP25": 20273,
+          "earn1yrP75": 40123,
+          "earn1yrMedianPell": 29889,
+          "earn5yrMedian": 38614,
+          "earn5yrMedianPell": 37963,
+          "graduates1yr": 5825
+        },
+        {
+          "cip": "1312",
+          "cipDesc": "Teacher Education and Professional Development, Specific Levels and Methods",
+          "credential": "bachelors",
+          "earn1yrMedian": 44159,
+          "earn1yrP25": 36328,
+          "earn1yrP75": 51387,
+          "earn1yrMedianPell": 43430,
+          "earn5yrMedian": 48512,
+          "earn5yrMedianPell": 47580,
+          "graduates1yr": 58872
+        },
+        {
+          "cip": "1312",
+          "cipDesc": "Teacher Education and Professional Development, Specific Levels and Methods",
+          "credential": "certificate",
+          "earn1yrMedian": 32866,
+          "earn1yrP25": 21952,
+          "earn1yrP75": 43344,
+          "earn1yrMedianPell": 31740,
+          "earn5yrMedian": 35169,
+          "earn5yrMedianPell": 33683,
+          "graduates1yr": 1597
+        },
+        {
+          "cip": "1312",
+          "cipDesc": "Teacher Education and Professional Development, Specific Levels and Methods",
+          "credential": "doctoral",
+          "earn1yrMedian": 80449,
+          "earn1yrP25": 62094,
+          "earn1yrP75": 103585,
+          "earn1yrMedianPell": 77817,
+          "earn5yrMedian": 84038,
+          "earn5yrMedianPell": 78497,
+          "graduates1yr": 712
+        },
+        {
+          "cip": "1312",
+          "cipDesc": "Teacher Education and Professional Development, Specific Levels and Methods",
+          "credential": "masters",
+          "earn1yrMedian": 55886,
+          "earn1yrP25": 46461,
+          "earn1yrP75": 66964,
+          "earn1yrMedianPell": 55805,
+          "earn5yrMedian": 61178,
+          "earn5yrMedianPell": 60841,
+          "graduates1yr": 36443
+        },
+        {
+          "cip": "1315",
+          "cipDesc": "Teaching Assistants/Aides",
+          "credential": "associate",
+          "earn1yrMedian": 28477,
+          "earn1yrP25": 18200,
+          "earn1yrP75": 38957,
+          "earn1yrMedianPell": 28051,
+          "earn5yrMedian": 35786,
+          "earn5yrMedianPell": 35616,
+          "graduates1yr": 497
+        },
+        {
+          "cip": "1315",
+          "cipDesc": "Teaching Assistants/Aides",
+          "credential": "certificate",
+          "earn1yrMedian": 23489,
+          "earn1yrP25": 13929,
+          "earn1yrP75": 35606,
+          "earn1yrMedianPell": 23182,
+          "earn5yrMedian": 23919,
+          "earn5yrMedianPell": 23391,
+          "graduates1yr": 942
+        }
+      ],
+      "creative": [
+        {
+          "cip": "2313",
+          "cipDesc": "Rhetoric and Composition/Writing Studies",
+          "credential": "associate",
+          "earn1yrMedian": 27917,
+          "earn1yrP25": 17358,
+          "earn1yrP75": 41922,
+          "earn1yrMedianPell": 25829,
+          "earn5yrMedian": 44686,
+          "earn5yrMedianPell": 42852,
+          "graduates1yr": 139
+        },
+        {
+          "cip": "2313",
+          "cipDesc": "Rhetoric and Composition/Writing Studies",
+          "credential": "bachelors",
+          "earn1yrMedian": 35087,
+          "earn1yrP25": 21095,
+          "earn1yrP75": 49564,
+          "earn1yrMedianPell": 33599,
+          "earn5yrMedian": 52068,
+          "earn5yrMedianPell": 49008,
+          "graduates1yr": 7289
+        },
+        {
+          "cip": "2313",
+          "cipDesc": "Rhetoric and Composition/Writing Studies",
+          "credential": "certificate",
+          "earn1yrMedian": 39278,
+          "earn1yrP25": 24553,
+          "earn1yrP75": 55924,
+          "earn1yrMedianPell": 35335,
+          "earn5yrMedian": 58063,
+          "earn5yrMedianPell": 52737,
+          "graduates1yr": 372
+        },
+        {
+          "cip": "2313",
+          "cipDesc": "Rhetoric and Composition/Writing Studies",
+          "credential": "doctoral",
+          "earn1yrMedian": 68340,
+          "earn1yrP25": 56002,
+          "earn1yrP75": 87298,
+          "earn1yrMedianPell": 65596,
+          "earn5yrMedian": 78085,
+          "earn5yrMedianPell": 77248,
+          "graduates1yr": 165
+        },
+        {
+          "cip": "2313",
+          "cipDesc": "Rhetoric and Composition/Writing Studies",
+          "credential": "masters",
+          "earn1yrMedian": 45729,
+          "earn1yrP25": 25665,
+          "earn1yrP75": 65870,
+          "earn1yrMedianPell": 44570,
+          "earn5yrMedian": 57548,
+          "earn5yrMedianPell": 55168,
+          "graduates1yr": 3852
+        },
+        {
+          "cip": "5004",
+          "cipDesc": "Design and Applied Arts",
+          "credential": "associate",
+          "earn1yrMedian": 31578,
+          "earn1yrP25": 18530,
+          "earn1yrP75": 44292,
+          "earn1yrMedianPell": 30260,
+          "earn5yrMedian": 39339,
+          "earn5yrMedianPell": 37822,
+          "graduates1yr": 4678
+        },
+        {
+          "cip": "5004",
+          "cipDesc": "Design and Applied Arts",
+          "credential": "bachelors",
+          "earn1yrMedian": 39422,
+          "earn1yrP25": 23684,
+          "earn1yrP75": 54076,
+          "earn1yrMedianPell": 37654,
+          "earn5yrMedian": 55092,
+          "earn5yrMedianPell": 51865,
+          "graduates1yr": 22892
+        },
+        {
+          "cip": "5004",
+          "cipDesc": "Design and Applied Arts",
+          "credential": "certificate",
+          "earn1yrMedian": 33047,
+          "earn1yrP25": 17718,
+          "earn1yrP75": 49334,
+          "earn1yrMedianPell": 29976,
+          "earn5yrMedian": 36443,
+          "earn5yrMedianPell": 33313,
+          "graduates1yr": 1571
+        },
+        {
+          "cip": "5004",
+          "cipDesc": "Design and Applied Arts",
+          "credential": "masters",
+          "earn1yrMedian": 58414,
+          "earn1yrP25": 33298,
+          "earn1yrP75": 83735,
+          "earn1yrMedianPell": 56483,
+          "earn5yrMedian": 69720,
+          "earn5yrMedianPell": 62736,
+          "graduates1yr": 1479
+        },
+        {
+          "cip": "5006",
+          "cipDesc": "Film/Video and Photographic Arts",
+          "credential": "associate",
+          "earn1yrMedian": 28195,
+          "earn1yrP25": 15641,
+          "earn1yrP75": 41008,
+          "earn1yrMedianPell": 28286,
+          "earn5yrMedian": 35848,
+          "earn5yrMedianPell": 35022,
+          "graduates1yr": 905
+        },
+        {
+          "cip": "5006",
+          "cipDesc": "Film/Video and Photographic Arts",
+          "credential": "bachelors",
+          "earn1yrMedian": 31110,
+          "earn1yrP25": 18014,
+          "earn1yrP75": 45584,
+          "earn1yrMedianPell": 30339,
+          "earn5yrMedian": 47336,
+          "earn5yrMedianPell": 45215,
+          "graduates1yr": 12988
+        },
+        {
+          "cip": "5006",
+          "cipDesc": "Film/Video and Photographic Arts",
+          "credential": "certificate",
+          "earn1yrMedian": 29024,
+          "earn1yrP25": 15464,
+          "earn1yrP75": 42963,
+          "earn1yrMedianPell": 27663,
+          "earn5yrMedian": 34266,
+          "earn5yrMedianPell": 32068,
+          "graduates1yr": 783
+        },
+        {
+          "cip": "5006",
+          "cipDesc": "Film/Video and Photographic Arts",
+          "credential": "masters",
+          "earn1yrMedian": 40230,
+          "earn1yrP25": 21799,
+          "earn1yrP75": 61259,
+          "earn1yrMedianPell": 40207,
+          "earn5yrMedian": 54834,
+          "earn5yrMedianPell": 49927,
+          "graduates1yr": 1374
+        },
+        {
+          "cip": "5009",
+          "cipDesc": "Music",
+          "credential": "associate",
+          "earn1yrMedian": 26345,
+          "earn1yrP25": 14217,
+          "earn1yrP75": 39349,
+          "earn1yrMedianPell": 26602,
+          "earn5yrMedian": 34940,
+          "earn5yrMedianPell": 34699,
+          "graduates1yr": 1190
+        },
+        {
+          "cip": "5009",
+          "cipDesc": "Music",
+          "credential": "bachelors",
+          "earn1yrMedian": 33156,
+          "earn1yrP25": 19548,
+          "earn1yrP75": 47584,
+          "earn1yrMedianPell": 32829,
+          "earn5yrMedian": 44832,
+          "earn5yrMedianPell": 42948,
+          "graduates1yr": 13251
+        },
+        {
+          "cip": "5009",
+          "cipDesc": "Music",
+          "credential": "certificate",
+          "earn1yrMedian": 27777,
+          "earn1yrP25": 14229,
+          "earn1yrP75": 42455,
+          "earn1yrMedianPell": 27515,
+          "earn5yrMedian": 37101,
+          "earn5yrMedianPell": 35803,
+          "graduates1yr": 219
+        },
+        {
+          "cip": "5009",
+          "cipDesc": "Music",
+          "credential": "doctoral",
+          "earn1yrMedian": 49615,
+          "earn1yrP25": 28995,
+          "earn1yrP75": 65873,
+          "earn1yrMedianPell": 49872,
+          "earn5yrMedian": 59895,
+          "earn5yrMedianPell": 59751,
+          "graduates1yr": 1117
+        },
+        {
+          "cip": "5009",
+          "cipDesc": "Music",
+          "credential": "masters",
+          "earn1yrMedian": 39213,
+          "earn1yrP25": 22145,
+          "earn1yrP75": 57193,
+          "earn1yrMedianPell": 39135,
+          "earn5yrMedian": 50224,
+          "earn5yrMedianPell": 47777,
+          "graduates1yr": 4576
+        }
+      ],
+      "public_service": [
+        {
+          "cip": "4301",
+          "cipDesc": "Criminal Justice and Corrections",
+          "credential": "associate",
+          "earn1yrMedian": 40997,
+          "earn1yrP25": 26646,
+          "earn1yrP75": 56654,
+          "earn1yrMedianPell": 40054,
+          "earn5yrMedian": 48568,
+          "earn5yrMedianPell": 47138,
+          "graduates1yr": 14517
+        },
+        {
+          "cip": "4301",
+          "cipDesc": "Criminal Justice and Corrections",
+          "credential": "bachelors",
+          "earn1yrMedian": 43365,
+          "earn1yrP25": 30273,
+          "earn1yrP75": 57266,
+          "earn1yrMedianPell": 42613,
+          "earn5yrMedian": 57826,
+          "earn5yrMedianPell": 55452,
+          "graduates1yr": 59261
+        },
+        {
+          "cip": "4301",
+          "cipDesc": "Criminal Justice and Corrections",
+          "credential": "certificate",
+          "earn1yrMedian": 55215,
+          "earn1yrP25": 40547,
+          "earn1yrP75": 69823,
+          "earn1yrMedianPell": 53571,
+          "earn5yrMedian": 58202,
+          "earn5yrMedianPell": 55700,
+          "graduates1yr": 8800
+        },
+        {
+          "cip": "4301",
+          "cipDesc": "Criminal Justice and Corrections",
+          "credential": "doctoral",
+          "earn1yrMedian": 84027,
+          "earn1yrP25": 63207,
+          "earn1yrP75": 109872,
+          "earn1yrMedianPell": 82619,
+          "earn5yrMedian": 87903,
+          "earn5yrMedianPell": 92174,
+          "graduates1yr": 299
+        },
+        {
+          "cip": "4301",
+          "cipDesc": "Criminal Justice and Corrections",
+          "credential": "masters",
+          "earn1yrMedian": 58044,
+          "earn1yrP25": 43114,
+          "earn1yrP75": 80340,
+          "earn1yrMedianPell": 55811,
+          "earn5yrMedian": 67914,
+          "earn5yrMedianPell": 63714,
+          "graduates1yr": 8272
+        },
+        {
+          "cip": "4302",
+          "cipDesc": "Fire Protection",
+          "credential": "associate",
+          "earn1yrMedian": 62186,
+          "earn1yrP25": 43288,
+          "earn1yrP75": 85377,
+          "earn1yrMedianPell": 59223,
+          "earn5yrMedian": 73424,
+          "earn5yrMedianPell": 70906,
+          "graduates1yr": 1552
+        },
+        {
+          "cip": "4302",
+          "cipDesc": "Fire Protection",
+          "credential": "bachelors",
+          "earn1yrMedian": 80581,
+          "earn1yrP25": 57535,
+          "earn1yrP75": 107741,
+          "earn1yrMedianPell": 74029,
+          "earn5yrMedian": 87885,
+          "earn5yrMedianPell": 81936,
+          "graduates1yr": 1073
+        },
+        {
+          "cip": "4302",
+          "cipDesc": "Fire Protection",
+          "credential": "certificate",
+          "earn1yrMedian": 52514,
+          "earn1yrP25": 39547,
+          "earn1yrP75": 66802,
+          "earn1yrMedianPell": 51094,
+          "earn5yrMedian": 66093,
+          "earn5yrMedianPell": 63104,
+          "graduates1yr": 1475
+        },
+        {
+          "cip": "4302",
+          "cipDesc": "Fire Protection",
+          "credential": "masters",
+          "earn1yrMedian": 76492,
+          "earn1yrP25": 55596,
+          "earn1yrP75": 104753,
+          "earn1yrMedianPell": 70956,
+          "earn5yrMedian": 93660,
+          "earn5yrMedianPell": 71149,
+          "graduates1yr": 141
+        },
+        {
+          "cip": "4405",
+          "cipDesc": "Public Policy Analysis",
+          "credential": "bachelors",
+          "earn1yrMedian": 53031,
+          "earn1yrP25": 36139,
+          "earn1yrP75": 71849,
+          "earn1yrMedianPell": 50017,
+          "earn5yrMedian": 80787,
+          "earn5yrMedianPell": 74996,
+          "graduates1yr": 1940
+        },
+        {
+          "cip": "4405",
+          "cipDesc": "Public Policy Analysis",
+          "credential": "doctoral",
+          "earn1yrMedian": 102462,
+          "earn1yrP25": 76739,
+          "earn1yrP75": 138222,
+          "earn1yrMedianPell": 99121,
+          "earn5yrMedian": 121595,
+          "earn5yrMedianPell": 123995,
+          "graduates1yr": 220
+        },
+        {
+          "cip": "4405",
+          "cipDesc": "Public Policy Analysis",
+          "credential": "masters",
+          "earn1yrMedian": 74461,
+          "earn1yrP25": 58250,
+          "earn1yrP75": 94824,
+          "earn1yrMedianPell": 74984,
+          "earn5yrMedian": 100720,
+          "earn5yrMedianPell": 96269,
+          "graduates1yr": 2981
+        },
+        {
+          "cip": "4405",
+          "cipDesc": "Public Policy Analysis",
+          "credential": "professional",
+          "earn1yrMedian": 84849,
+          "earn1yrP25": 75627,
+          "earn1yrP75": 106193,
+          "earn1yrMedianPell": 86072,
+          "earn5yrMedian": 117262,
+          "earn5yrMedianPell": 122386,
+          "graduates1yr": 104
+        },
+        {
+          "cip": "4407",
+          "cipDesc": "Social Work",
+          "credential": "associate",
+          "earn1yrMedian": 34827,
+          "earn1yrP25": 23121,
+          "earn1yrP75": 45664,
+          "earn1yrMedianPell": 34531,
+          "earn5yrMedian": 41695,
+          "earn5yrMedianPell": 40887,
+          "graduates1yr": 817
+        },
+        {
+          "cip": "4407",
+          "cipDesc": "Social Work",
+          "credential": "bachelors",
+          "earn1yrMedian": 41160,
+          "earn1yrP25": 30271,
+          "earn1yrP75": 50261,
+          "earn1yrMedianPell": 41070,
+          "earn5yrMedian": 53234,
+          "earn5yrMedianPell": 52406,
+          "graduates1yr": 17635
+        },
+        {
+          "cip": "4407",
+          "cipDesc": "Social Work",
+          "credential": "certificate",
+          "earn1yrMedian": 38578,
+          "earn1yrP25": 22386,
+          "earn1yrP75": 49727,
+          "earn1yrMedianPell": 37606,
+          "earn5yrMedian": 47116,
+          "earn5yrMedianPell": 44892,
+          "graduates1yr": 234
+        },
+        {
+          "cip": "4407",
+          "cipDesc": "Social Work",
+          "credential": "doctoral",
+          "earn1yrMedian": 90482,
+          "earn1yrP25": 70163,
+          "earn1yrP75": 114315,
+          "earn1yrMedianPell": 89143,
+          "earn5yrMedian": 99443,
+          "earn5yrMedianPell": 99814,
+          "graduates1yr": 873
+        },
+        {
+          "cip": "4407",
+          "cipDesc": "Social Work",
+          "credential": "masters",
+          "earn1yrMedian": 58029,
+          "earn1yrP25": 47080,
+          "earn1yrP75": 69599,
+          "earn1yrMedianPell": 58098,
+          "earn5yrMedian": 67520,
+          "earn5yrMedianPell": 67676,
+          "graduates1yr": 50382
+        },
+        {
+          "cip": "4407",
+          "cipDesc": "Social Work",
+          "credential": "professional",
+          "earn1yrMedian": 59396,
+          "earn1yrP25": 49508,
+          "earn1yrP75": 75807,
+          "earn1yrMedianPell": 60997,
+          "earn5yrMedian": 66251,
+          "earn5yrMedianPell": 65853,
+          "graduates1yr": 628
+        },
+        {
+          "cip": "4510",
+          "cipDesc": "Political Science and Government",
+          "credential": "associate",
+          "earn1yrMedian": 34854,
+          "earn1yrP25": 21605,
+          "earn1yrP75": 51689,
+          "earn1yrMedianPell": 35262,
+          "earn5yrMedian": 48679,
+          "earn5yrMedianPell": 48442,
+          "graduates1yr": 178
+        },
+        {
+          "cip": "4510",
+          "cipDesc": "Political Science and Government",
+          "credential": "bachelors",
+          "earn1yrMedian": 43306,
+          "earn1yrP25": 27040,
+          "earn1yrP75": 58087,
+          "earn1yrMedianPell": 42007,
+          "earn5yrMedian": 69240,
+          "earn5yrMedianPell": 65449,
+          "graduates1yr": 36807
+        },
+        {
+          "cip": "4510",
+          "cipDesc": "Political Science and Government",
+          "credential": "certificate",
+          "earn1yrMedian": 47929,
+          "earn1yrP25": 34869,
+          "earn1yrP75": 58373,
+          "earn1yrMedianPell": 41664,
+          "earn5yrMedian": 78646,
+          "earn5yrMedianPell": 73129,
+          "graduates1yr": 195
+        },
+        {
+          "cip": "4510",
+          "cipDesc": "Political Science and Government",
+          "credential": "doctoral",
+          "earn1yrMedian": 76315,
+          "earn1yrP25": 58190,
+          "earn1yrP75": 102944,
+          "earn1yrMedianPell": 74838,
+          "earn5yrMedian": 92461,
+          "earn5yrMedianPell": 93211,
+          "graduates1yr": 582
+        },
+        {
+          "cip": "4510",
+          "cipDesc": "Political Science and Government",
+          "credential": "masters",
+          "earn1yrMedian": 60737,
+          "earn1yrP25": 43089,
+          "earn1yrP75": 82342,
+          "earn1yrMedianPell": 58504,
+          "earn5yrMedian": 83081,
+          "earn5yrMedianPell": 79679,
+          "graduates1yr": 1392
+        }
+      ],
+      "skilled_trades": [
+        {
+          "cip": "4603",
+          "cipDesc": "Electrical and Power Transmission Installers",
+          "credential": "associate",
+          "earn1yrMedian": 55611,
+          "earn1yrP25": 40655,
+          "earn1yrP75": 77466,
+          "earn1yrMedianPell": 53638,
+          "earn5yrMedian": 71513,
+          "earn5yrMedianPell": 67929,
+          "graduates1yr": 3677
+        },
+        {
+          "cip": "4603",
+          "cipDesc": "Electrical and Power Transmission Installers",
+          "credential": "certificate",
+          "earn1yrMedian": 44469,
+          "earn1yrP25": 29965,
+          "earn1yrP75": 61571,
+          "earn1yrMedianPell": 42959,
+          "earn5yrMedian": 55923,
+          "earn5yrMedianPell": 52965,
+          "graduates1yr": 15430
+        },
+        {
+          "cip": "4702",
+          "cipDesc": "Heating, Air Conditioning, Ventilation and Refrigeration Maintenance Technology/Technician (HAC, HACR, HVAC, HVACR)",
+          "credential": "associate",
+          "earn1yrMedian": 48589,
+          "earn1yrP25": 35747,
+          "earn1yrP75": 61906,
+          "earn1yrMedianPell": 47538,
+          "earn5yrMedian": 58764,
+          "earn5yrMedianPell": 57617,
+          "graduates1yr": 1968
+        },
+        {
+          "cip": "4702",
+          "cipDesc": "Heating, Air Conditioning, Ventilation and Refrigeration Maintenance Technology/Technician (HAC, HACR, HVAC, HVACR)",
+          "credential": "certificate",
+          "earn1yrMedian": 42278,
+          "earn1yrP25": 27448,
+          "earn1yrP75": 55962,
+          "earn1yrMedianPell": 41436,
+          "earn5yrMedian": 50076,
+          "earn5yrMedianPell": 48704,
+          "graduates1yr": 17698
+        },
+        {
+          "cip": "4805",
+          "cipDesc": "Precision Metal Working",
+          "credential": "associate",
+          "earn1yrMedian": 48947,
+          "earn1yrP25": 35994,
+          "earn1yrP75": 61727,
+          "earn1yrMedianPell": 47831,
+          "earn5yrMedian": 57956,
+          "earn5yrMedianPell": 56248,
+          "graduates1yr": 3790
+        },
+        {
+          "cip": "4805",
+          "cipDesc": "Precision Metal Working",
+          "credential": "certificate",
+          "earn1yrMedian": 42421,
+          "earn1yrP25": 27194,
+          "earn1yrP75": 56378,
+          "earn1yrMedianPell": 41164,
+          "earn5yrMedian": 51060,
+          "earn5yrMedianPell": 49400,
+          "graduates1yr": 25811
+        }
+      ],
+      "health": [
+        {
+          "cip": "5108",
+          "cipDesc": "Allied Health and Medical Assisting Services",
+          "credential": "associate",
+          "earn1yrMedian": 40233,
+          "earn1yrP25": 28052,
+          "earn1yrP75": 52249,
+          "earn1yrMedianPell": 38828,
+          "earn5yrMedian": 42084,
+          "earn5yrMedianPell": 40593,
+          "graduates1yr": 24103
+        },
+        {
+          "cip": "5108",
+          "cipDesc": "Allied Health and Medical Assisting Services",
+          "credential": "bachelors",
+          "earn1yrMedian": 47668,
+          "earn1yrP25": 31974,
+          "earn1yrP75": 63588,
+          "earn1yrMedianPell": 48809,
+          "earn5yrMedian": 75630,
+          "earn5yrMedianPell": 67132,
+          "graduates1yr": 667
+        },
+        {
+          "cip": "5108",
+          "cipDesc": "Allied Health and Medical Assisting Services",
+          "credential": "certificate",
+          "earn1yrMedian": 32268,
+          "earn1yrP25": 20738,
+          "earn1yrP75": 40706,
+          "earn1yrMedianPell": 31907,
+          "earn5yrMedian": 35257,
+          "earn5yrMedianPell": 34915,
+          "graduates1yr": 74584
+        },
+        {
+          "cip": "5108",
+          "cipDesc": "Allied Health and Medical Assisting Services",
+          "credential": "masters",
+          "earn1yrMedian": 162274,
+          "earn1yrP25": 102445,
+          "earn1yrP75": 216012,
+          "earn1yrMedianPell": 149141,
+          "earn5yrMedian": 161634,
+          "earn5yrMedianPell": 159059,
+          "graduates1yr": 867
+        },
+        {
+          "cip": "5109",
+          "cipDesc": "Allied Health Diagnostic, Intervention, and Treatment Professions",
+          "credential": "associate",
+          "earn1yrMedian": 61169,
+          "earn1yrP25": 45798,
+          "earn1yrP75": 76408,
+          "earn1yrMedianPell": 60099,
+          "earn5yrMedian": 65504,
+          "earn5yrMedianPell": 64333,
+          "graduates1yr": 33256
+        },
+        {
+          "cip": "5109",
+          "cipDesc": "Allied Health Diagnostic, Intervention, and Treatment Professions",
+          "credential": "bachelors",
+          "earn1yrMedian": 69634,
+          "earn1yrP25": 50417,
+          "earn1yrP75": 89075,
+          "earn1yrMedianPell": 69518,
+          "earn5yrMedian": 71070,
+          "earn5yrMedianPell": 70646,
+          "graduates1yr": 9921
+        },
+        {
+          "cip": "5109",
+          "cipDesc": "Allied Health Diagnostic, Intervention, and Treatment Professions",
+          "credential": "certificate",
+          "earn1yrMedian": 55124,
+          "earn1yrP25": 37073,
+          "earn1yrP75": 74763,
+          "earn1yrMedianPell": 53262,
+          "earn5yrMedian": 57990,
+          "earn5yrMedianPell": 55085,
+          "graduates1yr": 14307
+        },
+        {
+          "cip": "5109",
+          "cipDesc": "Allied Health Diagnostic, Intervention, and Treatment Professions",
+          "credential": "doctoral",
+          "earn1yrMedian": 133866,
+          "earn1yrP25": 82376,
+          "earn1yrP75": 177917,
+          "earn1yrMedianPell": 135173,
+          "earn5yrMedian": 88538,
+          "earn5yrMedianPell": 83064,
+          "graduates1yr": 717
+        },
+        {
+          "cip": "5109",
+          "cipDesc": "Allied Health Diagnostic, Intervention, and Treatment Professions",
+          "credential": "masters",
+          "earn1yrMedian": 113770,
+          "earn1yrP25": 92612,
+          "earn1yrP75": 134434,
+          "earn1yrMedianPell": 112740,
+          "earn5yrMedian": 128277,
+          "earn5yrMedianPell": 128365,
+          "graduates1yr": 19773
+        },
+        {
+          "cip": "5109",
+          "cipDesc": "Allied Health Diagnostic, Intervention, and Treatment Professions",
+          "credential": "professional",
+          "earn1yrMedian": 119358,
+          "earn1yrP25": 101716,
+          "earn1yrP75": 145082,
+          "earn1yrMedianPell": 124917,
+          "earn5yrMedian": 125482,
+          "earn5yrMedianPell": 128442,
+          "graduates1yr": 344
+        },
+        {
+          "cip": "5123",
+          "cipDesc": "Rehabilitation and Therapeutic Professions",
+          "credential": "associate",
+          "earn1yrMedian": 37810,
+          "earn1yrP25": 21691,
+          "earn1yrP75": 51364,
+          "earn1yrMedianPell": 36469,
+          "earn5yrMedian": 45850,
+          "earn5yrMedianPell": 45140,
+          "graduates1yr": 327
+        },
+        {
+          "cip": "5123",
+          "cipDesc": "Rehabilitation and Therapeutic Professions",
+          "credential": "bachelors",
+          "earn1yrMedian": 38781,
+          "earn1yrP25": 26891,
+          "earn1yrP75": 48942,
+          "earn1yrMedianPell": 37822,
+          "earn5yrMedian": 56902,
+          "earn5yrMedianPell": 52779,
+          "graduates1yr": 3059
+        },
+        {
+          "cip": "5123",
+          "cipDesc": "Rehabilitation and Therapeutic Professions",
+          "credential": "certificate",
+          "earn1yrMedian": 38181,
+          "earn1yrP25": 25727,
+          "earn1yrP75": 50888,
+          "earn1yrMedianPell": 37739,
+          "earn5yrMedian": 48147,
+          "earn5yrMedianPell": 39499,
+          "graduates1yr": 184
+        },
+        {
+          "cip": "5123",
+          "cipDesc": "Rehabilitation and Therapeutic Professions",
+          "credential": "doctoral",
+          "earn1yrMedian": 76911,
+          "earn1yrP25": 67295,
+          "earn1yrP75": 86231,
+          "earn1yrMedianPell": 77367,
+          "earn5yrMedian": 84353,
+          "earn5yrMedianPell": 85249,
+          "graduates1yr": 16601
+        },
+        {
+          "cip": "5123",
+          "cipDesc": "Rehabilitation and Therapeutic Professions",
+          "credential": "masters",
+          "earn1yrMedian": 66283,
+          "earn1yrP25": 50382,
+          "earn1yrP75": 78332,
+          "earn1yrMedianPell": 63945,
+          "earn5yrMedian": 71866,
+          "earn5yrMedianPell": 71156,
+          "graduates1yr": 13521
+        },
+        {
+          "cip": "5123",
+          "cipDesc": "Rehabilitation and Therapeutic Professions",
+          "credential": "professional",
+          "earn1yrMedian": 76937,
+          "earn1yrP25": 67353,
+          "earn1yrP75": 86052,
+          "earn1yrMedianPell": 77401,
+          "earn5yrMedian": 82735,
+          "earn5yrMedianPell": 82821,
+          "graduates1yr": 5859
+        },
+        {
+          "cip": "5138",
+          "cipDesc": "Registered Nursing, Nursing Administration, Nursing Research and Clinical Nursing",
+          "credential": "associate",
+          "earn1yrMedian": 75149,
+          "earn1yrP25": 60372,
+          "earn1yrP75": 91267,
+          "earn1yrMedianPell": 75013,
+          "earn5yrMedian": 81454,
+          "earn5yrMedianPell": 81431,
+          "graduates1yr": 80684
+        },
+        {
+          "cip": "5138",
+          "cipDesc": "Registered Nursing, Nursing Administration, Nursing Research and Clinical Nursing",
+          "credential": "bachelors",
+          "earn1yrMedian": 84093,
+          "earn1yrP25": 69516,
+          "earn1yrP75": 103912,
+          "earn1yrMedianPell": 84339,
+          "earn5yrMedian": 90887,
+          "earn5yrMedianPell": 90853,
+          "graduates1yr": 221244
+        },
+        {
+          "cip": "5138",
+          "cipDesc": "Registered Nursing, Nursing Administration, Nursing Research and Clinical Nursing",
+          "credential": "certificate",
+          "earn1yrMedian": 74894,
+          "earn1yrP25": 59431,
+          "earn1yrP75": 93103,
+          "earn1yrMedianPell": 73868,
+          "earn5yrMedian": 80469,
+          "earn5yrMedianPell": 78271,
+          "graduates1yr": 2873
+        },
+        {
+          "cip": "5138",
+          "cipDesc": "Registered Nursing, Nursing Administration, Nursing Research and Clinical Nursing",
+          "credential": "doctoral",
+          "earn1yrMedian": 134383,
+          "earn1yrP25": 102549,
+          "earn1yrP75": 188887,
+          "earn1yrMedianPell": 132164,
+          "earn5yrMedian": 136389,
+          "earn5yrMedianPell": 135304,
+          "graduates1yr": 13831
+        },
+        {
+          "cip": "5138",
+          "cipDesc": "Registered Nursing, Nursing Administration, Nursing Research and Clinical Nursing",
+          "credential": "masters",
+          "earn1yrMedian": 109092,
+          "earn1yrP25": 86828,
+          "earn1yrP75": 134300,
+          "earn1yrMedianPell": 108940,
+          "earn5yrMedian": 122490,
+          "earn5yrMedianPell": 122124,
+          "graduates1yr": 75751
+        },
+        {
+          "cip": "5138",
+          "cipDesc": "Registered Nursing, Nursing Administration, Nursing Research and Clinical Nursing",
+          "credential": "professional",
+          "earn1yrMedian": 121988,
+          "earn1yrP25": 99602,
+          "earn1yrP75": 163221,
+          "earn1yrMedianPell": 120184,
+          "earn5yrMedian": 137284,
+          "earn5yrMedianPell": 135267,
+          "graduates1yr": 2234
+        }
+      ],
+      "business": [
+        {
+          "cip": "5202",
+          "cipDesc": "Business Administration, Management and Operations",
+          "credential": "associate",
+          "earn1yrMedian": 41208,
+          "earn1yrP25": 26146,
+          "earn1yrP75": 57732,
+          "earn1yrMedianPell": 40233,
+          "earn5yrMedian": 50489,
+          "earn5yrMedianPell": 48556,
+          "graduates1yr": 25718
+        },
+        {
+          "cip": "5202",
+          "cipDesc": "Business Administration, Management and Operations",
+          "credential": "bachelors",
+          "earn1yrMedian": 55206,
+          "earn1yrP25": 38730,
+          "earn1yrP75": 73671,
+          "earn1yrMedianPell": 53313,
+          "earn5yrMedian": 71390,
+          "earn5yrMedianPell": 66800,
+          "graduates1yr": 168652
+        },
+        {
+          "cip": "5202",
+          "cipDesc": "Business Administration, Management and Operations",
+          "credential": "certificate",
+          "earn1yrMedian": 44510,
+          "earn1yrP25": 27490,
+          "earn1yrP75": 64216,
+          "earn1yrMedianPell": 42325,
+          "earn5yrMedian": 49581,
+          "earn5yrMedianPell": 46731,
+          "graduates1yr": 6613
+        },
+        {
+          "cip": "5202",
+          "cipDesc": "Business Administration, Management and Operations",
+          "credential": "doctoral",
+          "earn1yrMedian": 104798,
+          "earn1yrP25": 69505,
+          "earn1yrP75": 152428,
+          "earn1yrMedianPell": 98021,
+          "earn5yrMedian": 113414,
+          "earn5yrMedianPell": 106115,
+          "graduates1yr": 2770
+        },
+        {
+          "cip": "5202",
+          "cipDesc": "Business Administration, Management and Operations",
+          "credential": "masters",
+          "earn1yrMedian": 86260,
+          "earn1yrP25": 60837,
+          "earn1yrP75": 125828,
+          "earn1yrMedianPell": 80471,
+          "earn5yrMedian": 107252,
+          "earn5yrMedianPell": 94789,
+          "graduates1yr": 125575
+        },
+        {
+          "cip": "5202",
+          "cipDesc": "Business Administration, Management and Operations",
+          "credential": "professional",
+          "earn1yrMedian": 172723,
+          "earn1yrP25": 110301,
+          "earn1yrP75": 237695,
+          "earn1yrMedianPell": 170993,
+          "earn5yrMedian": 219819,
+          "earn5yrMedianPell": 198307,
+          "graduates1yr": 884
+        },
+        {
+          "cip": "5203",
+          "cipDesc": "Accounting and Related Services",
+          "credential": "associate",
+          "earn1yrMedian": 41647,
+          "earn1yrP25": 28106,
+          "earn1yrP75": 54734,
+          "earn1yrMedianPell": 40742,
+          "earn5yrMedian": 48920,
+          "earn5yrMedianPell": 47347,
+          "graduates1yr": 6942
+        },
+        {
+          "cip": "5203",
+          "cipDesc": "Accounting and Related Services",
+          "credential": "bachelors",
+          "earn1yrMedian": 60798,
+          "earn1yrP25": 45506,
+          "earn1yrP75": 73949,
+          "earn1yrMedianPell": 57474,
+          "earn5yrMedian": 80105,
+          "earn5yrMedianPell": 74613,
+          "graduates1yr": 44210
+        },
+        {
+          "cip": "5203",
+          "cipDesc": "Accounting and Related Services",
+          "credential": "certificate",
+          "earn1yrMedian": 40897,
+          "earn1yrP25": 26239,
+          "earn1yrP75": 56709,
+          "earn1yrMedianPell": 39107,
+          "earn5yrMedian": 45272,
+          "earn5yrMedianPell": 43487,
+          "graduates1yr": 3452
+        },
+        {
+          "cip": "5203",
+          "cipDesc": "Accounting and Related Services",
+          "credential": "masters",
+          "earn1yrMedian": 74869,
+          "earn1yrP25": 64362,
+          "earn1yrP75": 87392,
+          "earn1yrMedianPell": 73888,
+          "earn5yrMedian": 101080,
+          "earn5yrMedianPell": 95732,
+          "graduates1yr": 20391
+        },
+        {
+          "cip": "5208",
+          "cipDesc": "Finance and Financial Management Services",
+          "credential": "associate",
+          "earn1yrMedian": 42478,
+          "earn1yrP25": 32694,
+          "earn1yrP75": 53845,
+          "earn1yrMedianPell": 42020,
+          "earn5yrMedian": 50352,
+          "earn5yrMedianPell": 47601,
+          "graduates1yr": 206
+        },
+        {
+          "cip": "5208",
+          "cipDesc": "Finance and Financial Management Services",
+          "credential": "bachelors",
+          "earn1yrMedian": 63115,
+          "earn1yrP25": 46867,
+          "earn1yrP75": 78445,
+          "earn1yrMedianPell": 59958,
+          "earn5yrMedian": 89719,
+          "earn5yrMedianPell": 83162,
+          "graduates1yr": 43988
+        },
+        {
+          "cip": "5208",
+          "cipDesc": "Finance and Financial Management Services",
+          "credential": "certificate",
+          "earn1yrMedian": 51339,
+          "earn1yrP25": 32337,
+          "earn1yrP75": 66185,
+          "earn1yrMedianPell": 50125,
+          "earn5yrMedian": 52130,
+          "earn5yrMedianPell": 40708,
+          "graduates1yr": 271
+        },
+        {
+          "cip": "5208",
+          "cipDesc": "Finance and Financial Management Services",
+          "credential": "masters",
+          "earn1yrMedian": 86560,
+          "earn1yrP25": 63859,
+          "earn1yrP75": 122773,
+          "earn1yrMedianPell": 80360,
+          "earn5yrMedian": 117142,
+          "earn5yrMedianPell": 99656,
+          "graduates1yr": 3294
+        },
+        {
+          "cip": "5214",
+          "cipDesc": "Marketing",
+          "credential": "associate",
+          "earn1yrMedian": 38094,
+          "earn1yrP25": 23884,
+          "earn1yrP75": 51124,
+          "earn1yrMedianPell": 37251,
+          "earn5yrMedian": 44473,
+          "earn5yrMedianPell": 42451,
+          "graduates1yr": 1173
+        },
+        {
+          "cip": "5214",
+          "cipDesc": "Marketing",
+          "credential": "bachelors",
+          "earn1yrMedian": 52121,
+          "earn1yrP25": 36981,
+          "earn1yrP75": 67192,
+          "earn1yrMedianPell": 49135,
+          "earn5yrMedian": 74459,
+          "earn5yrMedianPell": 69150,
+          "graduates1yr": 47563
+        },
+        {
+          "cip": "5214",
+          "cipDesc": "Marketing",
+          "credential": "certificate",
+          "earn1yrMedian": 43966,
+          "earn1yrP25": 27189,
+          "earn1yrP75": 59308,
+          "earn1yrMedianPell": 42155,
+          "earn5yrMedian": 49195,
+          "earn5yrMedianPell": 45587,
+          "graduates1yr": 617
+        },
+        {
+          "cip": "5214",
+          "cipDesc": "Marketing",
+          "credential": "masters",
+          "earn1yrMedian": 67286,
+          "earn1yrP25": 47045,
+          "earn1yrP75": 90423,
+          "earn1yrMedianPell": 61540,
+          "earn5yrMedian": 85519,
+          "earn5yrMedianPell": 75580,
+          "graduates1yr": 3053
+        }
+      ]
+    }
+  },
+  "earningsByCollegeTier": {
+    "description": "Median earnings of graduates by college tier and credential: mean of program-level medians weighted by the number of graduates with earnings. Tiers use the same definitions as net-price.json.",
+    "derived": true,
+    "sourceId": "college_scorecard",
+    "year": 2024,
+    "dollarYear": 2024,
+    "measured": "Calendar years 2022 and 2023 (pooled)",
+    "cohorts": {
+      "1yr": "Completed in AY 2020-21 or 2021-22",
+      "5yr": "Completed in AY 2016-17 or 2017-18"
+    },
+    "fields": "EARN_MDN_1YR, EARN_MDN_5YR weighted by EARN_COUNT_WNE_1YR / EARN_COUNT_WNE_5YR",
+    "caveat": "Differences between tiers reflect field mix and who is admitted, not only the college itself. See oi_college_admissions for causal estimates of attending an Ivy-Plus college.",
+    "values": {
+      "hbcu_public": {
+        "label": "Public HBCU",
+        "bachelors": {
+          "earn1yr": 46509,
+          "earn1yrMedianOfPrograms": 40092,
+          "programs1yr": 431,
+          "graduates1yr": 20362,
+          "earn5yr": 56814,
+          "earn5yrMedianOfPrograms": 51962,
+          "graduates5yr": 23812
+        },
+        "associate": {
+          "earn1yr": 53815,
+          "earn1yrMedianOfPrograms": 45849,
+          "programs1yr": 19,
+          "graduates1yr": 1014,
+          "earn5yr": 58540,
+          "earn5yrMedianOfPrograms": 56869,
+          "graduates5yr": 1151
+        }
+      },
+      "flagship_proxy_public_r1": {
+        "label": "Public research university (flagship proxy)",
+        "bachelors": {
+          "earn1yr": 54110,
+          "earn1yrMedianOfPrograms": 46376,
+          "programs1yr": 5345,
+          "graduates1yr": 581563,
+          "earn5yr": 75920,
+          "earn5yrMedianOfPrograms": 68196,
+          "graduates5yr": 583749
+        },
+        "certificate": {
+          "earn1yr": 58093,
+          "earn1yrMedianOfPrograms": 51779,
+          "programs1yr": 147,
+          "graduates1yr": 7959,
+          "earn5yr": 79584,
+          "earn5yrMedianOfPrograms": 72245,
+          "graduates5yr": 5153
+        },
+        "associate": {
+          "earn1yr": 45274,
+          "earn1yrMedianOfPrograms": 42136,
+          "programs1yr": 73,
+          "graduates1yr": 5137,
+          "earn5yr": 52567,
+          "earn5yrMedianOfPrograms": 50190,
+          "graduates5yr": 8554
+        }
+      },
+      "community_college": {
+        "label": "Community college",
+        "associate": {
+          "earn1yr": 49407,
+          "earn1yrMedianOfPrograms": 44084,
+          "programs1yr": 3466,
+          "graduates1yr": 178374,
+          "earn5yr": 54488,
+          "earn5yrMedianOfPrograms": 51324,
+          "graduates5yr": 348688
+        },
+        "certificate": {
+          "earn1yr": 44105,
+          "earn1yrMedianOfPrograms": 42301,
+          "programs1yr": 1773,
+          "graduates1yr": 66564,
+          "earn5yr": 51353,
+          "earn5yrMedianOfPrograms": 48569,
+          "graduates5yr": 97667
+        }
+      },
+      "regional_public": {
+        "label": "Regional public university",
+        "bachelors": {
+          "earn1yr": 50601,
+          "earn1yrMedianOfPrograms": 43814,
+          "programs1yr": 5065,
+          "graduates1yr": 371530,
+          "earn5yr": 66215,
+          "earn5yrMedianOfPrograms": 58686,
+          "graduates5yr": 404723
+        },
+        "associate": {
+          "earn1yr": 49418,
+          "earn1yrMedianOfPrograms": 46816,
+          "programs1yr": 162,
+          "graduates1yr": 7874,
+          "earn5yr": 58512,
+          "earn5yrMedianOfPrograms": 57147,
+          "graduates5yr": 21145
+        },
+        "certificate": {
+          "earn1yr": 50726,
+          "earn1yrMedianOfPrograms": 47472,
+          "programs1yr": 63,
+          "graduates1yr": 2380,
+          "earn5yr": 66922,
+          "earn5yrMedianOfPrograms": 63034,
+          "graduates5yr": 2627
+        }
+      },
+      "hbcu_private_nonprofit": {
+        "label": "Private nonprofit HBCU",
+        "bachelors": {
+          "earn1yr": 45663,
+          "earn1yrMedianOfPrograms": 37434,
+          "programs1yr": 150,
+          "graduates1yr": 5735,
+          "earn5yr": 56203,
+          "earn5yrMedianOfPrograms": 50052,
+          "graduates5yr": 6690
+        }
+      },
+      "elite_private": {
+        "label": "Elite private (Ivy-Plus)",
+        "bachelors": {
+          "earn1yr": 85074,
+          "earn1yrMedianOfPrograms": 63072,
+          "programs1yr": 212,
+          "graduates1yr": 11113,
+          "earn5yr": 126358,
+          "earn5yrMedianOfPrograms": 98111,
+          "graduates5yr": 9883
+        }
+      }
+    }
+  },
+  "earningsByCollegeTierAndField": {
+    "description": "Bachelor's-degree graduates' earnings one year after completing, by tier and career field (fields as defined by the CIP codes in earningsByFieldOfStudy).",
+    "derived": true,
+    "sourceId": "college_scorecard",
+    "year": 2024,
+    "dollarYear": 2024,
+    "measured": "Calendar years 2022 and 2023 (pooled)",
+    "cohorts": {
+      "1yr": "Completed in AY 2020-21 or 2021-22",
+      "5yr": "Completed in AY 2016-17 or 2017-18"
+    },
+    "values": {
+      "technology": {
+        "hbcu_public": {
+          "earn1yr": 69991,
+          "graduates1yr": 690,
+          "programs1yr": 19
+        },
+        "flagship_proxy_public_r1": {
+          "earn1yr": 83995,
+          "graduates1yr": 30500,
+          "programs1yr": 141
+        },
+        "regional_public": {
+          "earn1yr": 67680,
+          "graduates1yr": 16532,
+          "programs1yr": 212
+        },
+        "elite_private": {
+          "earn1yr": 145827,
+          "graduates1yr": 1708,
+          "programs1yr": 14
+        },
+        "hbcu_private_nonprofit": {
+          "earn1yr": 87795,
+          "graduates1yr": 168,
+          "programs1yr": 6
+        }
+      },
+      "public_service": {
+        "hbcu_public": {
+          "earn1yr": 38836,
+          "graduates1yr": 3103,
+          "programs1yr": 62
+        },
+        "flagship_proxy_public_r1": {
+          "earn1yr": 42836,
+          "graduates1yr": 28785,
+          "programs1yr": 216
+        },
+        "regional_public": {
+          "earn1yr": 43370,
+          "graduates1yr": 25601,
+          "programs1yr": 361
+        },
+        "hbcu_private_nonprofit": {
+          "earn1yr": 40958,
+          "graduates1yr": 668,
+          "programs1yr": 17
+        },
+        "elite_private": {
+          "earn1yr": 69416,
+          "graduates1yr": 1101,
+          "programs1yr": 16
+        }
+      },
+      "business": {
+        "hbcu_public": {
+          "earn1yr": 45777,
+          "graduates1yr": 3063,
+          "programs1yr": 58
+        },
+        "flagship_proxy_public_r1": {
+          "earn1yr": 60484,
+          "graduates1yr": 68932,
+          "programs1yr": 329
+        },
+        "regional_public": {
+          "earn1yr": 53662,
+          "graduates1yr": 61812,
+          "programs1yr": 557
+        },
+        "hbcu_private_nonprofit": {
+          "earn1yr": 51139,
+          "graduates1yr": 1088,
+          "programs1yr": 24
+        },
+        "elite_private": {
+          "earn1yr": 132252,
+          "graduates1yr": 206,
+          "programs1yr": 3
+        }
+      },
+      "education": {
+        "flagship_proxy_public_r1": {
+          "earn1yr": 46257,
+          "graduates1yr": 12206,
+          "programs1yr": 84
+        },
+        "hbcu_public": {
+          "earn1yr": 46387,
+          "graduates1yr": 526,
+          "programs1yr": 17
+        },
+        "regional_public": {
+          "earn1yr": 43847,
+          "graduates1yr": 17143,
+          "programs1yr": 200
+        }
+      },
+      "creative": {
+        "flagship_proxy_public_r1": {
+          "earn1yr": 38415,
+          "graduates1yr": 11539,
+          "programs1yr": 178
+        },
+        "regional_public": {
+          "earn1yr": 37058,
+          "graduates1yr": 7038,
+          "programs1yr": 130
+        }
+      },
+      "health": {
+        "flagship_proxy_public_r1": {
+          "earn1yr": 81567,
+          "graduates1yr": 33609,
+          "programs1yr": 109
+        },
+        "hbcu_public": {
+          "earn1yr": 74911,
+          "graduates1yr": 2246,
+          "programs1yr": 25
+        },
+        "regional_public": {
+          "earn1yr": 83056,
+          "graduates1yr": 31901,
+          "programs1yr": 223
+        },
+        "hbcu_private_nonprofit": {
+          "earn1yr": 80736,
+          "graduates1yr": 211,
+          "programs1yr": 4
+        },
+        "elite_private": {
+          "earn1yr": 88884,
+          "graduates1yr": 411,
+          "programs1yr": 2
+        }
+      }
+    }
+  },
+  "recentGradOutcomesByMajor": {
+    "description": "Labor market outcomes of recent college graduates by major.",
+    "sourceId": "nyfed_recent_grads",
+    "year": 2024,
+    "released": "2026-02-04",
+    "underlyingData": "U.S. Census Bureau, American Community Survey (IPUMS)",
+    "definitions": {
+      "unemploymentRate": "Percent, recent graduates aged 22–27 with a bachelor's degree or higher",
+      "underemploymentRate": "Percent working in jobs that typically do not require a college degree",
+      "medianWageEarlyCareer": "USD, full-time workers aged 22–27 with a bachelor's degree only",
+      "medianWageMidCareer": "USD, full-time workers aged 35–45 with a bachelor's degree only",
+      "shareWithGraduateDegree": "Percent of bachelor's holders aged 25–65 with a graduate degree"
+    },
+    "fieldMap": {
+      "health": [
+        "Nursing",
+        "Health Services",
+        "Medical Technicians",
+        "Treatment Therapy"
+      ],
+      "technology": [
+        "Computer Science",
+        "Information Systems & Management",
+        "Computer Engineering"
+      ],
+      "business": [
+        "General Business",
+        "Accounting",
+        "Business Management",
+        "Marketing",
+        "Finance"
+      ],
+      "skilled_trades": [
+        "Construction Services",
+        "Engineering Technologies"
+      ],
+      "education": [
+        "Elementary Education",
+        "Secondary Education",
+        "General Education"
+      ],
+      "creative": [
+        "Fine Arts",
+        "Performing Arts",
+        "Commercial Art & Graphic Design",
+        "Communications",
+        "Journalism"
+      ],
+      "public_service": [
+        "Criminal Justice",
+        "Social Services",
+        "Political Science",
+        "Public Policy and Law"
+      ]
+    },
+    "values": [
+      {
+        "major": "Agriculture",
+        "unemploymentRate": 1.395,
+        "underemploymentRate": 57.098,
+        "medianWageEarlyCareer": 56000,
+        "medianWageMidCareer": 80000,
+        "shareWithGraduateDegree": 22.516
+      },
+      {
+        "major": "Animal and Plant Sciences",
+        "unemploymentRate": 2.539,
+        "underemploymentRate": 53.538,
+        "medianWageEarlyCareer": 46600,
+        "medianWageMidCareer": 79000,
+        "shareWithGraduateDegree": 36.593
+      },
+      {
+        "major": "Environmental Studies",
+        "unemploymentRate": 6.307,
+        "underemploymentRate": 50.523,
+        "medianWageEarlyCareer": 50000,
+        "medianWageMidCareer": 80000,
+        "shareWithGraduateDegree": 31.946
+      },
+      {
+        "major": "Architecture",
+        "unemploymentRate": 6.844,
+        "underemploymentRate": 25.669,
+        "medianWageEarlyCareer": 60000,
+        "medianWageMidCareer": 91000,
+        "shareWithGraduateDegree": 40.838
+      },
+      {
+        "major": "Ethnic Studies",
+        "unemploymentRate": 4.856,
+        "underemploymentRate": 49.554,
+        "medianWageEarlyCareer": 52000,
+        "medianWageMidCareer": 90000,
+        "shareWithGraduateDegree": 51.213
+      },
+      {
+        "major": "Communications",
+        "unemploymentRate": 3.856,
+        "underemploymentRate": 53.028,
+        "medianWageEarlyCareer": 52000,
+        "medianWageMidCareer": 88000,
+        "shareWithGraduateDegree": 24.652
+      },
+      {
+        "major": "Journalism",
+        "unemploymentRate": 2.319,
+        "underemploymentRate": 43.256,
+        "medianWageEarlyCareer": 49000,
+        "medianWageMidCareer": 87000,
+        "shareWithGraduateDegree": 26.278
+      },
+      {
+        "major": "Mass Media",
+        "unemploymentRate": 5.158,
+        "underemploymentRate": 52.125,
+        "medianWageEarlyCareer": 50000,
+        "medianWageMidCareer": 80000,
+        "shareWithGraduateDegree": 19.326
+      },
+      {
+        "major": "Advertising and Public Relations",
+        "unemploymentRate": 5.677,
+        "underemploymentRate": 38.076,
+        "medianWageEarlyCareer": 60000,
+        "medianWageMidCareer": 92000,
+        "shareWithGraduateDegree": 22.819
+      },
+      {
+        "major": "Information Systems & Management",
+        "unemploymentRate": 5.979,
+        "underemploymentRate": 25.637,
+        "medianWageEarlyCareer": 67000,
+        "medianWageMidCareer": 100000,
+        "shareWithGraduateDegree": 27.853
+      },
+      {
+        "major": "Computer Science",
+        "unemploymentRate": 6.992,
+        "underemploymentRate": 19.127,
+        "medianWageEarlyCareer": 87000,
+        "medianWageMidCareer": 120000,
+        "shareWithGraduateDegree": 32.691
+      },
+      {
+        "major": "General Education",
+        "unemploymentRate": 2.63,
+        "underemploymentRate": 28.07,
+        "medianWageEarlyCareer": 45000,
+        "medianWageMidCareer": 56000,
+        "shareWithGraduateDegree": 51.683
+      },
+      {
+        "major": "Early Childhood Education",
+        "unemploymentRate": 6.593,
+        "underemploymentRate": 22.278,
+        "medianWageEarlyCareer": 45000,
+        "medianWageMidCareer": 52000,
+        "shareWithGraduateDegree": 43.765
+      },
+      {
+        "major": "Elementary Education",
+        "unemploymentRate": 1.18,
+        "underemploymentRate": 16.213,
+        "medianWageEarlyCareer": 45000,
+        "medianWageMidCareer": 55000,
+        "shareWithGraduateDegree": 50.596
+      },
+      {
+        "major": "Secondary Education",
+        "unemploymentRate": 2.115,
+        "underemploymentRate": 21.677,
+        "medianWageEarlyCareer": 45300,
+        "medianWageMidCareer": 62000,
+        "shareWithGraduateDegree": 52.733
+      },
+      {
+        "major": "Special Education",
+        "unemploymentRate": 0.739,
+        "underemploymentRate": 16.042,
+        "medianWageEarlyCareer": 46000,
+        "medianWageMidCareer": 56000,
+        "shareWithGraduateDegree": 61.091
+      },
+      {
+        "major": "Miscellaneous Education",
+        "unemploymentRate": 1.089,
+        "underemploymentRate": 24.543,
+        "medianWageEarlyCareer": 48000,
+        "medianWageMidCareer": 60000,
+        "shareWithGraduateDegree": 59.923
+      },
+      {
+        "major": "General Engineering",
+        "unemploymentRate": 4.536,
+        "underemploymentRate": 31.097,
+        "medianWageEarlyCareer": 75000,
+        "medianWageMidCareer": 105000,
+        "shareWithGraduateDegree": 37.058
+      },
+      {
+        "major": "Aerospace Engineering",
+        "unemploymentRate": 2.176,
+        "underemploymentRate": 14.709,
+        "medianWageEarlyCareer": 85000,
+        "medianWageMidCareer": 130000,
+        "shareWithGraduateDegree": 45.525
+      },
+      {
+        "major": "Chemical Engineering",
+        "unemploymentRate": 4.711,
+        "underemploymentRate": 17.862,
+        "medianWageEarlyCareer": 85000,
+        "medianWageMidCareer": 135000,
+        "shareWithGraduateDegree": 48.111
+      },
+      {
+        "major": "Civil Engineering",
+        "unemploymentRate": 2.256,
+        "underemploymentRate": 15.567,
+        "medianWageEarlyCareer": 75000,
+        "medianWageMidCareer": 115000,
+        "shareWithGraduateDegree": 37.138
+      },
+      {
+        "major": "Computer Engineering",
+        "unemploymentRate": 7.783,
+        "underemploymentRate": 15.835,
+        "medianWageEarlyCareer": 90000,
+        "medianWageMidCareer": 131000,
+        "shareWithGraduateDegree": 39.432
+      },
+      {
+        "major": "Electrical Engineering",
+        "unemploymentRate": 3.159,
+        "underemploymentRate": 21.106,
+        "medianWageEarlyCareer": 82000,
+        "medianWageMidCareer": 123000,
+        "shareWithGraduateDegree": 47.67
+      },
+      {
+        "major": "Industrial Engineering",
+        "unemploymentRate": 4.151,
+        "underemploymentRate": 31.729,
+        "medianWageEarlyCareer": 83000,
+        "medianWageMidCareer": 100000,
+        "shareWithGraduateDegree": 40.607
+      },
+      {
+        "major": "Mechanical Engineering",
+        "unemploymentRate": 4.364,
+        "underemploymentRate": 20.088,
+        "medianWageEarlyCareer": 80000,
+        "medianWageMidCareer": 120000,
+        "shareWithGraduateDegree": 39.059
+      },
+      {
+        "major": "Miscellaneous Engineering",
+        "unemploymentRate": 3.686,
+        "underemploymentRate": 26.418,
+        "medianWageEarlyCareer": 75000,
+        "medianWageMidCareer": 105000,
+        "shareWithGraduateDegree": 46.305
+      },
+      {
+        "major": "Foreign Language",
+        "unemploymentRate": 1.579,
+        "underemploymentRate": 54.021,
+        "medianWageEarlyCareer": 48000,
+        "medianWageMidCareer": 77000,
+        "shareWithGraduateDegree": 53.138
+      },
+      {
+        "major": "Family and Consumer Sciences",
+        "unemploymentRate": 4.29,
+        "underemploymentRate": 45.612,
+        "medianWageEarlyCareer": 48000,
+        "medianWageMidCareer": 65000,
+        "shareWithGraduateDegree": 35.703
+      },
+      {
+        "major": "English Language",
+        "unemploymentRate": 6.14,
+        "underemploymentRate": 48.544,
+        "medianWageEarlyCareer": 48000,
+        "medianWageMidCareer": 76000,
+        "shareWithGraduateDegree": 46.201
+      },
+      {
+        "major": "Liberal Arts",
+        "unemploymentRate": 3.836,
+        "underemploymentRate": 54.597,
+        "medianWageEarlyCareer": 45000,
+        "medianWageMidCareer": 75000,
+        "shareWithGraduateDegree": 30.9
+      },
+      {
+        "major": "Biology",
+        "unemploymentRate": 4.292,
+        "underemploymentRate": 51.13,
+        "medianWageEarlyCareer": 45000,
+        "medianWageMidCareer": 83000,
+        "shareWithGraduateDegree": 63.983
+      },
+      {
+        "major": "Biochemistry",
+        "unemploymentRate": 2.685,
+        "underemploymentRate": 42.018,
+        "medianWageEarlyCareer": 52000,
+        "medianWageMidCareer": 100000,
+        "shareWithGraduateDegree": 71.939
+      },
+      {
+        "major": "Miscellaneous Biological Science",
+        "unemploymentRate": 4.404,
+        "underemploymentRate": 46.851,
+        "medianWageEarlyCareer": 46000,
+        "medianWageMidCareer": 80000,
+        "shareWithGraduateDegree": 59.486
+      },
+      {
+        "major": "Mathematics",
+        "unemploymentRate": 5.767,
+        "underemploymentRate": 26.225,
+        "medianWageEarlyCareer": 70000,
+        "medianWageMidCareer": 100000,
+        "shareWithGraduateDegree": 51.343
+      },
+      {
+        "major": "Interdisciplinary Studies",
+        "unemploymentRate": 3.94,
+        "underemploymentRate": 45.232,
+        "medianWageEarlyCareer": 52000,
+        "medianWageMidCareer": 80000,
+        "shareWithGraduateDegree": 40.358
+      },
+      {
+        "major": "Nutrition Sciences",
+        "unemploymentRate": 4.536,
+        "underemploymentRate": 48.293,
+        "medianWageEarlyCareer": 50000,
+        "medianWageMidCareer": 70000,
+        "shareWithGraduateDegree": 50.561
+      },
+      {
+        "major": "Leisure and Hospitality",
+        "unemploymentRate": 2.734,
+        "underemploymentRate": 58.149,
+        "medianWageEarlyCareer": 45000,
+        "medianWageMidCareer": 75000,
+        "shareWithGraduateDegree": 36.146
+      },
+      {
+        "major": "Philosophy",
+        "unemploymentRate": 5.123,
+        "underemploymentRate": 47.116,
+        "medianWageEarlyCareer": 52000,
+        "medianWageMidCareer": 80000,
+        "shareWithGraduateDegree": 56.853
+      },
+      {
+        "major": "Theology and Religion",
+        "unemploymentRate": 3.116,
+        "underemploymentRate": 47.464,
+        "medianWageEarlyCareer": 41600,
+        "medianWageMidCareer": 66000,
+        "shareWithGraduateDegree": 46.422
+      },
+      {
+        "major": "Chemistry",
+        "unemploymentRate": 4.326,
+        "underemploymentRate": 42.827,
+        "medianWageEarlyCareer": 50000,
+        "medianWageMidCareer": 86000,
+        "shareWithGraduateDegree": 67.479
+      },
+      {
+        "major": "Earth Sciences",
+        "unemploymentRate": 3.836,
+        "underemploymentRate": 31.355,
+        "medianWageEarlyCareer": 50000,
+        "medianWageMidCareer": 75000,
+        "shareWithGraduateDegree": 45.557
+      },
+      {
+        "major": "Physics",
+        "unemploymentRate": 6.631,
+        "underemploymentRate": 29.112,
+        "medianWageEarlyCareer": 67000,
+        "medianWageMidCareer": 105000,
+        "shareWithGraduateDegree": 67.255
+      },
+      {
+        "major": "Miscellaneous Physical Sciences",
+        "unemploymentRate": 2.522,
+        "underemploymentRate": 22.538,
+        "medianWageEarlyCareer": 60000,
+        "medianWageMidCareer": 81000,
+        "shareWithGraduateDegree": 54.031
+      },
+      {
+        "major": "Psychology",
+        "unemploymentRate": 4.985,
+        "underemploymentRate": 48.291,
+        "medianWageEarlyCareer": 45000,
+        "medianWageMidCareer": 72000,
+        "shareWithGraduateDegree": 51.864
+      },
+      {
+        "major": "Criminal Justice",
+        "unemploymentRate": 3.557,
+        "underemploymentRate": 65.79,
+        "medianWageEarlyCareer": 50000,
+        "medianWageMidCareer": 80000,
+        "shareWithGraduateDegree": 24.609
+      },
+      {
+        "major": "Public Policy and Law",
+        "unemploymentRate": 2.237,
+        "underemploymentRate": 45.532,
+        "medianWageEarlyCareer": 55000,
+        "medianWageMidCareer": 80000,
+        "shareWithGraduateDegree": 46.963
+      },
+      {
+        "major": "Social Services",
+        "unemploymentRate": 1.943,
+        "underemploymentRate": 30.136,
+        "medianWageEarlyCareer": 43000,
+        "medianWageMidCareer": 60000,
+        "shareWithGraduateDegree": 53.784
+      },
+      {
+        "major": "Anthropology",
+        "unemploymentRate": 7.922,
+        "underemploymentRate": 55.327,
+        "medianWageEarlyCareer": 45000,
+        "medianWageMidCareer": 65000,
+        "shareWithGraduateDegree": 48.2
+      },
+      {
+        "major": "Economics",
+        "unemploymentRate": 3.524,
+        "underemploymentRate": 33.094,
+        "medianWageEarlyCareer": 72000,
+        "medianWageMidCareer": 115000,
+        "shareWithGraduateDegree": 41.595
+      },
+      {
+        "major": "Geography",
+        "unemploymentRate": 1.6,
+        "underemploymentRate": 43.009,
+        "medianWageEarlyCareer": 50000,
+        "medianWageMidCareer": 88000,
+        "shareWithGraduateDegree": 34.712
+      },
+      {
+        "major": "Political Science",
+        "unemploymentRate": 4.482,
+        "underemploymentRate": 48.662,
+        "medianWageEarlyCareer": 52000,
+        "medianWageMidCareer": 100000,
+        "shareWithGraduateDegree": 52.741
+      },
+      {
+        "major": "Sociology",
+        "unemploymentRate": 4.589,
+        "underemploymentRate": 52.031,
+        "medianWageEarlyCareer": 49900,
+        "medianWageMidCareer": 79000,
+        "shareWithGraduateDegree": 39.137
+      },
+      {
+        "major": "General Social Sciences",
+        "unemploymentRate": 2.256,
+        "underemploymentRate": 38.007,
+        "medianWageEarlyCareer": 45200,
+        "medianWageMidCareer": 75000,
+        "shareWithGraduateDegree": 39.333
+      },
+      {
+        "major": "Construction Services",
+        "unemploymentRate": 2.184,
+        "underemploymentRate": 17.933,
+        "medianWageEarlyCareer": 75000,
+        "medianWageMidCareer": 120000,
+        "shareWithGraduateDegree": 12.214
+      },
+      {
+        "major": "Art History",
+        "unemploymentRate": 6.688,
+        "underemploymentRate": 45.263,
+        "medianWageEarlyCareer": 45000,
+        "medianWageMidCareer": 91000,
+        "shareWithGraduateDegree": 47.788
+      },
+      {
+        "major": "Fine Arts",
+        "unemploymentRate": 7.655,
+        "underemploymentRate": 58.87,
+        "medianWageEarlyCareer": 45000,
+        "medianWageMidCareer": 72000,
+        "shareWithGraduateDegree": 22.475
+      },
+      {
+        "major": "Performing Arts",
+        "unemploymentRate": 6.95,
+        "underemploymentRate": 63.946,
+        "medianWageEarlyCareer": 44000,
+        "medianWageMidCareer": 75000,
+        "shareWithGraduateDegree": 38.366
+      },
+      {
+        "major": "Commercial Art & Graphic Design",
+        "unemploymentRate": 5.743,
+        "underemploymentRate": 37.14,
+        "medianWageEarlyCareer": 50000,
+        "medianWageMidCareer": 80000,
+        "shareWithGraduateDegree": 13.002
+      },
+      {
+        "major": "Health Services",
+        "unemploymentRate": 3.819,
+        "underemploymentRate": 45.127,
+        "medianWageEarlyCareer": 50000,
+        "medianWageMidCareer": 67000,
+        "shareWithGraduateDegree": 52.937
+      },
+      {
+        "major": "Medical Technicians",
+        "unemploymentRate": 6.236,
+        "underemploymentRate": 47.029,
+        "medianWageEarlyCareer": 62000,
+        "medianWageMidCareer": 80000,
+        "shareWithGraduateDegree": 24.716
+      },
+      {
+        "major": "Nursing",
+        "unemploymentRate": 2.147,
+        "underemploymentRate": 12.781,
+        "medianWageEarlyCareer": 70000,
+        "medianWageMidCareer": 87000,
+        "shareWithGraduateDegree": 30.292
+      },
+      {
+        "major": "Pharmacy",
+        "unemploymentRate": 5.616,
+        "underemploymentRate": 30.545,
+        "medianWageEarlyCareer": 40000,
+        "medianWageMidCareer": 85000,
+        "shareWithGraduateDegree": 67.369
+      },
+      {
+        "major": "Treatment Therapy",
+        "unemploymentRate": 2.616,
+        "underemploymentRate": 39.066,
+        "medianWageEarlyCareer": 50000,
+        "medianWageMidCareer": 70000,
+        "shareWithGraduateDegree": 53.363
+      },
+      {
+        "major": "General Business",
+        "unemploymentRate": 4.314,
+        "underemploymentRate": 50.409,
+        "medianWageEarlyCareer": 60000,
+        "medianWageMidCareer": 90000,
+        "shareWithGraduateDegree": 25.271
+      },
+      {
+        "major": "Accounting",
+        "unemploymentRate": 2.553,
+        "underemploymentRate": 21.156,
+        "medianWageEarlyCareer": 68000,
+        "medianWageMidCareer": 97000,
+        "shareWithGraduateDegree": 33.667
+      },
+      {
+        "major": "Business Management",
+        "unemploymentRate": 3.786,
+        "underemploymentRate": 52.605,
+        "medianWageEarlyCareer": 56000,
+        "medianWageMidCareer": 82000,
+        "shareWithGraduateDegree": 25.274
+      },
+      {
+        "major": "Business Analytics",
+        "unemploymentRate": 5.034,
+        "underemploymentRate": 28.668,
+        "medianWageEarlyCareer": 72000,
+        "medianWageMidCareer": 109000,
+        "shareWithGraduateDegree": 26.735
+      },
+      {
+        "major": "Marketing",
+        "unemploymentRate": 4.399,
+        "underemploymentRate": 49.343,
+        "medianWageEarlyCareer": 60000,
+        "medianWageMidCareer": 100000,
+        "shareWithGraduateDegree": 19.665
+      },
+      {
+        "major": "Finance",
+        "unemploymentRate": 2.758,
+        "underemploymentRate": 27.758,
+        "medianWageEarlyCareer": 70000,
+        "medianWageMidCareer": 112000,
+        "shareWithGraduateDegree": 31.483
+      },
+      {
+        "major": "International Affairs",
+        "unemploymentRate": 6.105,
+        "underemploymentRate": 45.163,
+        "medianWageEarlyCareer": 64000,
+        "medianWageMidCareer": 90000,
+        "shareWithGraduateDegree": 46.306
+      },
+      {
+        "major": "History",
+        "unemploymentRate": 4.311,
+        "underemploymentRate": 50.077,
+        "medianWageEarlyCareer": 47500,
+        "medianWageMidCareer": 80000,
+        "shareWithGraduateDegree": 51.388
+      },
+      {
+        "major": "Engineering Technologies",
+        "unemploymentRate": 1.74,
+        "underemploymentRate": 44.365,
+        "medianWageEarlyCareer": 65000,
+        "medianWageMidCareer": 104000,
+        "shareWithGraduateDegree": 27.941
+      },
+      {
+        "major": "Miscellaneous Technologies",
+        "unemploymentRate": 3.597,
+        "underemploymentRate": 49.028,
+        "medianWageEarlyCareer": 54000,
+        "medianWageMidCareer": 96000,
+        "shareWithGraduateDegree": 19.517
+      },
+      {
+        "major": "Overall",
+        "unemploymentRate": 4.211,
+        "underemploymentRate": 39.35,
+        "medianWageEarlyCareer": 58000,
+        "medianWageMidCareer": 87000,
+        "shareWithGraduateDegree": 39.347
+      }
+    ]
+  },
+  "recentGradWages": {
+    "description": "Annual wages of full-time workers aged 22–27 who are not enrolled in school, 2025, in 2025 dollars.",
+    "sourceId": "nyfed_recent_grads",
+    "year": 2025,
+    "released": "2026-02-04",
+    "underlyingData": "Current Population Survey, March Supplement (IPUMS)",
+    "values": {
+      "bachelors_p25": 45000,
+      "bachelors_median": 60000,
+      "bachelors_p75": 85000,
+      "hs_diploma_median": 40000
+    }
+  },
+  "model": {
+    "entrySalary": {
+      "assumption": true,
+      "rule": "Degree and certificate roles start at the Scorecard 1-year national median for the role's scorecardLink, multiplied by collegeTierRatio. Roles without a scorecardLink start at the OOH 10th percentile (p10Annual, or p10Hourly × hours worked).",
+      "note": "The OOH 10th percentile covers all workers in the occupation and is used only as a proxy for a starting wage."
+    },
+    "collegeTierRatio": {
+      "derived": true,
+      "assumption": true,
+      "method": "earningsByCollegeTier.<tier>.bachelors.earn1yr / earningsByCollegeTier.regional_public.bachelors.earn1yr",
+      "note": "Includes field-mix and selection effects, so it overstates the effect of the college itself. Consider shrinking toward 1.0.",
+      "sourceId": "college_scorecard",
+      "year": 2024,
+      "dollarYear": 2024,
+      "measured": "Calendar years 2022 and 2023 (pooled)",
+      "cohorts": {
+        "1yr": "Completed in AY 2020-21 or 2021-22",
+        "5yr": "Completed in AY 2016-17 or 2017-18"
+      },
+      "values": {
+        "hbcu_public": 0.919,
+        "flagship_proxy_public_r1": 1.069,
+        "regional_public": 1,
+        "hbcu_private_nonprofit": 0.902,
+        "elite_private": 1.681
+      }
+    },
+    "annualGrowth": {
+      "derived": true,
+      "assumption": true,
+      "method": "(earn5yrMedian / earn1yrMedian)^(1/4) − 1 for each field-of-study row",
+      "note": "The 1-year and 5-year medians come from different graduating cohorts measured in the same years, so this is a cross-sectional estimate of early-career growth.",
+      "sourceId": "college_scorecard",
+      "year": 2024,
+      "dollarYear": 2024,
+      "measured": "Calendar years 2022 and 2023 (pooled)",
+      "cohorts": {
+        "1yr": "Completed in AY 2020-21 or 2021-22",
+        "5yr": "Completed in AY 2016-17 or 2017-18"
+      },
+      "values": {
+        "technology": [
+          {
+            "cip": "1101",
+            "credential": "associate",
+            "annualGrowth": 0.0646
+          },
+          {
+            "cip": "1101",
+            "credential": "bachelors",
+            "annualGrowth": 0.0875
+          },
+          {
+            "cip": "1101",
+            "credential": "certificate",
+            "annualGrowth": 0.0497
+          },
+          {
+            "cip": "1101",
+            "credential": "doctoral",
+            "annualGrowth": 0.0162
+          },
+          {
+            "cip": "1101",
+            "credential": "masters",
+            "annualGrowth": 0.0595
+          },
+          {
+            "cip": "1107",
+            "credential": "associate",
+            "annualGrowth": 0.1204
+          },
+          {
+            "cip": "1107",
+            "credential": "bachelors",
+            "annualGrowth": 0.0974
+          },
+          {
+            "cip": "1107",
+            "credential": "certificate",
+            "annualGrowth": -0.0635
+          },
+          {
+            "cip": "1107",
+            "credential": "doctoral",
+            "annualGrowth": 0.0304
+          },
+          {
+            "cip": "1107",
+            "credential": "masters",
+            "annualGrowth": 0.0698
+          },
+          {
+            "cip": "1110",
+            "credential": "associate",
+            "annualGrowth": 0.0524
+          },
+          {
+            "cip": "1110",
+            "credential": "bachelors",
+            "annualGrowth": 0.0606
+          },
+          {
+            "cip": "1110",
+            "credential": "certificate",
+            "annualGrowth": 0.0216
+          },
+          {
+            "cip": "1110",
+            "credential": "doctoral",
+            "annualGrowth": -0.0792
+          },
+          {
+            "cip": "1110",
+            "credential": "masters",
+            "annualGrowth": 0.0527
+          }
+        ],
+        "education": [
+          {
+            "cip": "1301",
+            "credential": "associate",
+            "annualGrowth": 0.1059
+          },
+          {
+            "cip": "1301",
+            "credential": "bachelors",
+            "annualGrowth": 0.0361
+          },
+          {
+            "cip": "1301",
+            "credential": "certificate",
+            "annualGrowth": -0.0244
+          },
+          {
+            "cip": "1301",
+            "credential": "doctoral",
+            "annualGrowth": 0.0162
+          },
+          {
+            "cip": "1301",
+            "credential": "masters",
+            "annualGrowth": 0.026
+          },
+          {
+            "cip": "1301",
+            "credential": "professional",
+            "annualGrowth": 0.0514
+          },
+          {
+            "cip": "1312",
+            "credential": "associate",
+            "annualGrowth": 0.0635
+          },
+          {
+            "cip": "1312",
+            "credential": "bachelors",
+            "annualGrowth": 0.0238
+          },
+          {
+            "cip": "1312",
+            "credential": "certificate",
+            "annualGrowth": 0.0171
+          },
+          {
+            "cip": "1312",
+            "credential": "doctoral",
+            "annualGrowth": 0.011
+          },
+          {
+            "cip": "1312",
+            "credential": "masters",
+            "annualGrowth": 0.0229
+          },
+          {
+            "cip": "1315",
+            "credential": "associate",
+            "annualGrowth": 0.0588
+          },
+          {
+            "cip": "1315",
+            "credential": "certificate",
+            "annualGrowth": 0.0045
+          }
+        ],
+        "creative": [
+          {
+            "cip": "2313",
+            "credential": "associate",
+            "annualGrowth": 0.1248
+          },
+          {
+            "cip": "2313",
+            "credential": "bachelors",
+            "annualGrowth": 0.1037
+          },
+          {
+            "cip": "2313",
+            "credential": "certificate",
+            "annualGrowth": 0.1026
+          },
+          {
+            "cip": "2313",
+            "credential": "doctoral",
+            "annualGrowth": 0.0339
+          },
+          {
+            "cip": "2313",
+            "credential": "masters",
+            "annualGrowth": 0.0592
+          },
+          {
+            "cip": "5004",
+            "credential": "associate",
+            "annualGrowth": 0.0565
+          },
+          {
+            "cip": "5004",
+            "credential": "bachelors",
+            "annualGrowth": 0.0873
+          },
+          {
+            "cip": "5004",
+            "credential": "certificate",
+            "annualGrowth": 0.0248
+          },
+          {
+            "cip": "5004",
+            "credential": "masters",
+            "annualGrowth": 0.0452
+          },
+          {
+            "cip": "5006",
+            "credential": "associate",
+            "annualGrowth": 0.0619
+          },
+          {
+            "cip": "5006",
+            "credential": "bachelors",
+            "annualGrowth": 0.1106
+          },
+          {
+            "cip": "5006",
+            "credential": "certificate",
+            "annualGrowth": 0.0424
+          },
+          {
+            "cip": "5006",
+            "credential": "masters",
+            "annualGrowth": 0.0805
+          },
+          {
+            "cip": "5009",
+            "credential": "associate",
+            "annualGrowth": 0.0731
+          },
+          {
+            "cip": "5009",
+            "credential": "bachelors",
+            "annualGrowth": 0.0783
+          },
+          {
+            "cip": "5009",
+            "credential": "certificate",
+            "annualGrowth": 0.075
+          },
+          {
+            "cip": "5009",
+            "credential": "doctoral",
+            "annualGrowth": 0.0482
+          },
+          {
+            "cip": "5009",
+            "credential": "masters",
+            "annualGrowth": 0.0638
+          }
+        ],
+        "public_service": [
+          {
+            "cip": "4301",
+            "credential": "associate",
+            "annualGrowth": 0.0433
+          },
+          {
+            "cip": "4301",
+            "credential": "bachelors",
+            "annualGrowth": 0.0746
+          },
+          {
+            "cip": "4301",
+            "credential": "certificate",
+            "annualGrowth": 0.0133
+          },
+          {
+            "cip": "4301",
+            "credential": "doctoral",
+            "annualGrowth": 0.0113
+          },
+          {
+            "cip": "4301",
+            "credential": "masters",
+            "annualGrowth": 0.04
+          },
+          {
+            "cip": "4302",
+            "credential": "associate",
+            "annualGrowth": 0.0424
+          },
+          {
+            "cip": "4302",
+            "credential": "bachelors",
+            "annualGrowth": 0.0219
+          },
+          {
+            "cip": "4302",
+            "credential": "certificate",
+            "annualGrowth": 0.0592
+          },
+          {
+            "cip": "4302",
+            "credential": "masters",
+            "annualGrowth": 0.0519
+          },
+          {
+            "cip": "4405",
+            "credential": "bachelors",
+            "annualGrowth": 0.111
+          },
+          {
+            "cip": "4405",
+            "credential": "doctoral",
+            "annualGrowth": 0.0437
+          },
+          {
+            "cip": "4405",
+            "credential": "masters",
+            "annualGrowth": 0.0784
+          },
+          {
+            "cip": "4405",
+            "credential": "professional",
+            "annualGrowth": 0.0842
+          },
+          {
+            "cip": "4407",
+            "credential": "associate",
+            "annualGrowth": 0.046
+          },
+          {
+            "cip": "4407",
+            "credential": "bachelors",
+            "annualGrowth": 0.0664
+          },
+          {
+            "cip": "4407",
+            "credential": "certificate",
+            "annualGrowth": 0.0513
+          },
+          {
+            "cip": "4407",
+            "credential": "doctoral",
+            "annualGrowth": 0.0239
+          },
+          {
+            "cip": "4407",
+            "credential": "masters",
+            "annualGrowth": 0.0386
+          },
+          {
+            "cip": "4407",
+            "credential": "professional",
+            "annualGrowth": 0.0277
+          },
+          {
+            "cip": "4510",
+            "credential": "associate",
+            "annualGrowth": 0.0871
+          },
+          {
+            "cip": "4510",
+            "credential": "bachelors",
+            "annualGrowth": 0.1245
+          },
+          {
+            "cip": "4510",
+            "credential": "certificate",
+            "annualGrowth": 0.1318
+          },
+          {
+            "cip": "4510",
+            "credential": "doctoral",
+            "annualGrowth": 0.0491
+          },
+          {
+            "cip": "4510",
+            "credential": "masters",
+            "annualGrowth": 0.0815
+          }
+        ],
+        "skilled_trades": [
+          {
+            "cip": "4603",
+            "credential": "associate",
+            "annualGrowth": 0.0649
+          },
+          {
+            "cip": "4603",
+            "credential": "certificate",
+            "annualGrowth": 0.059
+          },
+          {
+            "cip": "4702",
+            "credential": "associate",
+            "annualGrowth": 0.0487
+          },
+          {
+            "cip": "4702",
+            "credential": "certificate",
+            "annualGrowth": 0.0432
+          },
+          {
+            "cip": "4805",
+            "credential": "associate",
+            "annualGrowth": 0.0431
+          },
+          {
+            "cip": "4805",
+            "credential": "certificate",
+            "annualGrowth": 0.0474
+          }
+        ],
+        "health": [
+          {
+            "cip": "5108",
+            "credential": "associate",
+            "annualGrowth": 0.0113
+          },
+          {
+            "cip": "5108",
+            "credential": "bachelors",
+            "annualGrowth": 0.1223
+          },
+          {
+            "cip": "5108",
+            "credential": "certificate",
+            "annualGrowth": 0.0224
+          },
+          {
+            "cip": "5108",
+            "credential": "masters",
+            "annualGrowth": -0.001
+          },
+          {
+            "cip": "5109",
+            "credential": "associate",
+            "annualGrowth": 0.0173
+          },
+          {
+            "cip": "5109",
+            "credential": "bachelors",
+            "annualGrowth": 0.0051
+          },
+          {
+            "cip": "5109",
+            "credential": "certificate",
+            "annualGrowth": 0.0128
+          },
+          {
+            "cip": "5109",
+            "credential": "doctoral",
+            "annualGrowth": -0.0982
+          },
+          {
+            "cip": "5109",
+            "credential": "masters",
+            "annualGrowth": 0.0305
+          },
+          {
+            "cip": "5109",
+            "credential": "professional",
+            "annualGrowth": 0.0126
+          },
+          {
+            "cip": "5123",
+            "credential": "associate",
+            "annualGrowth": 0.0494
+          },
+          {
+            "cip": "5123",
+            "credential": "bachelors",
+            "annualGrowth": 0.1006
+          },
+          {
+            "cip": "5123",
+            "credential": "certificate",
+            "annualGrowth": 0.0597
+          },
+          {
+            "cip": "5123",
+            "credential": "doctoral",
+            "annualGrowth": 0.0234
+          },
+          {
+            "cip": "5123",
+            "credential": "masters",
+            "annualGrowth": 0.0204
+          },
+          {
+            "cip": "5123",
+            "credential": "professional",
+            "annualGrowth": 0.0183
+          },
+          {
+            "cip": "5138",
+            "credential": "associate",
+            "annualGrowth": 0.0203
+          },
+          {
+            "cip": "5138",
+            "credential": "bachelors",
+            "annualGrowth": 0.0196
+          },
+          {
+            "cip": "5138",
+            "credential": "certificate",
+            "annualGrowth": 0.0181
+          },
+          {
+            "cip": "5138",
+            "credential": "doctoral",
+            "annualGrowth": 0.0037
+          },
+          {
+            "cip": "5138",
+            "credential": "masters",
+            "annualGrowth": 0.0294
+          },
+          {
+            "cip": "5138",
+            "credential": "professional",
+            "annualGrowth": 0.03
+          }
+        ],
+        "business": [
+          {
+            "cip": "5202",
+            "credential": "associate",
+            "annualGrowth": 0.0521
+          },
+          {
+            "cip": "5202",
+            "credential": "bachelors",
+            "annualGrowth": 0.0664
+          },
+          {
+            "cip": "5202",
+            "credential": "certificate",
+            "annualGrowth": 0.0273
+          },
+          {
+            "cip": "5202",
+            "credential": "doctoral",
+            "annualGrowth": 0.0199
+          },
+          {
+            "cip": "5202",
+            "credential": "masters",
+            "annualGrowth": 0.056
+          },
+          {
+            "cip": "5202",
+            "credential": "professional",
+            "annualGrowth": 0.0621
+          },
+          {
+            "cip": "5203",
+            "credential": "associate",
+            "annualGrowth": 0.0411
+          },
+          {
+            "cip": "5203",
+            "credential": "bachelors",
+            "annualGrowth": 0.0714
+          },
+          {
+            "cip": "5203",
+            "credential": "certificate",
+            "annualGrowth": 0.0257
+          },
+          {
+            "cip": "5203",
+            "credential": "masters",
+            "annualGrowth": 0.0779
+          },
+          {
+            "cip": "5208",
+            "credential": "associate",
+            "annualGrowth": 0.0434
+          },
+          {
+            "cip": "5208",
+            "credential": "bachelors",
+            "annualGrowth": 0.0919
+          },
+          {
+            "cip": "5208",
+            "credential": "certificate",
+            "annualGrowth": 0.0038
+          },
+          {
+            "cip": "5208",
+            "credential": "masters",
+            "annualGrowth": 0.0786
+          },
+          {
+            "cip": "5214",
+            "credential": "associate",
+            "annualGrowth": 0.0395
+          },
+          {
+            "cip": "5214",
+            "credential": "bachelors",
+            "annualGrowth": 0.0933
+          },
+          {
+            "cip": "5214",
+            "credential": "certificate",
+            "annualGrowth": 0.0285
+          },
+          {
+            "cip": "5214",
+            "credential": "masters",
+            "annualGrowth": 0.0618
+          }
+        ]
+      }
+    },
+    "hoursPerYearFullTime": {
+      "value": 2080,
+      "assumption": true,
+      "note": "40 hours × 52 weeks, the convention BLS uses to annualize hourly wages. Part-time teen jobs need their own hours assumption."
+    }
+  },
+  "missing": [
+    "Retail store manager (OOH has no profile for first-line retail supervisors); food service manager is used instead.",
+    "Pay for service members (DFAS military pay tables), apprentices during training (DOL), medical residents, and graduate student stipends.",
+    "True starting salaries by occupation: OOH covers all experience levels, so the 10th percentile is a proxy.",
+    "Annual pay for musicians (OOH reports hourly only) and the 90th percentile for occupations reported hourly.",
+    "Regional wage differences (city vs. small town vs. rural); OOH national figures only. OEWS metro and nonmetro data could fill this.",
+    "Earnings by college tier that separate the effect of the college from field mix and selection.",
+    "Scorecard earnings for programs with fewer than 100 graduates, and for several Ivy-Plus programs (suppressed for privacy).",
+    "Hours and earnings for teen part-time jobs."
+  ]
+}

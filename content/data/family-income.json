@@ -1,0 +1,136 @@
+{
+  "updated": "2026-10-22",
+  "dollarYear": 2025,
+  "notes": [
+    "All Census values are 2025 dollars from the Current Population Survey Annual Social and Economic Supplement (CPS ASEC, 2026). Medians cover all households, not only households with children.",
+    "BLS values are median usual weekly earnings of full-time wage and salary workers age 25+. BLS notes that 2025 annual estimates are 11-month averages that exclude October 2025 (not collected because of the federal government shutdown), so they are not strictly comparable with other years.",
+    "Fields marked \"derived\": true are computed directly from the published values using the stated formula. They are not published statistics.",
+    "Fields marked \"assumption\": true are modeling choices for the author to confirm, not data."
+  ],
+
+  "householdIncomeByHouseholderEducation": {
+    "description": "Median household income by educational attainment of householder (householders age 25 and older)",
+    "sourceId": "census_income_report",
+    "table": "Table 1. Income Summary Measures by Selected Characteristics: 2024 and 2025",
+    "year": 2025,
+    "unit": "USD (2025 dollars)",
+    "values": {
+      "total_25_plus":       { "label": "Total, householder age 25+",   "median": 89660,  "moe90": 1163, "householdsThousands": 131500 },
+      "no_hs_diploma":       { "label": "No high school diploma",        "median": 37090,  "moe90": 1142, "householdsThousands": 9288 },
+      "hs_no_college":       { "label": "High school, no college",       "median": 60790,  "moe90": 975,  "householdsThousands": 32830 },
+      "some_college":        { "label": "Some college (includes associate degree)", "median": 79880, "moe90": 1240, "householdsThousands": 34670 },
+      "bachelors_or_higher": { "label": "Bachelor's degree or higher",   "median": 138300, "moe90": 1899, "householdsThousands": 54760 }
+    }
+  },
+
+  "householdIncomeByHouseholderEducationDetailed": {
+    "description": "Median and mean household income by detailed educational attainment of householder (householders age 25 and older). No margins of error are published in this table.",
+    "sourceId": "census_h13",
+    "table": "Table H-13. Median and Mean Household Income by Educational Attainment of Householders 25 Years Old and Over: 1991 to 2025",
+    "year": 2025,
+    "unit": "USD (2025 dollars)",
+    "values": {
+      "total":                 { "label": "Total",                          "median": 89660,  "mean": 128600, "householdsThousands": 131500 },
+      "less_than_9th_grade":   { "label": "Less than 9th grade",            "median": 36360,  "mean": 59650,  "householdsThousands": 3210 },
+      "grade_9_12_no_diploma": { "label": "9th to 12th grade (no diploma)", "median": 37630,  "mean": 58530,  "householdsThousands": 6078 },
+      "hs_graduate":           { "label": "High school graduate (includes equivalency)", "median": 60790, "mean": 83670, "householdsThousands": 32830 },
+      "some_college_no_degree":{ "label": "Some college, no degree",        "median": 76160,  "mean": 102000, "householdsThousands": 19740 },
+      "associate":             { "label": "Associate degree",               "median": 85000,  "mean": 109300, "householdsThousands": 14920 },
+      "bachelors_or_more":     { "label": "Bachelor's degree or more",      "median": 138300, "mean": 182200, "householdsThousands": 54760 },
+      "bachelors":             { "label": "Bachelor's degree",              "median": 127100, "mean": 165000, "householdsThousands": 32680 },
+      "masters":               { "label": "Master's degree",                "median": 149100, "mean": 192200, "householdsThousands": 16180 },
+      "professional":          { "label": "Professional degree",            "median": 190400, "mean": 260700, "householdsThousands": 2201 },
+      "doctorate":             { "label": "Doctorate degree",               "median": 176500, "mean": 243600, "householdsThousands": 3690 }
+    }
+  },
+
+  "householdIncomeByResidence": {
+    "description": "Median household income by residence (all households). Census notes that 2025 metro/nonmetro estimates are not comparable with 2024 because of a new sample design and updated metro delineations.",
+    "sourceId": "census_income_report",
+    "table": "Table 1. Income Summary Measures by Selected Characteristics: 2024 and 2025",
+    "year": 2025,
+    "unit": "USD (2025 dollars)",
+    "values": {
+      "all_households":           { "label": "All households",                           "median": 87460, "moe90": 1040, "householdsThousands": 137100 },
+      "inside_metro":             { "label": "Inside metropolitan statistical areas",    "median": 91450, "moe90": 849,  "householdsThousands": 118500 },
+      "inside_principal_cities":  { "label": "Inside principal cities",                  "median": 81710, "moe90": 1254, "householdsThousands": 46440 },
+      "outside_principal_cities": { "label": "Inside metro areas, outside principal cities (suburbs)", "median": 98370, "moe90": 2004, "householdsThousands": 72040 },
+      "outside_metro":            { "label": "Outside metropolitan statistical areas",   "median": 68670, "moe90": 2518, "householdsThousands": 18570 }
+    }
+  },
+
+  "householdIncomeByHouseholdType": {
+    "description": "Median household income by type of household (all households). Useful for family-structure flavor text; does not isolate households with children.",
+    "sourceId": "census_income_report",
+    "table": "Table 1. Income Summary Measures by Selected Characteristics: 2024 and 2025",
+    "year": 2025,
+    "unit": "USD (2025 dollars)",
+    "values": {
+      "family_households":           { "label": "Family households",                         "median": 112900, "moe90": 1543, "householdsThousands": 88000 },
+      "married_couple":              { "label": "Married-couple households",                 "median": 132400, "moe90": 1841, "householdsThousands": 64720 },
+      "female_householder_no_spouse":{ "label": "Female householder, no spouse present",     "median": 63530,  "moe90": 1933, "householdsThousands": 15670 },
+      "male_householder_no_spouse":  { "label": "Male householder, no spouse present",       "median": 86000,  "moe90": 2509, "householdsThousands": 7610 }
+    }
+  },
+
+  "workerEarningsByEducation": {
+    "description": "Median usual weekly earnings and unemployment rate by educational attainment, persons age 25+ (earnings are for full-time wage and salary workers). For an individual parent's pay and for job-loss event odds. Annual estimates exclude October 2025.",
+    "sourceId": "bls_education_pays",
+    "table": "Table 5.1 Unemployment rates and earnings by educational attainment, 2025",
+    "tableUrl": "https://www.bls.gov/emp/tables/unemployment-earnings-education.htm",
+    "year": 2025,
+    "unit": "USD per week; unemployment rate in percent",
+    "values": {
+      "doctoral":       { "label": "Doctoral degree",                 "medianWeeklyEarnings": 2307, "unemploymentRate": 1.8 },
+      "professional":   { "label": "Professional degree",             "medianWeeklyEarnings": 2294, "unemploymentRate": 1.9 },
+      "masters":        { "label": "Master's degree",                 "medianWeeklyEarnings": 1876, "unemploymentRate": 2.6 },
+      "bachelors":      { "label": "Bachelor's degree",               "medianWeeklyEarnings": 1578, "unemploymentRate": 2.8 },
+      "associate":      { "label": "Associate's degree",              "medianWeeklyEarnings": 1135, "unemploymentRate": 3.0 },
+      "some_college":   { "label": "Some college, no degree",         "medianWeeklyEarnings": 1062, "unemploymentRate": 3.8 },
+      "hs_diploma":     { "label": "High school diploma",             "medianWeeklyEarnings": 966,  "unemploymentRate": 4.3 },
+      "less_than_hs":   { "label": "Less than a high school diploma", "medianWeeklyEarnings": 770,  "unemploymentRate": 6.1 },
+      "total":          { "label": "Total",                           "medianWeeklyEarnings": 1268, "unemploymentRate": 3.4 }
+    }
+  },
+
+  "model": {
+    "d1HouseholdIncome": {
+      "description": "Which published median sets familyIncome for each D1 option (before the D2 adjustment).",
+      "values": {
+        "no_hs_diploma":             { "use": "householdIncomeByHouseholderEducation.no_hs_diploma",            "median": 37090,  "sourceId": "census_income_report", "year": 2025 },
+        "hs_diploma":                { "use": "householdIncomeByHouseholderEducation.hs_no_college",            "median": 60790,  "sourceId": "census_income_report", "year": 2025 },
+        "some_college_or_associate": { "use": "householdIncomeByHouseholderEducation.some_college",             "median": 79880,  "sourceId": "census_income_report", "year": 2025 },
+        "bachelors":                 { "use": "householdIncomeByHouseholderEducationDetailed.bachelors",        "median": 127100, "sourceId": "census_h13", "year": 2025 },
+        "graduate_or_professional":  { "use": "householdIncomeByHouseholderEducationDetailed.masters",          "median": 149100, "sourceId": "census_h13", "year": 2025,
+                                       "assumption": true,
+                                       "note": "No combined graduate/professional median is published. Master's is the most common graduate degree among householders. If the D1 scene keeps the physician parent (docs/sample-scene.md), use 'professional' (190,400) instead." }
+      }
+    },
+    "d2PlaceRatio": {
+      "description": "Multiplier applied to the D1 median for each D2 option: (residence median) / (all-households median).",
+      "derived": true,
+      "assumption": true,
+      "assumptionNote": "Applying a place ratio to an education median assumes the two effects multiply independently. These tables don't publish income by education and place together.",
+      "formula": "householdIncomeByResidence.<category>.median / householdIncomeByResidence.all_households.median",
+      "sourceId": "census_income_report",
+      "year": 2025,
+      "values": {
+        "high_poverty_city":    { "category": "inside_principal_cities",  "ratio": 0.934, "gap": "Census CPS does not separate high-poverty neighborhoods; this uses all principal-city households." },
+        "working_class_suburb": { "category": "outside_principal_cities", "ratio": 1.125, "gap": "CPS does not separate working-class from affluent suburbs; both use all suburban households." },
+        "affluent_suburb":      { "category": "outside_principal_cities", "ratio": 1.125, "gap": "CPS does not separate working-class from affluent suburbs; both use all suburban households." },
+        "small_town":           { "category": "outside_metro",            "ratio": 0.785, "gap": "CPS does not separate small towns from rural areas; both use all nonmetro households." },
+        "rural":                { "category": "outside_metro",            "ratio": 0.785, "gap": "CPS does not separate small towns from rural areas; both use all nonmetro households." }
+      }
+    }
+  },
+
+  "missing": [
+    "Median household income for households with children (all values above include households without children, including retirees).",
+    "Income for high-poverty neighborhoods, and the split between working-class and affluent suburbs and between small towns and rural areas (see d2PlaceRatio gaps).",
+    "Household income by householder education and place together (the model multiplies them instead).",
+    "A single median for graduate or professional degrees combined.",
+    "Margins of error for Table H-13 values (not published).",
+    "National shares of family structures for households with children, including grandparent-led and same-sex-parent households.",
+    "Family income bracket edges (College Scorecard net-price bands) and the Head Start poverty line (HHS poverty guidelines); these belong with net-price.json and the D3 data."
+  ]
+}

@@ -1,0 +1,1187 @@
+{
+  "updated": "2026-10-22",
+  "sourceId": "college_scorecard",
+  "dataRelease": "College Scorecard Most-Recent-Cohorts-Institution file, released 2026-10-15",
+  "notes": [
+    "Every dollar value is nominal (not inflation-adjusted) for the year shown.",
+    "Values marked \"derived\": true are aggregated across institutions from Scorecard institution-level data using the stated method. They are not published national statistics.",
+    "Net price covers only full-time, first-time undergraduates who received Title IV (federal) aid. Families who receive no federal aid, common at the top income bracket of elite colleges, may pay up to the full cost of attendance.",
+    "Scorecard's income brackets are fixed dollar ranges and are not adjusted for inflation from year to year.",
+    "Public net prices and costs reflect in-state students."
+  ],
+  "incomeBrackets": {
+    "description": "Family income brackets used for familyIncomeBracket in the engine. They match the five College Scorecard net-price bands exactly.",
+    "sourceId": "college_scorecard",
+    "year": 2025,
+    "academicYear": "2024-25",
+    "definitionSource": "College Scorecard Data Dictionary (CollegeScorecardDataDictionary.xlsx), NPT41–NPT45 definitions",
+    "values": [
+      {
+        "id": "low",
+        "scorecardBand": "NPT41",
+        "label": "$0–$30,000",
+        "min": 0,
+        "max": 30000
+      },
+      {
+        "id": "lower_middle",
+        "scorecardBand": "NPT42",
+        "label": "$30,001–$48,000",
+        "min": 30001,
+        "max": 48000
+      },
+      {
+        "id": "middle",
+        "scorecardBand": "NPT43",
+        "label": "$48,001–$75,000",
+        "min": 48001,
+        "max": 75000
+      },
+      {
+        "id": "upper_middle",
+        "scorecardBand": "NPT44",
+        "label": "$75,001–$110,000",
+        "min": 75001,
+        "max": 110000
+      },
+      {
+        "id": "high",
+        "scorecardBand": "NPT45",
+        "label": "$110,001 and up",
+        "min": 110001,
+        "max": null
+      }
+    ]
+  },
+  "collegeTierMap": {
+    "description": "Which tier in this file each engine collegeTier uses.",
+    "elite_private": "elite_private",
+    "flagship": "flagship_proxy_public_r1",
+    "regional": "regional_public",
+    "community": "community_college",
+    "hbcu": {
+      "use": [
+        "hbcu_public",
+        "hbcu_private_nonprofit"
+      ],
+      "assumption": true,
+      "note": "The outline groups 'Regional public university or HBCU' together. Decide whether the HBCU option uses its own tier (recommended, since prices differ) and whether it is public or private."
+    }
+  },
+  "tiers": {
+    "elite_private": {
+      "label": "Elite private (Ivy-Plus)",
+      "definition": "The 12 Ivy-Plus colleges as defined in Chetty, Deming & Friedman (2023): Harvard, Yale, Princeton, Columbia, Penn, Brown, Dartmouth, Cornell, Stanford, MIT, Duke, and the University of Chicago.",
+      "definitionSourceIds": [
+        "oi_college_admissions"
+      ],
+      "institutions": 12,
+      "undergradEnrollment": {
+        "value": 93553,
+        "sourceId": "college_scorecard",
+        "year": 2024,
+        "period": "Fall 2024",
+        "field": "UGDS"
+      },
+      "netPriceByBracket": {
+        "description": "Average annual net price (cost of attendance minus grant aid) for full-time, first-time undergraduates receiving Title IV aid. 'value' = mean across institutions weighted by the number of aided students in that bracket.",
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "fields": "NPT41–NPT45_PRIV weighted by NUM41–NUM45_PRIV",
+        "values": {
+          "low": {
+            "value": 2968,
+            "medianOfInstitutions": 1399,
+            "institutionsReporting": 9,
+            "aidedStudents": 743
+          },
+          "lower_middle": {
+            "value": 2379,
+            "medianOfInstitutions": 1008,
+            "institutionsReporting": 8,
+            "aidedStudents": 700
+          },
+          "middle": {
+            "value": 5121,
+            "medianOfInstitutions": 4283,
+            "institutionsReporting": 11,
+            "aidedStudents": 1124
+          },
+          "upper_middle": {
+            "value": 13609,
+            "medianOfInstitutions": 9438,
+            "institutionsReporting": 12,
+            "aidedStudents": 988
+          },
+          "high": {
+            "value": 52790,
+            "medianOfInstitutions": 49362,
+            "institutionsReporting": 12,
+            "aidedStudents": 2466
+          }
+        }
+      },
+      "netPriceOverall": {
+        "value": 21576,
+        "medianOfInstitutions": 17962,
+        "institutionsReporting": 12,
+        "derived": true,
+        "method": "Mean weighted by undergraduate enrollment",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "field": "NPT4_PRIV"
+      },
+      "costOfAttendance": {
+        "value": 91463,
+        "medianOfInstitutions": 91813,
+        "institutionsReporting": 12,
+        "derived": true,
+        "method": "Mean weighted by undergraduate enrollment",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "field": "COSTT4_A"
+      },
+      "tuitionFeesInState": {
+        "value": 71380,
+        "method": "Median across institutions",
+        "institutionsReporting": 12,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2026,
+        "academicYear": "2025-26",
+        "field": "TUITIONFEE_IN"
+      },
+      "tuitionFeesOutOfState": {
+        "value": 71380,
+        "method": "Median across institutions",
+        "institutionsReporting": 12,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2026,
+        "academicYear": "2025-26",
+        "field": "TUITIONFEE_OUT"
+      },
+      "completerMedianDebt": {
+        "value": 13000,
+        "method": "Median of institution-level medians (not a national median)",
+        "institutionsReporting": 12,
+        "derived": true,
+        "note": "Federal student loan debt (NSLDS) of students who completed; private loans are not included.",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "period": "NSLDS FY2024 and FY2025 pooled cohorts",
+        "field": "GRAD_DEBT_MDN"
+      },
+      "debtByFamilyIncome": {
+        "description": "Median federal loan debt of borrowers (completers and non-completers) by family income. Scorecard uses three bands here, not five.",
+        "method": "Median of institution-level medians",
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "period": "NSLDS FY2024 and FY2025 pooled cohorts",
+        "values": {
+          "0_30000": {
+            "label": "$0–$30,000",
+            "value": 8250,
+            "institutionsReporting": 11,
+            "field": "LO_INC_DEBT_MDN"
+          },
+          "30001_75000": {
+            "label": "$30,001–$75,000",
+            "value": 8000,
+            "institutionsReporting": 11,
+            "field": "MD_INC_DEBT_MDN"
+          },
+          "75001_plus": {
+            "label": "$75,001 and up",
+            "value": 13970,
+            "institutionsReporting": 12,
+            "field": "HI_INC_DEBT_MDN"
+          }
+        }
+      },
+      "pellShare": {
+        "value": 0.21,
+        "method": "Mean weighted by undergraduate enrollment",
+        "institutionsReporting": 12,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "field": "PCTPELL"
+      },
+      "completionRate150": {
+        "value": 0.955,
+        "method": "Mean weighted by undergraduate enrollment",
+        "institutionsReporting": 12,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2026,
+        "reportingPeriod": "IPEDS DCY2025-26",
+        "cohort": "Entered fall 2019 or AY 2019-20; completion within 6 years",
+        "note": "Counts completion at the same institution only.",
+        "field": "C150_4"
+      },
+      "perInstitution": {
+        "description": "Net price by bracket at each Ivy-Plus college (null = not reported, usually suppressed for privacy because too few students).",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "values": [
+          {
+            "unitid": "166027",
+            "name": "Harvard University",
+            "netPriceByBracket": {
+              "low": 2542,
+              "lower_middle": 2070,
+              "middle": 4126,
+              "upper_middle": 9995,
+              "high": 51128
+            },
+            "costOfAttendance": 89279
+          },
+          {
+            "unitid": "130794",
+            "name": "Yale University",
+            "netPriceByBracket": {
+              "low": 1256,
+              "lower_middle": 867,
+              "middle": 854,
+              "upper_middle": 7828,
+              "high": 47749
+            },
+            "costOfAttendance": 91950
+          },
+          {
+            "unitid": "186131",
+            "name": "Princeton University",
+            "netPriceByBracket": {
+              "low": null,
+              "lower_middle": 795,
+              "middle": 1346,
+              "upper_middle": 4761,
+              "high": 38927
+            },
+            "costOfAttendance": 87888
+          },
+          {
+            "unitid": "190150",
+            "name": "Columbia University in the City of New York",
+            "netPriceByBracket": {
+              "low": 2275,
+              "lower_middle": 4020,
+              "middle": 4878,
+              "upper_middle": 8881,
+              "high": 40931
+            },
+            "costOfAttendance": 92198
+          },
+          {
+            "unitid": "215062",
+            "name": "University of Pennsylvania",
+            "netPriceByBracket": {
+              "low": null,
+              "lower_middle": 234,
+              "middle": 12421,
+              "upper_middle": 25263,
+              "high": 61455
+            },
+            "costOfAttendance": 92288
+          },
+          {
+            "unitid": "217156",
+            "name": "Brown University",
+            "netPriceByBracket": {
+              "low": 39,
+              "lower_middle": 228,
+              "middle": 10079,
+              "upper_middle": 24827,
+              "high": 48459
+            },
+            "costOfAttendance": 91676
+          },
+          {
+            "unitid": "182670",
+            "name": "Dartmouth College",
+            "netPriceByBracket": {
+              "low": 1399,
+              "lower_middle": null,
+              "middle": 1680,
+              "upper_middle": 11641,
+              "high": 56894
+            },
+            "costOfAttendance": 91312
+          },
+          {
+            "unitid": "190415",
+            "name": "Cornell University",
+            "netPriceByBracket": {
+              "low": 6371,
+              "lower_middle": 6152,
+              "middle": 6797,
+              "upper_middle": 13422,
+              "high": 55935
+            },
+            "costOfAttendance": 92093
+          },
+          {
+            "unitid": "243744",
+            "name": "Stanford University",
+            "netPriceByBracket": {
+              "low": 1067,
+              "lower_middle": null,
+              "middle": null,
+              "upper_middle": 6603,
+              "high": 47575
+            },
+            "costOfAttendance": 92892
+          },
+          {
+            "unitid": "166683",
+            "name": "Massachusetts Institute of Technology",
+            "netPriceByBracket": {
+              "low": null,
+              "lower_middle": null,
+              "middle": 4283,
+              "upper_middle": 8020,
+              "high": 50747
+            },
+            "costOfAttendance": 85960
+          },
+          {
+            "unitid": "198419",
+            "name": "Duke University",
+            "netPriceByBracket": {
+              "low": 6652,
+              "lower_middle": null,
+              "middle": 4608,
+              "upper_middle": 16813,
+              "high": 48954
+            },
+            "costOfAttendance": 90696
+          },
+          {
+            "unitid": "144050",
+            "name": "University of Chicago",
+            "netPriceByBracket": {
+              "low": 394,
+              "lower_middle": 1148,
+              "middle": 2800,
+              "upper_middle": 7744,
+              "high": 49769
+            },
+            "costOfAttendance": 94971
+          }
+        ]
+      }
+    },
+    "flagship_proxy_public_r1": {
+      "label": "Public research university (flagship proxy)",
+      "definition": "Public four-year institutions classified 'Doctoral Universities: Very High Research Activity' (Carnegie basic classification 15, CCBASIC, AY 2023-24), currently operating. Scorecard has no flagship field; R1 status is a proxy and includes some non-flagship campuses.",
+      "definitionSourceIds": [
+        "college_scorecard"
+      ],
+      "institutions": 107,
+      "undergradEnrollment": {
+        "value": 2700711,
+        "sourceId": "college_scorecard",
+        "year": 2024,
+        "period": "Fall 2024",
+        "field": "UGDS"
+      },
+      "netPriceByBracket": {
+        "description": "Average annual net price (cost of attendance minus grant aid) for full-time, first-time undergraduates receiving Title IV aid. 'value' = mean across institutions weighted by the number of aided students in that bracket.",
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "fields": "NPT41–NPT45_PUB weighted by NUM41–NUM45_PUB",
+        "values": {
+          "low": {
+            "value": 11258,
+            "medianOfInstitutions": 11551,
+            "institutionsReporting": 107,
+            "aidedStudents": 56878
+          },
+          "lower_middle": {
+            "value": 11035,
+            "medianOfInstitutions": 11649,
+            "institutionsReporting": 106,
+            "aidedStudents": 31454
+          },
+          "middle": {
+            "value": 13282,
+            "medianOfInstitutions": 13650,
+            "institutionsReporting": 106,
+            "aidedStudents": 39142
+          },
+          "upper_middle": {
+            "value": 18803,
+            "medianOfInstitutions": 18479,
+            "institutionsReporting": 105,
+            "aidedStudents": 31080
+          },
+          "high": {
+            "value": 27844,
+            "medianOfInstitutions": 25977,
+            "institutionsReporting": 106,
+            "aidedStudents": 62152
+          }
+        }
+      },
+      "netPriceOverall": {
+        "value": 17285,
+        "medianOfInstitutions": 17125,
+        "institutionsReporting": 107,
+        "derived": true,
+        "method": "Mean weighted by undergraduate enrollment",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "field": "NPT4_PUB"
+      },
+      "costOfAttendance": {
+        "value": 31513,
+        "medianOfInstitutions": 30517,
+        "institutionsReporting": 107,
+        "derived": true,
+        "method": "Mean weighted by undergraduate enrollment",
+        "note": "Public cost of attendance reflects in-state students.",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "field": "COSTT4_A"
+      },
+      "tuitionFeesInState": {
+        "value": 12484,
+        "method": "Median across institutions",
+        "institutionsReporting": 107,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2026,
+        "academicYear": "2025-26",
+        "field": "TUITIONFEE_IN"
+      },
+      "tuitionFeesOutOfState": {
+        "value": 33783,
+        "method": "Median across institutions",
+        "institutionsReporting": 107,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2026,
+        "academicYear": "2025-26",
+        "field": "TUITIONFEE_OUT"
+      },
+      "completerMedianDebt": {
+        "value": 19151,
+        "method": "Median of institution-level medians (not a national median)",
+        "institutionsReporting": 107,
+        "derived": true,
+        "note": "Federal student loan debt (NSLDS) of students who completed; private loans are not included.",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "period": "NSLDS FY2024 and FY2025 pooled cohorts",
+        "field": "GRAD_DEBT_MDN"
+      },
+      "debtByFamilyIncome": {
+        "description": "Median federal loan debt of borrowers (completers and non-completers) by family income. Scorecard uses three bands here, not five.",
+        "method": "Median of institution-level medians",
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "period": "NSLDS FY2024 and FY2025 pooled cohorts",
+        "values": {
+          "0_30000": {
+            "label": "$0–$30,000",
+            "value": 16250,
+            "institutionsReporting": 107,
+            "field": "LO_INC_DEBT_MDN"
+          },
+          "30001_75000": {
+            "label": "$30,001–$75,000",
+            "value": 14866,
+            "institutionsReporting": 107,
+            "field": "MD_INC_DEBT_MDN"
+          },
+          "75001_plus": {
+            "label": "$75,001 and up",
+            "value": 15204,
+            "institutionsReporting": 107,
+            "field": "HI_INC_DEBT_MDN"
+          }
+        }
+      },
+      "pellShare": {
+        "value": 0.296,
+        "method": "Mean weighted by undergraduate enrollment",
+        "institutionsReporting": 107,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "field": "PCTPELL"
+      },
+      "completionRate150": {
+        "value": 0.75,
+        "method": "Mean weighted by undergraduate enrollment",
+        "institutionsReporting": 106,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2026,
+        "reportingPeriod": "IPEDS DCY2025-26",
+        "cohort": "Entered fall 2019 or AY 2019-20; completion within 6 years",
+        "note": "Counts completion at the same institution only.",
+        "field": "C150_4"
+      }
+    },
+    "regional_public": {
+      "label": "Regional public university",
+      "definition": "Public four-year institutions classified as Master's Colleges & Universities or Baccalaureate Colleges (CCBASIC 18–22), currently operating. Includes some public HBCUs.",
+      "definitionSourceIds": [
+        "college_scorecard"
+      ],
+      "institutions": 323,
+      "undergradEnrollment": {
+        "value": 1611200,
+        "sourceId": "college_scorecard",
+        "year": 2024,
+        "period": "Fall 2024",
+        "field": "UGDS"
+      },
+      "netPriceByBracket": {
+        "description": "Average annual net price (cost of attendance minus grant aid) for full-time, first-time undergraduates receiving Title IV aid. 'value' = mean across institutions weighted by the number of aided students in that bracket.",
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "fields": "NPT41–NPT45_PUB weighted by NUM41–NUM45_PUB",
+        "values": {
+          "low": {
+            "value": 10274,
+            "medianOfInstitutions": 10631,
+            "institutionsReporting": 307,
+            "aidedStudents": 57322
+          },
+          "lower_middle": {
+            "value": 9386,
+            "medianOfInstitutions": 10331,
+            "institutionsReporting": 308,
+            "aidedStudents": 27223
+          },
+          "middle": {
+            "value": 11302,
+            "medianOfInstitutions": 12175,
+            "institutionsReporting": 309,
+            "aidedStudents": 30659
+          },
+          "upper_middle": {
+            "value": 15939,
+            "medianOfInstitutions": 15809,
+            "institutionsReporting": 309,
+            "aidedStudents": 22598
+          },
+          "high": {
+            "value": 21991,
+            "medianOfInstitutions": 19880,
+            "institutionsReporting": 299,
+            "aidedStudents": 33294
+          }
+        }
+      },
+      "netPriceOverall": {
+        "value": 13228,
+        "medianOfInstitutions": 13642,
+        "institutionsReporting": 314,
+        "derived": true,
+        "method": "Mean weighted by undergraduate enrollment",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "field": "NPT4_PUB"
+      },
+      "costOfAttendance": {
+        "value": 23743,
+        "medianOfInstitutions": 24046,
+        "institutionsReporting": 315,
+        "derived": true,
+        "method": "Mean weighted by undergraduate enrollment",
+        "note": "Public cost of attendance reflects in-state students.",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "field": "COSTT4_A"
+      },
+      "tuitionFeesInState": {
+        "value": 9035,
+        "method": "Median across institutions",
+        "institutionsReporting": 320,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2026,
+        "academicYear": "2025-26",
+        "field": "TUITIONFEE_IN"
+      },
+      "tuitionFeesOutOfState": {
+        "value": 18738,
+        "method": "Median across institutions",
+        "institutionsReporting": 320,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2026,
+        "academicYear": "2025-26",
+        "field": "TUITIONFEE_OUT"
+      },
+      "completerMedianDebt": {
+        "value": 19500,
+        "method": "Median of institution-level medians (not a national median)",
+        "institutionsReporting": 316,
+        "derived": true,
+        "note": "Federal student loan debt (NSLDS) of students who completed; private loans are not included.",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "period": "NSLDS FY2024 and FY2025 pooled cohorts",
+        "field": "GRAD_DEBT_MDN"
+      },
+      "debtByFamilyIncome": {
+        "description": "Median federal loan debt of borrowers (completers and non-completers) by family income. Scorecard uses three bands here, not five.",
+        "method": "Median of institution-level medians",
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "period": "NSLDS FY2024 and FY2025 pooled cohorts",
+        "values": {
+          "0_30000": {
+            "label": "$0–$30,000",
+            "value": 16775,
+            "institutionsReporting": 315,
+            "field": "LO_INC_DEBT_MDN"
+          },
+          "30001_75000": {
+            "label": "$30,001–$75,000",
+            "value": 14495,
+            "institutionsReporting": 309,
+            "field": "MD_INC_DEBT_MDN"
+          },
+          "75001_plus": {
+            "label": "$75,001 and up",
+            "value": 14512,
+            "institutionsReporting": 310,
+            "field": "HI_INC_DEBT_MDN"
+          }
+        }
+      },
+      "pellShare": {
+        "value": 0.42,
+        "method": "Mean weighted by undergraduate enrollment",
+        "institutionsReporting": 321,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "field": "PCTPELL"
+      },
+      "completionRate150": {
+        "value": 0.499,
+        "method": "Mean weighted by undergraduate enrollment",
+        "institutionsReporting": 319,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2026,
+        "reportingPeriod": "IPEDS DCY2025-26",
+        "cohort": "Entered fall 2019 or AY 2019-20; completion within 6 years",
+        "note": "Counts completion at the same institution only.",
+        "field": "C150_4"
+      }
+    },
+    "hbcu_public": {
+      "label": "Public HBCU",
+      "definition": "Public four-year institutions with the Scorecard HBCU flag, currently operating.",
+      "definitionSourceIds": [
+        "college_scorecard"
+      ],
+      "institutions": 42,
+      "undergradEnrollment": {
+        "value": 167369,
+        "sourceId": "college_scorecard",
+        "year": 2024,
+        "period": "Fall 2024",
+        "field": "UGDS"
+      },
+      "netPriceByBracket": {
+        "description": "Average annual net price (cost of attendance minus grant aid) for full-time, first-time undergraduates receiving Title IV aid. 'value' = mean across institutions weighted by the number of aided students in that bracket.",
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "fields": "NPT41–NPT45_PUB weighted by NUM41–NUM45_PUB",
+        "values": {
+          "low": {
+            "value": 13709,
+            "medianOfInstitutions": 12078,
+            "institutionsReporting": 41,
+            "aidedStudents": 12566
+          },
+          "lower_middle": {
+            "value": 13114,
+            "medianOfInstitutions": 12808,
+            "institutionsReporting": 39,
+            "aidedStudents": 3596
+          },
+          "middle": {
+            "value": 14053,
+            "medianOfInstitutions": 14129,
+            "institutionsReporting": 39,
+            "aidedStudents": 2787
+          },
+          "upper_middle": {
+            "value": 17938,
+            "medianOfInstitutions": 16765,
+            "institutionsReporting": 37,
+            "aidedStudents": 1505
+          },
+          "high": {
+            "value": 20589,
+            "medianOfInstitutions": 20593,
+            "institutionsReporting": 36,
+            "aidedStudents": 1289
+          }
+        }
+      },
+      "netPriceOverall": {
+        "value": 13854,
+        "medianOfInstitutions": 13517,
+        "institutionsReporting": 41,
+        "derived": true,
+        "method": "Mean weighted by undergraduate enrollment",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "field": "NPT4_PUB"
+      },
+      "costOfAttendance": {
+        "value": 24211,
+        "medianOfInstitutions": 24086,
+        "institutionsReporting": 41,
+        "derived": true,
+        "method": "Mean weighted by undergraduate enrollment",
+        "note": "Public cost of attendance reflects in-state students.",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "field": "COSTT4_A"
+      },
+      "tuitionFeesInState": {
+        "value": 8785,
+        "method": "Median across institutions",
+        "institutionsReporting": 41,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2026,
+        "academicYear": "2025-26",
+        "field": "TUITIONFEE_IN"
+      },
+      "tuitionFeesOutOfState": {
+        "value": 17330,
+        "method": "Median across institutions",
+        "institutionsReporting": 41,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2026,
+        "academicYear": "2025-26",
+        "field": "TUITIONFEE_OUT"
+      },
+      "completerMedianDebt": {
+        "value": 24656,
+        "method": "Median of institution-level medians (not a national median)",
+        "institutionsReporting": 41,
+        "derived": true,
+        "note": "Federal student loan debt (NSLDS) of students who completed; private loans are not included.",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "period": "NSLDS FY2024 and FY2025 pooled cohorts",
+        "field": "GRAD_DEBT_MDN"
+      },
+      "debtByFamilyIncome": {
+        "description": "Median federal loan debt of borrowers (completers and non-completers) by family income. Scorecard uses three bands here, not five.",
+        "method": "Median of institution-level medians",
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "period": "NSLDS FY2024 and FY2025 pooled cohorts",
+        "values": {
+          "0_30000": {
+            "label": "$0–$30,000",
+            "value": 19000,
+            "institutionsReporting": 41,
+            "field": "LO_INC_DEBT_MDN"
+          },
+          "30001_75000": {
+            "label": "$30,001–$75,000",
+            "value": 14125,
+            "institutionsReporting": 41,
+            "field": "MD_INC_DEBT_MDN"
+          },
+          "75001_plus": {
+            "label": "$75,001 and up",
+            "value": 15000,
+            "institutionsReporting": 41,
+            "field": "HI_INC_DEBT_MDN"
+          }
+        }
+      },
+      "pellShare": {
+        "value": 0.608,
+        "method": "Mean weighted by undergraduate enrollment",
+        "institutionsReporting": 41,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "field": "PCTPELL"
+      },
+      "completionRate150": {
+        "value": 0.379,
+        "method": "Mean weighted by undergraduate enrollment",
+        "institutionsReporting": 41,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2026,
+        "reportingPeriod": "IPEDS DCY2025-26",
+        "cohort": "Entered fall 2019 or AY 2019-20; completion within 6 years",
+        "note": "Counts completion at the same institution only.",
+        "field": "C150_4"
+      }
+    },
+    "hbcu_private_nonprofit": {
+      "label": "Private nonprofit HBCU",
+      "definition": "Private nonprofit four-year institutions with the Scorecard HBCU flag, currently operating.",
+      "definitionSourceIds": [
+        "college_scorecard"
+      ],
+      "institutions": 48,
+      "undergradEnrollment": {
+        "value": 58408,
+        "sourceId": "college_scorecard",
+        "year": 2024,
+        "period": "Fall 2024",
+        "field": "UGDS"
+      },
+      "netPriceByBracket": {
+        "description": "Average annual net price (cost of attendance minus grant aid) for full-time, first-time undergraduates receiving Title IV aid. 'value' = mean across institutions weighted by the number of aided students in that bracket.",
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "fields": "NPT41–NPT45_PRIV weighted by NUM41–NUM45_PRIV",
+        "values": {
+          "low": {
+            "value": 23634,
+            "medianOfInstitutions": 17682,
+            "institutionsReporting": 43,
+            "aidedStudents": 6466
+          },
+          "lower_middle": {
+            "value": 21973,
+            "medianOfInstitutions": 20176,
+            "institutionsReporting": 39,
+            "aidedStudents": 2104
+          },
+          "middle": {
+            "value": 24685,
+            "medianOfInstitutions": 19031,
+            "institutionsReporting": 38,
+            "aidedStudents": 1817
+          },
+          "upper_middle": {
+            "value": 29530,
+            "medianOfInstitutions": 22486,
+            "institutionsReporting": 36,
+            "aidedStudents": 1096
+          },
+          "high": {
+            "value": 37884,
+            "medianOfInstitutions": 26394,
+            "institutionsReporting": 33,
+            "aidedStudents": 1613
+          }
+        }
+      },
+      "netPriceOverall": {
+        "value": 26612,
+        "medianOfInstitutions": 18982,
+        "institutionsReporting": 44,
+        "derived": true,
+        "method": "Mean weighted by undergraduate enrollment",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "field": "NPT4_PRIV"
+      },
+      "costOfAttendance": {
+        "value": 41349,
+        "medianOfInstitutions": 28813,
+        "institutionsReporting": 44,
+        "derived": true,
+        "method": "Mean weighted by undergraduate enrollment",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "field": "COSTT4_A"
+      },
+      "tuitionFeesInState": {
+        "value": 16248,
+        "method": "Median across institutions",
+        "institutionsReporting": 45,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2026,
+        "academicYear": "2025-26",
+        "field": "TUITIONFEE_IN"
+      },
+      "tuitionFeesOutOfState": {
+        "value": 16248,
+        "method": "Median across institutions",
+        "institutionsReporting": 45,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2026,
+        "academicYear": "2025-26",
+        "field": "TUITIONFEE_OUT"
+      },
+      "completerMedianDebt": {
+        "value": 25648,
+        "method": "Median of institution-level medians (not a national median)",
+        "institutionsReporting": 40,
+        "derived": true,
+        "note": "Federal student loan debt (NSLDS) of students who completed; private loans are not included.",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "period": "NSLDS FY2024 and FY2025 pooled cohorts",
+        "field": "GRAD_DEBT_MDN"
+      },
+      "debtByFamilyIncome": {
+        "description": "Median federal loan debt of borrowers (completers and non-completers) by family income. Scorecard uses three bands here, not five.",
+        "method": "Median of institution-level medians",
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "period": "NSLDS FY2024 and FY2025 pooled cohorts",
+        "values": {
+          "0_30000": {
+            "label": "$0–$30,000",
+            "value": 18925,
+            "institutionsReporting": 42,
+            "field": "LO_INC_DEBT_MDN"
+          },
+          "30001_75000": {
+            "label": "$30,001–$75,000",
+            "value": 15000,
+            "institutionsReporting": 39,
+            "field": "MD_INC_DEBT_MDN"
+          },
+          "75001_plus": {
+            "label": "$75,001 and up",
+            "value": 14500,
+            "institutionsReporting": 39,
+            "field": "HI_INC_DEBT_MDN"
+          }
+        }
+      },
+      "pellShare": {
+        "value": 0.599,
+        "method": "Mean weighted by undergraduate enrollment",
+        "institutionsReporting": 45,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "field": "PCTPELL"
+      },
+      "completionRate150": {
+        "value": 0.478,
+        "method": "Mean weighted by undergraduate enrollment",
+        "institutionsReporting": 43,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2026,
+        "reportingPeriod": "IPEDS DCY2025-26",
+        "cohort": "Entered fall 2019 or AY 2019-20; completion within 6 years",
+        "note": "Counts completion at the same institution only.",
+        "field": "C150_4"
+      }
+    },
+    "community_college": {
+      "label": "Community college",
+      "definition": "Public two-year institutions (ICLEVEL 2), currently operating.",
+      "definitionSourceIds": [
+        "college_scorecard"
+      ],
+      "institutions": 887,
+      "undergradEnrollment": {
+        "value": 3108360,
+        "sourceId": "college_scorecard",
+        "year": 2024,
+        "period": "Fall 2024",
+        "field": "UGDS"
+      },
+      "netPriceByBracket": {
+        "description": "Average annual net price (cost of attendance minus grant aid) for full-time, first-time undergraduates receiving Title IV aid. 'value' = mean across institutions weighted by the number of aided students in that bracket.",
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "fields": "NPT41–NPT45_PUB weighted by NUM41–NUM45_PUB",
+        "values": {
+          "low": {
+            "value": 6984,
+            "medianOfInstitutions": 6647,
+            "institutionsReporting": 779,
+            "aidedStudents": 133980
+          },
+          "lower_middle": {
+            "value": 7029,
+            "medianOfInstitutions": 6682,
+            "institutionsReporting": 725,
+            "aidedStudents": 36265
+          },
+          "middle": {
+            "value": 8111,
+            "medianOfInstitutions": 7402,
+            "institutionsReporting": 726,
+            "aidedStudents": 37584
+          },
+          "upper_middle": {
+            "value": 11106,
+            "medianOfInstitutions": 9909,
+            "institutionsReporting": 708,
+            "aidedStudents": 22511
+          },
+          "high": {
+            "value": 14607,
+            "medianOfInstitutions": 13122,
+            "institutionsReporting": 555,
+            "aidedStudents": 14556
+          }
+        }
+      },
+      "netPriceOverall": {
+        "value": 8020,
+        "medianOfInstitutions": 7286,
+        "institutionsReporting": 788,
+        "derived": true,
+        "method": "Mean weighted by undergraduate enrollment",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "field": "NPT4_PUB"
+      },
+      "costOfAttendance": {
+        "value": 16037,
+        "medianOfInstitutions": 15062,
+        "institutionsReporting": 746,
+        "derived": true,
+        "method": "Mean weighted by undergraduate enrollment",
+        "note": "Public cost of attendance reflects in-state students.",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "field": "COSTT4_A"
+      },
+      "tuitionFeesInState": {
+        "value": 4790,
+        "method": "Median across institutions",
+        "institutionsReporting": 814,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2026,
+        "academicYear": "2025-26",
+        "field": "TUITIONFEE_IN"
+      },
+      "tuitionFeesOutOfState": {
+        "value": 8752,
+        "method": "Median across institutions",
+        "institutionsReporting": 814,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2026,
+        "academicYear": "2025-26",
+        "field": "TUITIONFEE_OUT"
+      },
+      "completerMedianDebt": {
+        "value": 10500,
+        "method": "Median of institution-level medians (not a national median)",
+        "institutionsReporting": 649,
+        "derived": true,
+        "note": "Federal student loan debt (NSLDS) of students who completed; private loans are not included.",
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "period": "NSLDS FY2024 and FY2025 pooled cohorts",
+        "field": "GRAD_DEBT_MDN"
+      },
+      "debtByFamilyIncome": {
+        "description": "Median federal loan debt of borrowers (completers and non-completers) by family income. Scorecard uses three bands here, not five.",
+        "method": "Median of institution-level medians",
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "period": "NSLDS FY2024 and FY2025 pooled cohorts",
+        "values": {
+          "0_30000": {
+            "label": "$0–$30,000",
+            "value": 8924,
+            "institutionsReporting": 684,
+            "field": "LO_INC_DEBT_MDN"
+          },
+          "30001_75000": {
+            "label": "$30,001–$75,000",
+            "value": 6508,
+            "institutionsReporting": 623,
+            "field": "MD_INC_DEBT_MDN"
+          },
+          "75001_plus": {
+            "label": "$75,001 and up",
+            "value": 6166,
+            "institutionsReporting": 622,
+            "field": "HI_INC_DEBT_MDN"
+          }
+        }
+      },
+      "pellShare": {
+        "value": 0.33,
+        "method": "Mean weighted by undergraduate enrollment",
+        "institutionsReporting": 820,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2025,
+        "academicYear": "2024-25",
+        "field": "PCTPELL"
+      },
+      "completionRate150": {
+        "value": 0.368,
+        "method": "Mean weighted by undergraduate enrollment",
+        "institutionsReporting": 816,
+        "derived": true,
+        "sourceId": "college_scorecard",
+        "year": 2026,
+        "reportingPeriod": "IPEDS DCY2025-26",
+        "cohort": "Entered fall 2022 or AY 2022-23; completion within 3 years",
+        "note": "Counts completion at the same institution only; students who transfer before finishing are not counted as completers.",
+        "field": "C150_L4"
+      }
+    }
+  },
+  "missing": [
+    "A flagship-only figure: Scorecard has no flagship field, so public R1 universities stand in (107 institutions, more than the 50 flagships).",
+    "Net price for students who receive no federal aid, by income (Scorecard reports aided students only).",
+    "Out-of-state net price at public universities (Scorecard reports in-state net price).",
+    "Debt in the same five income brackets as net price (Scorecard debt uses three bands: $0–30k, $30–75k, $75k+).",
+    "True national medians of debt; the file has medians of institution medians.",
+    "Parent PLUS and private loan debt.",
+    "Ivy-Plus net prices for some brackets at some colleges (suppressed for small numbers; see perInstitution nulls).",
+    "Net price for the apprenticeship and military paths (not covered by Scorecard)."
+  ]
+}
