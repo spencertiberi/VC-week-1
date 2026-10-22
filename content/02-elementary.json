@@ -46,7 +46,7 @@
           "setFlags": [
             "school_public"
           ],
-          "next": "el_e1"
+          "next": "el_activities"
         },
         {
           "id": "magnet_lottery",
@@ -104,7 +104,7 @@
               "nces_coe"
             ]
           },
-          "next": "el_e1"
+          "next": "el_activities"
         }
       ]
     },
@@ -120,7 +120,116 @@
       "sourceIds": [
         "nces_coe"
       ],
-      "next": "el_e1"
+      "next": "el_activities"
+    },
+    {
+      "id": "el_activities",
+      "kind": "decision",
+      "decisionId": "D5",
+      "age": 8,
+      "chooser": "family",
+      "title": "After Three O'Clock",
+      "text": "{name} is eight, and the hours after school are up for grabs. A flyer for a youth soccer league comes home in {poss} backpack: a registration fee, a uniform, and Saturday games two towns over. A neighbor gives piano lessons on Wednesdays. The library runs a free building club, and a teacher keeps a chess club going in the cafeteria.\n\nThen there's the street, or the backyard, or the creek at the end of the block, where kids have been inventing games for free since long before anyone made them a schedule.\n\nAnd there are the younger kids at home, who get out at 2:45 and can't walk home alone.",
+      "sourceIds": [
+        "aspen_parent_survey_2024",
+        "snellman_engagement_gap",
+        "putnam_our_kids"
+      ],
+      "choices": [
+        {
+          "id": "team_sport",
+          "label": "{Subj} joins a youth sports league",
+          "description": "Registration, a uniform, and Saturday games, some of them out of town.",
+          "effects": {
+            "network": 3,
+            "resilience": 3,
+            "finances": -4
+          },
+          "setFlags": [
+            "activity_sport",
+            "early_sport"
+          ],
+          "availability": {
+            "stretchIf": {
+              "bracket": [
+                "low",
+                "lower_middle"
+              ]
+            },
+            "stretchNote": "Families earning under $50,000 spend about {stat:youth_sports_spending_low_income} a year on a child's main sport; families earning $100,000 or more spend about {stat:youth_sports_spending_high_income}.",
+            "sourceIds": [
+              "aspen_parent_survey_2024"
+            ]
+          },
+          "authorFlag": "Stretch for the two lowest brackets, as at D7; the survey has no league price.",
+          "outcome": "{name} plays every position badly and loves all of them. Saturday mornings smell like cut grass and orange slices.",
+          "next": "el_e1"
+        },
+        {
+          "id": "music_lessons",
+          "label": "{Subj} starts music lessons",
+          "description": "Lessons every week with a neighbor, and an instrument to rent or buy.",
+          "effects": {
+            "academics": 3,
+            "resilience": 2,
+            "finances": -5
+          },
+          "setFlags": [
+            "activity_music",
+            "early_music"
+          ],
+          "authorFlag": "No source for the price of music lessons, so this option has no cost check.",
+          "outcome": "{name} practices scales at the kitchen table, loudly. By spring {subj} can play one whole song, and the whole family can hum it.",
+          "next": "el_e1"
+        },
+        {
+          "id": "free_clubs",
+          "label": "{Subj} joins the free clubs at school and the library",
+          "description": "Chess in the cafeteria, building club at the library, no fees.",
+          "effects": {
+            "academics": 3,
+            "network": 2,
+            "wellbeing": -1
+          },
+          "setFlags": [
+            "activity_club_child",
+            "early_club"
+          ],
+          "outcome": "{name} learns that a knight moves in an L, and that the librarian saves the best pieces for the regulars.",
+          "next": "el_e1"
+        },
+        {
+          "id": "free_play",
+          "label": "{Subj} spends afternoons playing outside with the neighborhood kids",
+          "description": "No schedule, no fees, no adults keeping score.",
+          "effects": {
+            "wellbeing": 5,
+            "resilience": 2,
+            "academics": -2
+          },
+          "setFlags": [
+            "free_play"
+          ],
+          "outcome": "The neighborhood kids invent a game with a ball, a fence, and rules that change every day. {name} is home when the streetlights come on.",
+          "next": "el_e1"
+        },
+        {
+          "id": "watch_siblings",
+          "label": "{Subj} helps watch the younger kids after school",
+          "description": "Someone has to be home until the grown-ups get off work.",
+          "effects": {
+            "resilience": 5,
+            "wellbeing": -2,
+            "network": -3
+          },
+          "setFlags": [
+            "caregiver",
+            "early_caregiver"
+          ],
+          "outcome": "{name} learns to make snacks, find lost shoes, and keep a four-year-old out of the street. It's a job, even if nobody calls it one.",
+          "next": "el_e1"
+        }
+      ]
     },
     {
       "id": "el_e1",

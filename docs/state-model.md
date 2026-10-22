@@ -155,6 +155,30 @@ travel and club options at D7 and D10 have no cost cutoff. They are a **stretch*
 gaps from `benchmarks.json`. Matching those two brackets to the survey's "under $50,000"
 group is an assumption.
 
+### High school choice (D8 and R3)
+- **Selective public high school:** a long shot. Base 0.10, +0.10 per 10 `academics` above
+  60, +0.10 if `network` ≥ 65 (tutoring and test prep; listed as "wasn't available"
+  otherwise), cap 0.70. Success sets `school_selective`. **TODO(author):** placeholder odds.
+- **Private high school:** a long shot that combines admission and paying for it. The option
+  shows average private high school tuition from `content/data/private-school.json`
+  (`nces_private_school`, 2020–21). Base 0.80; −0.68 when tuition is more than 20% of
+  `familyIncome`, because the family then needs a scarce scholarship; cap 0.90. Success
+  sets `school_private`. **TODO(author):** admission and scholarship odds need a source.
+- A failed attempt shows R3 and returns to the remaining D8 options (`retryOf`). R3 uses
+  `resultType: "admission"`, but the applicant-portal styling only applies to results whose
+  success sets a `collegeTier`.
+
+### Course access (D9)
+Students at public schools in high-poverty, rural, or small-town areas (no
+`school_selective` or `school_private` flag) see "takes every AP class the school offers"
+(smaller `academics` gain) in place of the full AP-heavy load. **TODO(author):** this needs a
+statistic on AP access by school poverty or rurality (`college_board_ap`, `nces_coe`).
+
+### Sticking with one activity (`activity_deep`)
+Set by D6 (shared-interest club) or, through `setFlagsIf`, by continuing an activity: a
+team sport at D5 and again at D7, music or clubs at D5 then band or robotics at D7, music at
+D5 then arts at D11, or clubs or robotics before competitions at D11.
+
 ### Financial aid (R6)
 Net price comes from `net-price.json`, by `collegeTier` × `familyIncomeBracket`. The R6 card
 shows: sticker price, grants, net price, how it's covered (family, work, loans), and

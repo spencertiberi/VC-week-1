@@ -5,8 +5,350 @@
     14,
     18
   ],
-  "firstScene": "hs_sports",
+  "firstScene": "hs_school",
   "scenes": [
+    {
+      "id": "hs_school",
+      "kind": "decision",
+      "decisionId": "D8",
+      "age": 14,
+      "chooser": "family",
+      "title": "Which High School",
+      "text": "Eighth grade ends with a decision that feels bigger than it should. Most of {name}'s classmates will go to the high school the district assigns: the big one by the highway, with a marching band and a parking lot that floods every April.\n\nThere are other doors, if {name} can get through them. The region's selective public high school admits students by entrance exam, and some families have paid for test prep since sixth grade. A private school across town has small classes, a college counselor for every grade, and tuition that some families pay without blinking and others can't pay at all.\n\n{name} has a practice booklet from the library and a lot of opinions.",
+      "textVariants": [
+        {
+          "if": {
+            "hasAnyFlag": [
+              "region_rural",
+              "region_town"
+            ]
+          },
+          "append": "The selective school and the private school are both a long drive away."
+        }
+      ],
+      "sourceIds": [
+        "nces_coe",
+        "lubienski_public_advantage",
+        "nces_private_school"
+      ],
+      "choices": [
+        {
+          "id": "assigned_hs",
+          "label": "{Subj} goes to the assigned public high school",
+          "description": "Close to home, with most of {poss} middle school friends.",
+          "effects": {
+            "wellbeing": 4,
+            "network": 2,
+            "academics": -1
+          },
+          "setFlags": [
+            "school_public_hs"
+          ],
+          "outcome": "Ninth grade at the big school is loud, crowded, and familiar. {name} knows half the faces in the hallway by October.",
+          "next": "hs_courses"
+        },
+        {
+          "id": "selective_hs",
+          "label": "{Subj} takes the entrance exam for the selective public school",
+          "description": "Admission by test score. Some applicants have had years of paid test prep.",
+          "effects": {
+            "academics": 2,
+            "wellbeing": -2
+          },
+          "longShot": {
+            "label": "the selective high school",
+            "probability": {
+              "base": 0.1,
+              "max": 0.7,
+              "terms": [
+                {
+                  "stat": "academics",
+                  "above": 60,
+                  "per": 10,
+                  "add": 0.1,
+                  "label": "strong grades and test scores"
+                },
+                {
+                  "if": {
+                    "stat": "network",
+                    "gte": 65
+                  },
+                  "add": 0.1,
+                  "label": "tutoring and test prep",
+                  "missingLabel": "paid test prep or a tutor"
+                }
+              ]
+            },
+            "resultScene": "hs_school_result",
+            "onSuccess": {
+              "effects": {
+                "academics": 5,
+                "network": 5
+              },
+              "setFlags": [
+                "school_selective"
+              ]
+            },
+            "onFailure": {
+              "effects": {
+                "wellbeing": -2
+              }
+            },
+            "sourceIds": [
+              "nces_coe"
+            ]
+          },
+          "authorFlag": "Selective high school odds are placeholders; no source yet."
+        },
+        {
+          "id": "private_hs",
+          "label": "The family applies to a private high school",
+          "description": "Average private high school tuition: about {usd:private-school:averageTuition.values.secondary.value} a year.",
+          "effects": {
+            "academics": 1,
+            "wellbeing": -2
+          },
+          "longShot": {
+            "label": "the private school",
+            "probability": {
+              "base": 0.8,
+              "max": 0.9,
+              "terms": [
+                {
+                  "if": {
+                    "costShareAbove": 0.2,
+                    "cost": {
+                      "data": "private-school:averageTuition.values.secondary.value"
+                    }
+                  },
+                  "add": -0.68,
+                  "label": "tuition of more than a fifth of the family's income, so it depends on a scarce scholarship"
+                }
+              ]
+            },
+            "resultScene": "hs_school_result",
+            "onSuccess": {
+              "effects": {
+                "academics": 3,
+                "network": 6,
+                "finances": -6
+              },
+              "setFlags": [
+                "school_private"
+              ]
+            },
+            "onFailure": {
+              "effects": {
+                "wellbeing": -2
+              }
+            },
+            "sourceIds": [
+              "nces_private_school",
+              "lubienski_public_advantage"
+            ]
+          },
+          "authorFlag": "Admission (0.8) and scholarship odds are placeholders. The 20%-of-income cutoff reuses the affordability rule in state-model.md."
+        }
+      ]
+    },
+    {
+      "id": "hs_school_result",
+      "kind": "result",
+      "resultType": "admission",
+      "age": 14,
+      "title": "The Letter",
+      "textIfSuccess": "The letter from {college} comes in March, and it's a yes. {name} reads the list of first-week events twice, then texts everyone {subj} knows.",
+      "textIfFailure": "The letter from {college} comes in March. It's a no, politely worded. Most of {name}'s friends are going to the assigned school anyway, and by summer it stops stinging.",
+      "showFactors": true,
+      "sourceIds": [
+        "nces_coe",
+        "nces_private_school"
+      ],
+      "next": {
+        "ifSuccess": "hs_courses",
+        "ifFailure": "hs_school_retry"
+      }
+    },
+    {
+      "id": "hs_school_retry",
+      "kind": "decision",
+      "decisionId": "D8",
+      "retryOf": "hs_school",
+      "age": 14,
+      "chooser": "family",
+      "title": "Other Doors",
+      "text": "One door closed. {name} and {poss} family look at the ones still open.",
+      "sourceIds": [
+        "nces_coe"
+      ]
+    },
+    {
+      "id": "hs_courses",
+      "kind": "decision",
+      "decisionId": "D9",
+      "age": 14,
+      "chooser": "child",
+      "title": "The Schedule",
+      "text": "The ninth-grade course catalog is forty pages long, and {name} reads more of it than anyone expected. Some classes are labeled honors or AP and count for more in a GPA. Some lead to certifications in welding, nursing assistance, or coding. A few let students take classes at the community college for free and leave high school with college credits.\n\nThe counselor has fifteen minutes for each student. {name}'s friends are comparing schedules in the group chat, and everyone has a different theory about what colleges want.",
+      "textVariants": [
+        {
+          "if": {
+            "all": [
+              {
+                "hasAnyFlag": [
+                  "high_poverty_area",
+                  "region_rural",
+                  "region_town"
+                ]
+              },
+              {
+                "not": {
+                  "hasAnyFlag": [
+                    "school_selective",
+                    "school_private"
+                  ]
+                }
+              }
+            ]
+          },
+          "append": "{Poss} school offers only a handful of AP classes, and some of them meet before first period."
+        }
+      ],
+      "sourceIds": [
+        "college_board_ap",
+        "nces_coe",
+        "asca_ratios"
+      ],
+      "choices": [
+        {
+          "id": "ap_heavy",
+          "label": "{Subj} loads up on AP and honors classes",
+          "effects": {
+            "academics": 8,
+            "wellbeing": -5
+          },
+          "setFlags": [
+            "track_ap"
+          ],
+          "hiddenIf": {
+            "all": [
+              {
+                "hasAnyFlag": [
+                  "high_poverty_area",
+                  "region_rural",
+                  "region_town"
+                ]
+              },
+              {
+                "not": {
+                  "hasAnyFlag": [
+                    "school_selective",
+                    "school_private"
+                  ]
+                }
+              }
+            ]
+          },
+          "outcome": "{name}'s backpack weighs a ton, and {subj} learns what three hours of homework feels like. The transcript looks strong.",
+          "next": "hs_sports"
+        },
+        {
+          "id": "ap_limited",
+          "label": "{Subj} takes every AP class {poss} school offers",
+          "description": "There aren't many.",
+          "effects": {
+            "academics": 5,
+            "wellbeing": -3
+          },
+          "setFlags": [
+            "track_ap",
+            "ap_limited"
+          ],
+          "hiddenIf": {
+            "not": {
+              "all": [
+                {
+                  "hasAnyFlag": [
+                    "high_poverty_area",
+                    "region_rural",
+                    "region_town"
+                  ]
+                },
+                {
+                  "not": {
+                    "hasAnyFlag": [
+                      "school_selective",
+                      "school_private"
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "authorFlag": "Which schools offer few AP classes is modeled from place flags; needs a statistic on AP access by school poverty or rurality (college_board_ap or nces_coe).",
+          "outcome": "{name} takes all of them. It's a strong transcript for {poss} school, and a shorter one than students at schools with long AP lists.",
+          "next": "hs_sports"
+        },
+        {
+          "id": "honors",
+          "label": "{Subj} takes a balanced schedule with some honors classes",
+          "effects": {
+            "academics": 4,
+            "wellbeing": 3,
+            "network": -1
+          },
+          "setFlags": [
+            "track_honors"
+          ],
+          "outcome": "{name} gets enough sleep most nights and still has a few classes that push {obj}.",
+          "next": "hs_sports"
+        },
+        {
+          "id": "cte",
+          "label": "{Subj} joins the career and technical track",
+          "description": "Hands-on classes that can end in a certification.",
+          "effects": {
+            "finances": 3,
+            "resilience": 3,
+            "academics": -2
+          },
+          "setFlags": [
+            "track_cte"
+          ],
+          "outcome": "{name} spends afternoons in a shop or a lab with real equipment, and finds a knack for something {subj} never had the chance to try.",
+          "next": "hs_sports"
+        },
+        {
+          "id": "dual_enrollment",
+          "label": "{Subj} takes free classes at the community college",
+          "description": "College credits before graduation, and a long bus ride twice a week.",
+          "effects": {
+            "academics": 6,
+            "finances": 2,
+            "wellbeing": -4
+          },
+          "setFlags": [
+            "track_dual"
+          ],
+          "outcome": "{name} sits in a lecture hall with adults twice {poss} age, takes better notes than most of them, and banks a semester of credits.",
+          "next": "hs_sports"
+        },
+        {
+          "id": "minimum",
+          "label": "{Subj} does what it takes to graduate, and no more",
+          "description": "More time for everything else.",
+          "effects": {
+            "wellbeing": 4,
+            "academics": -6
+          },
+          "setFlags": [
+            "track_min"
+          ],
+          "outcome": "{name} passes everything and keeps {poss} afternoons. A few options quietly narrow, and {subj} won't notice which ones until later.",
+          "next": "hs_sports"
+        }
+      ]
+    },
     {
       "id": "hs_sports",
       "kind": "decision",
@@ -124,7 +466,7 @@
           },
           "authorFlag": "Stretch for the two lowest brackets, as at D7. No club price is in the data.",
           "outcome": "The schedule is brutal and the team is good. Some weekends there are more college coaches in the stands than parents.",
-          "next": "hs_friday_party"
+          "next": "hs_time"
         },
         {
           "id": "intramural",
@@ -139,7 +481,7 @@
             "activity_rec"
           ],
           "outcome": "Tuesday and Thursday nights in the gym, mixed teams, loud and a little chaotic. It’s the best part of {name}’s week.",
-          "next": "hs_friday_party"
+          "next": "hs_time"
         },
         {
           "id": "no_sports",
@@ -151,7 +493,7 @@
             "network": -1
           },
           "outcome": "{name} gets {poss} afternoons back. Some of them go to homework. Some go to nothing in particular, which also has its uses.",
-          "next": "hs_friday_party"
+          "next": "hs_time"
         }
       ]
     },
@@ -168,7 +510,7 @@
         "aspen_parent_survey_2024"
       ],
       "next": {
-        "ifSuccess": "hs_friday_party",
+        "ifSuccess": "hs_time",
         "ifFailure": "hs_sports_retry"
       }
     },
@@ -183,6 +525,144 @@
       "text": "Getting cut stings for about a week. Then the question comes back: there are still other ways to play, or {name} can let sports go and use the time for something else.",
       "sourceIds": [
         "aspen_parent_survey_2024"
+      ]
+    },
+    {
+      "id": "hs_time",
+      "kind": "decision",
+      "decisionId": "D11",
+      "age": 15,
+      "chooser": "child",
+      "title": "Everything Else",
+      "text": "Between classes and sleep, there are a few hours left in the week, and everyone has a claim on them. Student government needs a treasurer. The theater is casting the spring musical. The robotics team is short a programmer. The grocery store on the corner is hiring, and it pays every two weeks.\n\nAt home, someone has to get the younger kids to bed when the grown-ups work late. And {name}'s friends would like to see {obj} sometime, with no schedule at all.\n\nCollege applications will ask about all of it, though they won't weigh it all the same.",
+      "textVariants": [
+        {
+          "if": {
+            "hasFlag": "varsity"
+          },
+          "append": "Practice already takes every afternoon until six."
+        },
+        {
+          "if": {
+            "hasFlag": "caregiver"
+          },
+          "append": "{Subj}'s been the one at home after school for years."
+        }
+      ],
+      "sourceIds": [
+        "snellman_engagement_gap",
+        "oi_college_admissions"
+      ],
+      "choices": [
+        {
+          "id": "leadership",
+          "label": "{Subj} runs for student government and joins debate",
+          "effects": {
+            "network": 6,
+            "academics": 2,
+            "wellbeing": -2
+          },
+          "setFlags": [
+            "leadership"
+          ],
+          "outcome": "{name} learns to give a speech without {poss} hands shaking and to run a meeting that ends on time. Teachers start learning {poss} name.",
+          "next": "hs_friday_party"
+        },
+        {
+          "id": "arts",
+          "label": "{Subj} joins the theater crew and the choir",
+          "effects": {
+            "wellbeing": 4,
+            "network": 3,
+            "academics": -1
+          },
+          "setFlags": [
+            "activity_arts"
+          ],
+          "setFlagsIf": [
+            {
+              "if": {
+                "hasFlag": "early_music"
+              },
+              "flags": [
+                "activity_deep"
+              ]
+            }
+          ],
+          "outcome": "{name} spends spring evenings in a dark auditorium, painting sets and learning harmonies. The cast party is the best night of the year.",
+          "next": "hs_friday_party"
+        },
+        {
+          "id": "competitions",
+          "label": "{Subj} joins the robotics team or an academic competition",
+          "effects": {
+            "academics": 5,
+            "network": 2,
+            "wellbeing": -2
+          },
+          "setFlags": [
+            "activity_competition"
+          ],
+          "setFlagsIf": [
+            {
+              "if": {
+                "hasAnyFlag": [
+                  "activity_club",
+                  "early_club"
+                ]
+              },
+              "flags": [
+                "activity_deep"
+              ]
+            }
+          ],
+          "outcome": "Weekends become regionals, in gyms full of robots or buzzers. {name}'s team places third and celebrates like it won.",
+          "next": "hs_friday_party"
+        },
+        {
+          "id": "part_time_job",
+          "label": "{Subj} gets a part-time job",
+          "description": "A paycheck every two weeks, and less time for homework.",
+          "effects": {
+            "finances": 6,
+            "resilience": 4,
+            "academics": -3
+          },
+          "setFlags": [
+            "had_job"
+          ],
+          "outcome": "{name} learns the register, the regulars, and how to smile through a double shift. {Subj} saves most of every paycheck.",
+          "next": "hs_friday_party"
+        },
+        {
+          "id": "family_care",
+          "label": "{Subj} takes care of things at home",
+          "description": "Dinner, homework help, and bedtime for the younger kids.",
+          "effects": {
+            "resilience": 6,
+            "wellbeing": -3,
+            "academics": -2
+          },
+          "setFlags": [
+            "caregiver"
+          ],
+          "outcome": "{name} gets the younger kids fed, bathed, and to bed most nights. It's real work, and there's no line for it on a college application.",
+          "next": "hs_friday_party"
+        },
+        {
+          "id": "free_time",
+          "label": "{Subj} keeps {poss} afternoons free for friends",
+          "effects": {
+            "wellbeing": 5,
+            "network": 3,
+            "academics": -3
+          },
+          "setFlags": [
+            "free_time"
+          ],
+          "outcome": "Long afternoons at someone's house, drives to nowhere, a group chat that never sleeps. {name} will remember these people for a long time.",
+          "next": "hs_friday_party"
+        }
       ]
     },
     {

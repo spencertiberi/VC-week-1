@@ -1,7 +1,7 @@
 // Game state: creation, stat and economy changes, and recorded random draws.
 
 import { uniform } from './rng.js';
-import { valueOf } from './conditions.js';
+import { valueOf, test } from './conditions.js';
 
 // Rules entries are either plain values or { value, assumption, note }.
 export function param(rules, key) {
@@ -120,12 +120,14 @@ export function applyEconomy(state, econ, ctx) {
   return record;
 }
 
-// One change: { effects, economy, setFlags, clearFlags }.
+// One change: { effects, economy, setFlags, setFlagsIf, clearFlags }.
 export function applyChange(state, change, ctx, multiplier = 1) {
   if (!change) return { effects: {} };
   const effects = applyEffects(state, change.effects, ctx.rules, multiplier);
   const economy = applyEconomy(state, change.economy, ctx);
-  for (const f of change.setFlags || []) if (!state.flags.includes(f)) state.flags.push(f);
+  // setFlagsIf is checked before this change's own flags are set, so it reads earlier choices.
+  const conditional = (change.setFlagsIf || []).filter((x) => test(x.if, ctx)).flatMap((x) => x.flags);
+  for (const f of [...(change.setFlags || []), ...conditional]) if (!state.flags.includes(f)) state.flags.push(f);
   if (change.clearFlags) state.flags = state.flags.filter((f) => !change.clearFlags.includes(f));
   return { effects, economy };
 }

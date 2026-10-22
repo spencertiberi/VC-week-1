@@ -1,0 +1,27 @@
+{
+  "updated": "2026-10-22",
+  "sourceId": "nces_private_school",
+  "table": "Digest of Education Statistics 2023, Table 205.50: Private elementary and secondary enrollment, number of schools, and average tuition, by school level, orientation, and tuition",
+  "tableUrl": "https://nces.ed.gov/programs/digest/d23/tables/dt23_205.50.asp",
+  "retrieved": "2026-10-22",
+  "notes": [
+    "Average tuition charged, 2020-21, in current (2020-21) dollars. Family incomes in the game are 2025 dollars, so comparing them understates tuition relative to income somewhat.",
+    "The same table reports the all-schools average as $14,570 in constant 2022-23 dollars; it does not give constant-dollar values by school level."
+  ],
+  "averageTuition": {
+    "year": 2021,
+    "schoolYear": "2020-21",
+    "unit": "USD (2020-21 dollars)",
+    "sourceId": "nces_private_school",
+    "values": {
+      "all": { "label": "All private schools", "value": 12790 },
+      "elementary_middle": { "label": "Elementary/middle schools", "value": 9210 },
+      "secondary": { "label": "Secondary/high schools", "value": 15420 },
+      "combined": { "label": "Combined/other schools", "value": 15550 }
+    }
+  },
+  "missing": [
+    "Nonsectarian secondary tuition (the table marks it as not meeting reporting standards).",
+    "How many private-school students receive need-based aid, and how much (needed to source the scholarship odds at D8)."
+  ]
+}

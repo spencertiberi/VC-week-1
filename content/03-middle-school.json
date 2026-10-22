@@ -114,7 +114,17 @@
             "activity_sport"
           ],
           "next": "@nextStage",
-          "outcome": "Practice runs until five-thirty. {name} learns every teammate’s nickname and the exact smell of the team bus."
+          "outcome": "Practice runs until five-thirty. {name} learns every teammate’s nickname and the exact smell of the team bus.",
+          "setFlagsIf": [
+            {
+              "if": {
+                "hasFlag": "early_sport"
+              },
+              "flags": [
+                "activity_deep"
+              ]
+            }
+          ]
         },
         {
           "id": "travel_team",
@@ -143,7 +153,17 @@
           },
           "authorFlag": "The survey reports spending by household income but no price for travel teams, so this option is a stretch for the two lowest brackets instead of having a cost cutoff. Mapping those brackets to the survey’s under-$50,000 group is an assumption.",
           "next": "@nextStage",
-          "outcome": "Weekends turn into hotel breakfasts and tournament brackets. {name} gets better fast, and the family learns every rest stop on the interstate."
+          "outcome": "Weekends turn into hotel breakfasts and tournament brackets. {name} gets better fast, and the family learns every rest stop on the interstate.",
+          "setFlagsIf": [
+            {
+              "if": {
+                "hasFlag": "early_sport"
+              },
+              "flags": [
+                "activity_deep"
+              ]
+            }
+          ]
         },
         {
           "id": "band_robotics",
@@ -158,7 +178,20 @@
             "activity_club"
           ],
           "next": "@nextStage",
-          "outcome": "{name} spends a lot of afternoons in a room that smells like solder or valve oil, with kids {subj} might never have met otherwise."
+          "outcome": "{name} spends a lot of afternoons in a room that smells like solder or valve oil, with kids {subj} might never have met otherwise.",
+          "setFlagsIf": [
+            {
+              "if": {
+                "hasAnyFlag": [
+                  "early_music",
+                  "early_club"
+                ]
+              },
+              "flags": [
+                "activity_deep"
+              ]
+            }
+          ]
         },
         {
           "id": "rec_center",

@@ -11,5 +11,14 @@
   "events": "events.json",
   "rules": "rules.json",
   "ui": "ui.json",
-  "data": ["sources", "names", "benchmarks", "family-income", "net-price", "salaries", "policies"]
+  "data": [
+    "sources",
+    "names",
+    "benchmarks",
+    "family-income",
+    "net-price",
+    "salaries",
+    "policies",
+    "private-school"
+  ]
 }

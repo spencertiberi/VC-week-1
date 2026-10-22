@@ -20,6 +20,7 @@ content/
     net-price.json       college net price by tier × income bracket
     salaries.json        entry wages and salaries by role, credential, region
     policies.json        policy levers shown on the profile
+    private-school.json  average private school tuition by level (NCES)
 ```
 
 ## Template tokens
@@ -268,6 +269,8 @@ These extend the formats above. See `docs/build-plan.md` for how the engine uses
 - **`next`** can also be `{ "ifSuccess", "ifFailure" }` (result scenes) or a list of
   `{ "if": <condition>, "to": "<id>" }` entries, where the first match wins.
 - **`hiddenIf`** on a choice hides it when a condition is true.
+- **`setFlagsIf`** on a choice or outcome: `[{ "if": <condition>, "flags": [...] }]`. Each
+  condition is checked before the change's own `setFlags`, so it reads earlier choices.
 - **`authorFlag`** on any item is a note for the author; the validator lists them.
 - **`onEnter`** on a stage applies a change when the stage begins (no card).
 - **Conditions:** `hasFlag`, `notFlag`, `hasAnyFlag`, `{ "stat", "gte"/"lt" }`,
