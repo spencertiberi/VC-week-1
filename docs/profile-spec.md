@@ -54,7 +54,7 @@ clearly labeled as a national average and not a prediction for {name}.
 ### 5. Turning points
 The three moments that shaped this life most.
 - **Algorithm:** for each history entry, sum the absolute stat changes, any dollar effects
-  traceable to it (debt from R5, salary from D13), and later effects that depended on flags
+  traceable to it (debt from R6, salary from D15), and later effects that depended on flags
   it set. Pick the top three, with at most one from the `start` category.
 - Each is one sentence linking cause to result, tagged **Starting point**, **Choice**, or
   **Chance**: "**Chance:** {Poss} dad's illness in fourth grade meant two years of
@@ -63,7 +63,7 @@ The three moments that shaped this life most.
 ### 6. Chosen, chance, or starting point
 A single stacked bar showing how much of the total change in {name}'s life came from:
 - **Starting point** (D1–D2 and their downstream effects)
-- **Choices** (D3–D13)
+- **Choices** (D3–D15)
 - **Chance** (events, lotteries, long-shot rolls, career events)
 
 Based on the attribution rules in `state-model.md`. Include one sentence of interpretation
@@ -116,11 +116,12 @@ Starting policy list for `policies.json` (**TODO(author):** edit to match your g
 | Housing mobility programs | D2 | `oi_mto`, `oi_cmto` |
 | Child tax credit | D1, E events | `columbia_ctc` |
 | Paid sick leave and health coverage | E events | `kff_health_costs` |
-| Lower student-to-counselor ratios | D8, R4 | `asca_ratios` |
-| Ending legacy preferences in admissions | R4 | `oi_college_admissions` |
-| Need-based aid and Pell Grant expansion | R5, R6 | `fsa_pell`, `oi_mobility_report_cards` |
-| Registered apprenticeship expansion | D11 | `dol_apprenticeship` |
+| Lower student-to-counselor ratios | D9, R5 | `asca_ratios` |
+| Ending legacy and athletic-recruiting preferences in admissions | R5, D10 | `oi_college_admissions` |
+| Need-based aid and Pell Grant expansion | R6, R7 | `fsa_pell`, `oi_mobility_report_cards` |
+| Registered apprenticeship expansion | D13 | `dol_apprenticeship` |
 | Programs that build cross-class friendships | D6 | `oi_social_capital` |
+| Free school sports and activities (no pay-to-play fees) | D5, D7, D10 | `snellman_engagement_gap`, `aspen_state_of_play` |
 
 ### Take action
 A short, nonpartisan block:

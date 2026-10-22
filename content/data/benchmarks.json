@@ -118,6 +118,60 @@
       "sourceId": "asca_ratios",
       "retrieved": "2026-10-22",
       "quote": "ASCA recommends a 250-to-1 ratio of students to school counselors"
+    },
+    {
+      "id": "youth_sports_spending_avg",
+      "claim": "Average amount a family spent on one child’s primary sport in the past year",
+      "value": 1016,
+      "unit": "USD",
+      "population": "US parents of youth athletes",
+      "year": 2024,
+      "sourceId": "aspen_parent_survey_2024"
+    },
+    {
+      "id": "youth_sports_spending_low_income",
+      "claim": "Average amount spent on one child’s primary sport, households earning under $50,000",
+      "value": 604,
+      "unit": "USD",
+      "population": "US parents of youth athletes, household income under $50,000",
+      "year": 2024,
+      "sourceId": "aspen_parent_survey_2024"
+    },
+    {
+      "id": "youth_sports_spending_mid_income",
+      "claim": "Average amount spent on one child’s primary sport, households earning $50,000–$99,999",
+      "value": 961,
+      "unit": "USD",
+      "population": "US parents of youth athletes, household income $50,000–$99,999",
+      "year": 2024,
+      "sourceId": "aspen_parent_survey_2024"
+    },
+    {
+      "id": "youth_sports_spending_high_income",
+      "claim": "Average amount spent on one child’s primary sport, households earning $100,000 or more",
+      "value": 1591,
+      "unit": "USD",
+      "population": "US parents of youth athletes, household income $100,000 or more",
+      "year": 2024,
+      "sourceId": "aspen_parent_survey_2024"
+    },
+    {
+      "id": "travel_club_share_low_income",
+      "claim": "Share of youth athletes who play their primary sport on a travel, elite, or club team, households earning under $50,000",
+      "value": 0.13,
+      "unit": "share",
+      "population": "US youth athletes, household income under $50,000",
+      "year": 2024,
+      "sourceId": "aspen_parent_survey_2024"
+    },
+    {
+      "id": "travel_club_share_high_income",
+      "claim": "Share of youth athletes who play their primary sport on a travel, elite, or club team, households earning $100,000 or more",
+      "value": 0.258,
+      "unit": "share",
+      "population": "US youth athletes, household income $100,000 or more",
+      "year": 2024,
+      "sourceId": "aspen_parent_survey_2024"
     }
   ],
   "missing": [

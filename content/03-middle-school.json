@@ -31,7 +31,7 @@
           "setFlags": [
             "friend_group_old"
           ],
-          "next": "@nextStage",
+          "next": "ms_activities",
           "outcome": "{name} keeps the same seat by the window all year. It's comfortable, and the jokes go back to second grade."
         },
         {
@@ -46,7 +46,7 @@
             "friend_group_club",
             "activity_deep"
           ],
-          "next": "@nextStage",
+          "next": "ms_activities",
           "outcome": "The robotics club meets Tuesdays and Thursdays. {name} learns to solder and makes friends from three different neighborhoods."
         },
         {
@@ -60,7 +60,7 @@
           "setFlags": [
             "friend_group_popular"
           ],
-          "next": "@nextStage",
+          "next": "ms_activities",
           "outcome": "{name} learns the rules fast: what to wear, who to text back, when to laugh. Some days it feels like winning. Some days it feels like work."
         },
         {
@@ -74,8 +74,120 @@
           "setFlags": [
             "friend_group_online"
           ],
-          "next": "@nextStage",
+          "next": "ms_activities",
           "outcome": "{name}'s closest friends live in {poss} phone, across three time zones. They're real friends, and the hallway stays a little lonely."
+        }
+      ]
+    },
+    {
+      "id": "ms_activities",
+      "kind": "decision",
+      "decisionId": "D7",
+      "age": 12,
+      "chooser": "child",
+      "title": "After the Bell",
+      "text": "By seventh grade, the hours between the last bell and dinner have become their own kind of sorting. Some kids head to practice in matching jackets. Some go to the band room or the robotics lab. Some walk to the rec center down the street, where the after-school program is free and the snacks are not great.\n\nA travel team two towns over is holding tryouts. It plays tournaments most weekends, and the fees, uniforms, gas, and hotel nights add up fast. A few of {name}’s classmates have played on teams like it since they were eight.\n\nAt home, someone still has to watch the younger kids until six.",
+      "textVariants": [
+        {
+          "if": {
+            "hasFlag": "friend_group_club"
+          },
+          "append": "{Poss} friends from the robotics table are already arguing about this year’s competition."
+        }
+      ],
+      "sourceIds": [
+        "aspen_parent_survey_2024",
+        "snellman_engagement_gap",
+        "putnam_our_kids"
+      ],
+      "choices": [
+        {
+          "id": "school_team",
+          "label": "{Subj} joins a school sports team",
+          "description": "Low fees, practice after school, and a bus to away games.",
+          "effects": {
+            "network": 4,
+            "resilience": 3,
+            "academics": -1
+          },
+          "setFlags": [
+            "activity_sport"
+          ],
+          "next": "@nextStage",
+          "outcome": "Practice runs until five-thirty. {name} learns every teammate’s nickname and the exact smell of the team bus."
+        },
+        {
+          "id": "travel_team",
+          "label": "{Subj} tries out for the travel team",
+          "description": "Families earning $100,000 or more spend about {stat:youth_sports_spending_high_income} a year on a child’s main sport.",
+          "effects": {
+            "network": 6,
+            "resilience": 2,
+            "finances": -6
+          },
+          "setFlags": [
+            "activity_sport",
+            "club_youth"
+          ],
+          "availability": {
+            "stretchIf": {
+              "bracket": [
+                "low",
+                "lower_middle"
+              ]
+            },
+            "stretchNote": "Families earning under $50,000 spend about {stat:youth_sports_spending_low_income} a year on a child’s main sport, and only {stat:travel_club_share_low_income} of their young athletes play on travel or club teams.",
+            "sourceIds": [
+              "aspen_parent_survey_2024"
+            ]
+          },
+          "authorFlag": "The survey reports spending by household income but no price for travel teams, so this option is a stretch for the two lowest brackets instead of having a cost cutoff. Mapping those brackets to the survey’s under-$50,000 group is an assumption.",
+          "next": "@nextStage",
+          "outcome": "Weekends turn into hotel breakfasts and tournament brackets. {name} gets better fast, and the family learns every rest stop on the interstate."
+        },
+        {
+          "id": "band_robotics",
+          "label": "{Subj} joins the school band or the robotics club",
+          "description": "Free or close to it, with an instrument rental or a team fee.",
+          "effects": {
+            "academics": 3,
+            "network": 3,
+            "finances": -1
+          },
+          "setFlags": [
+            "activity_club"
+          ],
+          "next": "@nextStage",
+          "outcome": "{name} spends a lot of afternoons in a room that smells like solder or valve oil, with kids {subj} might never have met otherwise."
+        },
+        {
+          "id": "rec_center",
+          "label": "{Subj} goes to the free program at the rec center",
+          "description": "Homework help, a gym, and adults who keep an eye on everyone.",
+          "effects": {
+            "wellbeing": 4,
+            "network": 2,
+            "academics": -1
+          },
+          "setFlags": [
+            "activity_rec"
+          ],
+          "next": "@nextStage",
+          "outcome": "The rec center has a gym, a homework room, and a staff member named Denise who knows everyone’s business. {name} is there most afternoons."
+        },
+        {
+          "id": "watch_siblings",
+          "label": "{Subj} watches the younger kids after school",
+          "effects": {
+            "resilience": 6,
+            "wellbeing": -2,
+            "network": -3
+          },
+          "setFlags": [
+            "caregiver"
+          ],
+          "next": "@nextStage",
+          "outcome": "{name} can make three kinds of grilled cheese and settle any argument about the TV. Homework happens after eight."
         }
       ]
     }

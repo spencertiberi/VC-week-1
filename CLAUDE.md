@@ -4,8 +4,8 @@
 A browser-based choose-your-own-adventure that follows one child in the United States
 from birth to age 25. The child gets a random name from the Social Security
 Administration's current top 200 baby names, and the story is told in third person. The
-reader makes about 13 decisions: family background, preschool, K–12 schooling,
-extracurriculars, social life, academics, life after high school, and a first job. Random
+reader makes about 15 decisions: family background, preschool, K–12 schooling,
+extracurriculars and sports, social life, academics, life after high school, and a first job. Random
 life events happen along the way, and every one is shown to the reader.
 
 The story ends with a profile of the person at 25, including their income from 18 to 25,

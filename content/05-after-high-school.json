@@ -17,7 +17,7 @@
     {
       "id": "ahs_path",
       "kind": "decision",
-      "decisionId": "D11",
+      "decisionId": "D13",
       "age": 18,
       "chooser": "child",
       "title": "What Comes Next",
@@ -271,7 +271,7 @@
     {
       "id": "ahs_path_retry",
       "kind": "decision",
-      "decisionId": "D11",
+      "decisionId": "D13",
       "retryOf": "ahs_path",
       "age": 18,
       "chooser": "child",
@@ -298,7 +298,7 @@
     {
       "id": "ahs_field",
       "kind": "decision",
-      "decisionId": "D12",
+      "decisionId": "D14",
       "age": 18,
       "chooser": "child",
       "title": "A Direction",

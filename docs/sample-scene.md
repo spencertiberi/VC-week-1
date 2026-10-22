@@ -41,7 +41,7 @@ reader's role. Every other scene stays in third person.
 
 ---
 
-## Sample 2 — Friday Night (D10, Ava's decision, age 16)
+## Sample 2 — Friday Night (D12, Ava's decision, age 16)
 
 **Title:** Friday Night
 
@@ -100,7 +100,7 @@ child, and the card says so.
 
 ---
 
-## Sample 4 — Admissions result (R4, age 18): elite private college, not admitted
+## Sample 4 — Admissions result (R5, age 18): elite private college, not admitted
 
 **Title:** The Email
 

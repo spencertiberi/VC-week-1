@@ -4,9 +4,9 @@ Every screen the reader sees, in order. There are four kinds:
 
 | Code | Kind | Reader acts? | Notes |
 |---|---|---|---|
-| **D** | Decision | Yes, picks an option | 13 in total |
+| **D** | Decision | Yes, picks an option | 15 in total, the most the brief allows |
 | **E** | Random life event | No, reads a card | Shown only when an event fires; every event that fires is shown |
-| **R** | Result | No, reads a card | Outcome of a lottery, application, aid offer, completion roll, or job search |
+| **R** | Result | No, reads a card | Outcome of a lottery, application, tryout, aid offer, completion roll, or job search |
 | **N** | Research note | No, reads a card | One per stage: a real statistic plus a linked source |
 
 Stat and flag names refer to `state-model.md`. Source ids refer to `sources.md`.
@@ -75,6 +75,7 @@ ill, a parent loses their job, the family moves, an exceptional teacher, a famil
 | # | Decision | Options | Main effects | Inequity shown | Sources |
 |---|---|---|---|---|---|
 | D6 | Friends and social life (includes a first phone) | Stays close to childhood friends · Joins the popular crowd · Finds kids with shared interests (a club or team) · Keeps mostly to self, lots of time online | `network`, `wellbeing`, sets `friend_group_*` | Friendships across class lines predict mobility | `oi_social_capital`, `surgeon_general_social_media`, `add_health` |
+| D7 | Activities (age 12) | School sports team (low fee) · Travel team (a stretch for the two lowest brackets, with real spending and participation gaps shown) · School band or robotics club · Free after-school program at the rec center · Watching the younger kids after school | Sets `activity_sport`, `club_youth`, `activity_club`, `activity_rec`, or `caregiver`; `network`, `resilience`, `finances` | Spending on youth sports and travel-team participation by family income; who can afford to specialize early | `aspen_parent_survey_2024`, `snellman_engagement_gap`, `putnam_our_kids` |
 
 **N3:** Cross-class friendship ("economic connectedness") and upward mobility (`oi_social_capital`).
 
@@ -82,48 +83,55 @@ ill, a parent loses their job, the family moves, an exceptional teacher, a famil
 
 | # | Decision | Options | Main effects | Inequity shown | Sources |
 |---|---|---|---|---|---|
-| D7 | High school | Assigned public high school · Apply to a selective public or magnet high school (long shot based on `academics`) · Private or boarding school (tuition shown; need-based aid is a long shot) | `academics`, `network`, `finances`; may set `school_selective` | Who gets access to selective schools, and what paid test prep buys | `nces_coe`, `lubienski_public_advantage`, `nces_private_school` |
-| D8 | Course load | AP or IB-heavy (only if the school offers it) · Balanced with some honors · Career and technical (CTE) track · Dual enrollment at the community college · Does the minimum | `academics`, `wellbeing`; sets `track_*` | Uneven access to advanced courses across schools | `college_board_ap`, `nces_coe` |
-| D9 | Time outside class | Varsity sport · Leadership (student government, debate, newspaper) · Arts · Part-time job (adds income) · Caring for family | `network`, `finances`, `resilience`, application strength | Jobs and caregiving build real skills but count less in selective admissions | `snellman_engagement_gap`, `oi_college_admissions` |
-| D10 | Friday night party | Goes and stays late · Goes for an hour, then leaves · Stays home · Invites a few friends over | `network`, `wellbeing`, `academics`; a small chance of a consequence event (shown if it fires) | The same mistake can cost different families very different amounts | `cdc_yrbs`, `add_health` |
+| D8 | High school | Assigned public high school · Apply to a selective public or magnet high school (long shot based on `academics`) · Private or boarding school (tuition shown; need-based aid is a long shot) | `academics`, `network`, `finances`; may set `school_selective` | Who gets access to selective schools, and what paid test prep buys | `nces_coe`, `lubienski_public_advantage`, `nces_private_school` |
+| D9 | Course load | AP or IB-heavy (only if the school offers it) · Balanced with some honors · Career and technical (CTE) track · Dual enrollment at the community college · Does the minimum | `academics`, `wellbeing`; sets `track_*` | Uneven access to advanced courses across schools | `college_board_ap`, `nces_coe` |
+| D10 | Sports (age 15) | Tries out for a school team (long shot; result on R4) · Plays for a club team with college showcases (a stretch for the two lowest brackets) · Plays intramural or pickup games · Skips sports | Sets `varsity` or `club_sport`; `wellbeing`, `network`, `resilience`; school-team and club players can get the recruiting card | Higher-income families spend far more on youth sports and are about twice as likely to play club or travel; recruited athletes get a large admissions boost at Ivy-Plus colleges | `aspen_parent_survey_2024`, `oi_college_admissions`, `snellman_engagement_gap` |
+| D11 | Time outside class (besides sports) | Leadership (student government, debate, newspaper) · Arts (theater, band, choir) · Robotics or academic competitions · Part-time job (adds income) · Caring for family · Unstructured time with friends | `network`, `finances`, `resilience`, application strength | Jobs and caregiving build real skills but count less in selective admissions | `snellman_engagement_gap`, `oi_college_admissions` |
+| D12 | Friday night party | Goes and stays late · Goes for an hour, then leaves · Stays home · Invites a few friends over | `network`, `wellbeing`, `academics`; a small chance of a consequence event (shown if it fires) | The same mistake can cost different families very different amounts | `cdc_yrbs`, `add_health` |
 
 **R3** (if a selective or private high school was attempted): admission result.
+**R4** (if {name} tries out at D10): makes the team or is cut, with the factors that
+helped and the ones that weren't available (years of play, private coaching or camps).
+If cut, {name} picks again from the other sports options.
 **E2 — Random life event (age 16):** see `events.json`.
+**Recruiting card (age 17, if `varsity` or `club_sport`):** a chance roll. If a college
+coach reaches out, a card shows it and sets `recruited_athlete`, which raises the
+elite-college odds on R5 (`oi_college_admissions`). If the roll fails, nothing is shown.
 **N4:** Who gets access to AP courses and school counselors (`college_board_ap`, `asca_ratios`).
 
 ## Stage 5 — After High School (ages 18–22)
 
 | # | Decision | Options | Main effects | Inequity shown | Sources |
 |---|---|---|---|---|---|
-| D11 | Path after high school | **Elite private college** (long shot) · Public flagship university (long shot if `academics` is low) · Regional public university or HBCU · Community college with plans to transfer · Registered apprenticeship · Military · Starts working full time | Sets `path_*` and `collegeTier`; triggers the R4–R5 results | Equally qualified applicants have different odds at elite colleges depending on legacy status, recruited athletics, and resources | `oi_college_admissions`, `oi_mobility_report_cards`, `college_scorecard`, `dol_apprenticeship`, `dfas_pay` |
-| D12 | Field of study or training | Options depend on path: health, technology, business, skilled trades, education, creative, public service | Sets `field_*`; affects job offers and salary | Earnings by field and by college | `college_scorecard`, `nyfed_recent_grads`, `bls_ooh` |
+| D13 | Path after high school | **Elite private college** (long shot) · Public flagship university (long shot if `academics` is low) · Regional public university or HBCU · Community college with plans to transfer · Registered apprenticeship · Military · Starts working full time | Sets `path_*` and `collegeTier`; triggers the R5–R6 results | Equally qualified applicants have different odds at elite colleges depending on legacy status, recruited athletics, and resources | `oi_college_admissions`, `oi_mobility_report_cards`, `college_scorecard`, `dol_apprenticeship`, `dfas_pay` |
+| D14 | Field of study or training | Options depend on path: health, technology, business, skilled trades, education, creative, public service | Sets `field_*`; affects job offers and salary | Earnings by field and by college | `college_scorecard`, `nyfed_recent_grads`, `bls_ooh` |
 
-**R4 — Admissions result** (four-year paths): admitted or not, with the factors that
+**R5 — Admissions result** (four-year paths): admitted or not, with the factors that
 helped and hurt listed. If rejected, the reader chooses again from the paths still open.
 This is not a dead end.
-**R5 — Financial aid offer** (college paths): net price for {name}'s family income at that
+**R6 — Financial aid offer** (college paths): net price for {name}'s family income at that
 type of college, the grants, loans, and work required, and the expected debt
 (`college_scorecard`, `cb_trends`, `fsa_pell`). Elite private colleges with large aid
 budgets may cost low-income families less than a state school. Show that when the data
 supports it.
 **E3 — Random life event (age 20):** see `events.json`.
-**R6 — Completion** (college and apprenticeship paths): does {name} finish? Odds depend on
+**R7 — Completion** (college and apprenticeship paths): does {name} finish? Odds depend on
 `finances`, work hours, `wellbeing`, debt, and E3. The card always explains the outcome
 (`nsc_completion`).
 **N5:** Completion rates and the role of money in who finishes (`nsc_completion`, `cb_trends`).
 
 ## Stage 6 — Early Adulthood (ages 22–25)
 
-**R7 — Job offers:** 2–3 offers generated from credential, `collegeTier`, field, `network`,
+**R8 — Job offers:** 2–3 offers generated from credential, `collegeTier`, field, `network`,
 and region. Each shows title, employer type, city, and starting salary (`salaries.json`).
 Elite-college and high-`network` paths get more and better offers, and the card says why
 (recruiting pipelines, referrals) (`oi_college_admissions`, `oi_social_capital`).
 
 | # | Decision | Options | Main effects | Inequity shown | Sources |
 |---|---|---|---|---|---|
-| D13 | First real job | One of the R7 offers · Graduate or professional school (if eligible; adds debt, raises later salary) · Moves home to save and keeps looking | Sets `job`, starting salary, location; `wellbeing`, `finances` | Who can afford unpaid gaps, low-paid "dream jobs," or moving to an expensive city | `bls_ooh`, `nyfed_recent_grads`, `pew` |
+| D15 | First real job | One of the R8 offers · Graduate or professional school (if eligible; adds debt, raises later salary) · Moves home to save and keeps looking | Sets `job`, starting salary, location; `wellbeing`, `finances` | Who can afford unpaid gaps, low-paid "dream jobs," or moving to an expensive city | `bls_ooh`, `nyfed_recent_grads`, `pew` |
 
-**R8 — Years 23, 24, 25:** one short card per year showing salary, raise or change, loan
+**R9 — Years 23, 24, 25:** one short card per year showing salary, raise or change, loan
 balance, and any career event (promotion, layoff, side income), each displayed when it
 happens. See "Income model" in `state-model.md`.
 **N6:** Median income and debt of 25-year-olds nationally (`census_acs`, `cb_trends`).
