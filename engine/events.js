@@ -38,13 +38,15 @@ export function eventCard(ev, ctx, { slot, rollKeys }) {
 }
 
 // Rolls one slot (E1, E2, E3, or a career year). Returns an event card or null.
+// rateKey is a key in rules.json, or a probability the caller already computed.
 export function rollSlot(state, ctx, slot, rateKey = 'eventSlotFireRate', keyPrefix = slot) {
   const candidates = ctx.events.filter(
     (ev) => ev.slots?.includes(slot) && !state.firedEvents.includes(ev.id) && test(ev.requires, ctx),
   );
   if (candidates.length === 0) return null;
   const fireKey = `${keyPrefix}:fires`;
-  if (!roll(state, fireKey, param(ctx.rules, rateKey), 'slot')) return null;
+  const rate = typeof rateKey === 'number' ? rateKey : param(ctx.rules, rateKey);
+  if (!roll(state, fireKey, rate, 'slot')) return null;
   const whichKey = `${keyPrefix}:which`;
   const ev = pickWeighted(state, whichKey, candidates, (e) => eventWeight(e, ctx));
   state.firedEvents.push(ev.id);

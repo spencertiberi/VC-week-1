@@ -156,7 +156,9 @@ function enterScene(state, ctx, id) {
   if (scene.kind === 'decision') {
     state.queue.push({ type: 'decision', key: `decision:${id}`, sceneId: id });
   } else if (scene.kind === 'event_slot') {
-    const card = rollSlot(state, ctx, scene.slot);
+    // A slot can set its own fire rate with a probability formula (the recruiting card does).
+    const rate = scene.probability ? evaluateFormula(scene.probability, ctx).p : 'eventSlotFireRate';
+    const card = rollSlot(state, ctx, scene.slot, rate);
     if (card) state.queue.push(card);
     state.then = resolveNext(scene.next, ctx);
   } else if (scene.kind === 'result') {

@@ -56,7 +56,7 @@ verbs stay singular ("{Subj} walks").
 {
   "id": "hs_friday_party",
   "kind": "decision",
-  "decisionId": "D10",
+  "decisionId": "D12",
   "age": 16,
   "chooser": "child",
   "title": "Friday Night",
@@ -85,7 +85,7 @@ verbs stay singular ("{Subj} walks").
 |---|---|---|
 | `id` | yes | Unique across all content. Prefix with the stage (`hs_`, `ms_`, …). |
 | `kind` | yes | `"decision"`, `"result"`, or `"note"` (events live in `events.json`). |
-| `decisionId` | decisions | Matches the outline (`D10`). |
+| `decisionId` | decisions | Matches the outline (`D12`). |
 | `age` | yes | The child's age. |
 | `chooser` | decisions | `"family"` or `"child"`. Shown as "Family decision" or "{name}'s decision." |
 | `title` | yes | Short heading. |
@@ -257,6 +257,8 @@ These extend the formats above. See `docs/build-plan.md` for how the engine uses
 - **`content/ui.json`** holds interface text (buttons, labels, result-table rows, profile
   headings), so no text is hardcoded in JavaScript.
 - **Scene kind `event_slot`**: `{ "id", "kind": "event_slot", "slot": "E1", "age", "next" }`.
+  An optional `probability` formula replaces the usual fire rate for that slot (the
+  recruiting card uses one).
   It rolls the slot and shows an event card only if one fires.
 - **`category: "start"`** on D1–D2 marks them as the starting point for attribution.
 - **`lottery`** on D1: `{ "weights": "<data ref>", "alsoDraws": [{ "scene", "weights" }], "sourceIds" }`
@@ -287,6 +289,6 @@ These extend the formats above. See `docs/build-plan.md` for how the engine uses
   one choice per job offer.
 - **Events:** `impactText` can be a string or `{ "low", "default", "high" }` for the
   resource buffer. `career: { "salaryMultiplier" }` or `career: { "jobLoss", "incomeShareThisYear" }`
-  apply to the R8 year cards.
+  apply to the R9 year cards.
 - **More tokens:** `{usd:<ref>}`, `{pct:<ref>}`, `{namesYear}`, plus card tokens (`{cost}`,
   `{costShare}`, `{odds}`, `{college}`, `{jobTitle}`, `{salary}`, `{age}`).

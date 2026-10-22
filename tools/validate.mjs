@@ -151,7 +151,7 @@ for (const scene of Object.values(scenes)) {
     }
     const choices = scene.choices || [];
     const total = choices.length + (scene.dynamicChoices ? 1 : 0);
-    // The schema says 2–5 choices, but the outline gives D11 and D12 seven each.
+    // The schema says 2–5 choices, but the outline gives D13 and D14 seven each.
     if (total < 2 || choices.length > 7) err(where, `has ${choices.length} choices (2–7)`);
     else if (choices.length > 5) warn(where, `has ${choices.length} choices (schema says 2–5; outline needs 7)`);
     if (scene.offerChoice) checkNext(`${where}.offerChoice`, scene.offerChoice.next);

@@ -6,8 +6,8 @@
       "id": "need_based_aid",
       "name": "Need-based aid and Pell Grants",
       "connectsTo": [
-        "R5",
-        "R6"
+        "R6",
+        "R7"
       ],
       "relevantIf": {
         "hasFlag": "path_college"
@@ -27,7 +27,7 @@
       "id": "end_legacy_preferences",
       "name": "Ending legacy preferences in admissions",
       "connectsTo": [
-        "R4"
+        "R5"
       ],
       "relevantIf": {
         "attempted": "elite_private"
@@ -45,8 +45,8 @@
       "id": "counselor_ratios",
       "name": "More school counselors",
       "connectsTo": [
-        "D8",
-        "R4"
+        "D9",
+        "R5"
       ],
       "relevantIf": {
         "any": [
@@ -197,7 +197,7 @@
       "id": "apprenticeship_expansion",
       "name": "Registered apprenticeship expansion",
       "connectsTo": [
-        "D11"
+        "D13"
       ],
       "relevantIf": {
         "hasAnyFlag": [
@@ -231,6 +231,33 @@
         "oi_social_capital"
       ],
       "learnMoreUrl": "https://www.socialcapital.org/"
+    },
+    {
+      "id": "free_school_activities",
+      "name": "Free school sports and activities",
+      "connectsTo": [
+        "D5",
+        "D7",
+        "D10"
+      ],
+      "relevantIf": {
+        "hasAnyFlag": [
+          "activity_sport",
+          "club_sport",
+          "varsity",
+          "caregiver"
+        ]
+      },
+      "summary": "School teams, clubs, and after-school programs without pay-to-play fees, plus transportation, so taking part doesn’t depend on what a family can spend.",
+      "connection": "Which teams and clubs {name} could join depended partly on what {poss} family could pay, and those years showed up later on college applications.",
+      "evidence": "Families earning $100,000 or more spend about {stat:youth_sports_spending_high_income} a year on one child’s main sport, compared with {stat:youth_sports_spending_low_income} for families earning under $50,000, and their young athletes are about twice as likely to play on travel or club teams. Participation in extracurriculars overall has grown more unequal by family income.",
+      "tradeoffs": "Schools and local governments pay the cost, often by cutting something else. Free school programs don’t close the gap with private club teams that recruiters watch.",
+      "sourceIds": [
+        "aspen_parent_survey_2024",
+        "snellman_engagement_gap",
+        "aspen_state_of_play"
+      ],
+      "learnMoreUrl": "https://projectplay.org/research"
     }
   ]
 }

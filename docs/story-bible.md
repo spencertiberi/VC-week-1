@@ -53,7 +53,7 @@ The ending connects the child's life to policy. Rules:
 - **Nonpartisan.** Never name parties, politicians, or campaigns. Describe the policy, the
   evidence, and the trade-offs (cost, who pays, open questions).
 - **Specific and tied to the story.** "Need-based aid that covered {name}'s full net price"
-  connects to R5; "universal pre-K" connects to D3. No generic slogans.
+  connects to R6; "universal pre-K" connects to D3. No generic slogans.
 - **Empowering.** Point to ways to learn more and act (find your elected officials, local
   school board meetings, nonpartisan research organizations), with links. Don't tell
   readers what to think; give them what they need to decide.

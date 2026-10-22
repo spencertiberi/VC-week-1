@@ -5,12 +5,190 @@
     14,
     18
   ],
-  "firstScene": "hs_friday_party",
+  "firstScene": "hs_sports",
   "scenes": [
+    {
+      "id": "hs_sports",
+      "kind": "decision",
+      "decisionId": "D10",
+      "age": 15,
+      "chooser": "child",
+      "title": "Tryouts",
+      "text": "The sign-up sheet for fall tryouts goes up outside the gym in the second week of ninth grade. A lot of the names on it belong to kids who have played on club teams since elementary school, with private coaches, summer camps, and parents who drive them to tournaments three states away.\n\nThere are other ways to play. A club team in the next town holds showcases where college coaches sit in the bleachers with clipboards, if a family can cover the fees, the hotel nights, and the gas. The intramural league at school costs nothing and meets twice a week.\n\n{name} looks at the sheet for a long time.",
+      "textVariants": [
+        {
+          "if": {
+            "hasFlag": "activity_sport"
+          },
+          "append": "{Subj}’s been playing since middle school, and {poss} old teammates are already on the list."
+        },
+        {
+          "if": {
+            "hasFlag": "caregiver"
+          },
+          "append": "Practice would run until six, and someone would have to pick up the younger kids."
+        }
+      ],
+      "sourceIds": [
+        "aspen_parent_survey_2024",
+        "oi_college_admissions",
+        "snellman_engagement_gap"
+      ],
+      "choices": [
+        {
+          "id": "try_out",
+          "label": "{Subj} tries out for the school team",
+          "description": "No club fees, practice every day after school.",
+          "effects": {
+            "wellbeing": 2,
+            "academics": -1
+          },
+          "longShot": {
+            "label": "the school team",
+            "probability": {
+              "base": 0.3,
+              "max": 0.9,
+              "terms": [
+                {
+                  "if": {
+                    "hasFlag": "activity_sport"
+                  },
+                  "add": 0.25,
+                  "label": "years of playing on a team"
+                },
+                {
+                  "if": {
+                    "hasFlag": "activity_deep"
+                  },
+                  "add": 0.15,
+                  "label": "sticking with one thing for years"
+                },
+                {
+                  "if": {
+                    "stat": "finances",
+                    "gte": 60
+                  },
+                  "add": 0.1,
+                  "label": "private coaching and summer camps",
+                  "missingLabel": "private coaching or summer camps"
+                }
+              ]
+            },
+            "resultScene": "hs_tryout_result",
+            "onSuccess": {
+              "effects": {
+                "network": 5,
+                "resilience": 3
+              },
+              "setFlags": [
+                "varsity",
+                "activity_sport"
+              ]
+            },
+            "onFailure": {
+              "effects": {
+                "wellbeing": -3,
+                "resilience": 2
+              }
+            },
+            "sourceIds": [
+              "aspen_parent_survey_2024"
+            ]
+          },
+          "authorFlag": "Tryout odds are placeholders; no source yet."
+        },
+        {
+          "id": "club_team",
+          "label": "{Subj} plays for a club team with college showcases",
+          "description": "Families earning $100,000 or more spend about {stat:youth_sports_spending_high_income} a year on a child’s main sport.",
+          "effects": {
+            "network": 5,
+            "wellbeing": 1,
+            "finances": -7
+          },
+          "setFlags": [
+            "club_sport",
+            "activity_sport"
+          ],
+          "availability": {
+            "stretchIf": {
+              "bracket": [
+                "low",
+                "lower_middle"
+              ]
+            },
+            "stretchNote": "Young athletes from families earning $100,000 or more are about twice as likely to play club or travel ({stat:travel_club_share_high_income}) as those from families earning under $50,000 ({stat:travel_club_share_low_income}).",
+            "sourceIds": [
+              "aspen_parent_survey_2024"
+            ]
+          },
+          "authorFlag": "Stretch for the two lowest brackets, as at D7. No club price is in the data.",
+          "outcome": "The schedule is brutal and the team is good. Some weekends there are more college coaches in the stands than parents.",
+          "next": "hs_friday_party"
+        },
+        {
+          "id": "intramural",
+          "label": "{Subj} plays intramural and pickup games",
+          "description": "Free, twice a week, and nobody keeps stats.",
+          "effects": {
+            "wellbeing": 4,
+            "network": 2,
+            "resilience": -1
+          },
+          "setFlags": [
+            "activity_rec"
+          ],
+          "outcome": "Tuesday and Thursday nights in the gym, mixed teams, loud and a little chaotic. It’s the best part of {name}’s week.",
+          "next": "hs_friday_party"
+        },
+        {
+          "id": "no_sports",
+          "label": "{Subj} skips sports this year",
+          "description": "More time for school, work, or family.",
+          "effects": {
+            "academics": 3,
+            "wellbeing": -2,
+            "network": -1
+          },
+          "outcome": "{name} gets {poss} afternoons back. Some of them go to homework. Some go to nothing in particular, which also has its uses.",
+          "next": "hs_friday_party"
+        }
+      ]
+    },
+    {
+      "id": "hs_tryout_result",
+      "kind": "result",
+      "resultType": "lottery",
+      "age": 15,
+      "title": "The Roster",
+      "textIfSuccess": "The roster goes up on the gym door on Friday afternoon, and {name}’s name is on it, third from the bottom. Practice starts Monday at 3:15. {Subj} wears {poss} new practice jersey around the house all weekend.",
+      "textIfFailure": "The roster goes up on the gym door on Friday afternoon. {name} reads it twice. {Poss} name isn’t there.\n\nA few friends made it. The coach says to come back next year and work on the basics.",
+      "showFactors": true,
+      "sourceIds": [
+        "aspen_parent_survey_2024"
+      ],
+      "next": {
+        "ifSuccess": "hs_friday_party",
+        "ifFailure": "hs_sports_retry"
+      }
+    },
+    {
+      "id": "hs_sports_retry",
+      "kind": "decision",
+      "decisionId": "D10",
+      "retryOf": "hs_sports",
+      "age": 15,
+      "chooser": "child",
+      "title": "Other Ways to Play",
+      "text": "Getting cut stings for about a week. Then the question comes back: there are still other ways to play, or {name} can let sports go and use the time for something else.",
+      "sourceIds": [
+        "aspen_parent_survey_2024"
+      ]
+    },
     {
       "id": "hs_friday_party",
       "kind": "decision",
-      "decisionId": "D10",
+      "decisionId": "D12",
       "age": 16,
       "chooser": "child",
       "title": "Friday Night",
@@ -90,7 +268,35 @@
       "kind": "event_slot",
       "slot": "E2",
       "age": 16,
-      "next": "@nextStage"
+      "next": "hs_recruiting"
+    },
+    {
+      "id": "hs_recruiting",
+      "kind": "event_slot",
+      "slot": "RECRUIT",
+      "age": 17,
+      "probability": {
+        "base": 0.03,
+        "max": 0.25,
+        "terms": [
+          {
+            "if": {
+              "hasFlag": "club_sport"
+            },
+            "add": 0.07,
+            "label": "club showcases where college coaches scout"
+          },
+          {
+            "if": {
+              "hasFlag": "activity_deep"
+            },
+            "add": 0.05,
+            "label": "years of sticking with one sport"
+          }
+        ]
+      },
+      "next": "@nextStage",
+      "authorFlag": "Recruiting odds are placeholders; see the college_recruiting event."
     }
   ],
   "researchNote": {

@@ -233,6 +233,35 @@
       ],
       "authorFlag": "Income lost in a layoff year (half) needs a source.",
       "profileLine": "A layoff cost {obj} a job and part of a year's income."
+    },
+    {
+      "id": "college_recruiting",
+      "slots": [
+        "RECRUIT"
+      ],
+      "baseProbability": 1,
+      "requires": {
+        "hasAnyFlag": [
+          "varsity",
+          "club_sport"
+        ]
+      },
+      "tone": "positive",
+      "title": "A Coach Writes",
+      "text": "The email arrives in March of junior year, from an assistant coach at a college {name} has only seen on TV. Someone on the staff watched {obj} play last fall. Would {subj} be interested in a campus visit?\n\n{Poss} coach reads it over {poss} shoulder and grins. A few of {poss} teammates have gotten emails like it. Most haven’t.",
+      "impactText": "Colleges hold spots for recruited athletes, and at the most selective private colleges those spots carry a large admissions advantage. {name} will bring that advantage to {poss} applications.",
+      "effects": {
+        "network": 4,
+        "wellbeing": 3
+      },
+      "setFlags": [
+        "recruited_athlete"
+      ],
+      "sourceIds": [
+        "oi_college_admissions"
+      ],
+      "authorFlag": "Recruiting odds (the hs_recruiting slot formula) are placeholders and need a source, such as NCAA research on high school athletes who go on to play in college.",
+      "profileLine": "A college coach noticed {obj} at seventeen, and that one email changed which doors were open."
     }
   ]
 }

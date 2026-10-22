@@ -67,38 +67,39 @@ and the story ends with a linked list of the sources used plus the full bibliogr
 | id | Source | Link | Use it for |
 |---|---|---|---|
 | `nces_coe` | National Center for Education Statistics, *Condition of Education* | https://nces.ed.gov/programs/coe/ | Enrollment by school type, graduation rates, course access |
-| `nces_private_school` | NCES, Private School Universe Survey | https://nces.ed.gov/surveys/pss/ | Private school enrollment and tuition (D4, D7) |
-| `lubienski_public_advantage` | Lubienski & Lubienski, *The Public School Advantage* (2013), University of Chicago Press (ISBN 9780226088914); excerpt in *Stanford Social Innovation Review* | https://ssir.org/articles/entry/the_public_school_advantage_why_public_schools_outperform_private_schools | Private-school effects shrink after accounting for background (keeps D4/D7 effects modest) |
+| `nces_private_school` | NCES, Private School Universe Survey | https://nces.ed.gov/surveys/pss/ | Private school enrollment and tuition (D4, D8) |
+| `lubienski_public_advantage` | Lubienski & Lubienski, *The Public School Advantage* (2013), University of Chicago Press (ISBN 9780226088914); excerpt in *Stanford Social Innovation Review* | https://ssir.org/articles/entry/the_public_school_advantage_why_public_schools_outperform_private_schools | Private-school effects shrink after accounting for background (keeps D4/D8 effects modest) |
 | `jackson_school_spending` | Jackson, Johnson & Persico (2016), "The Effects of School Spending on Educational and Economic Outcomes," *QJE* (NBER Working Paper) | https://www.nber.org/papers/w20847 | School funding and adult outcomes (D2, D4, N2, policy) |
-| `college_board_ap` | College Board, AP Program Results | https://reports.collegeboard.org/ap-program-results | AP participation (D8, N4) |
-| `asca_ratios` | American School Counselor Association, student-to-school-counselor ratios | https://www.schoolcounselor.org/About-School-Counseling/School-Counselor-Roles-Ratios | Counselor access (N4, R4, policy) |
+| `college_board_ap` | College Board, AP Program Results | https://reports.collegeboard.org/ap-program-results | AP participation (D9, N4) |
+| `asca_ratios` | American School Counselor Association, student-to-school-counselor ratios | https://www.schoolcounselor.org/About-School-Counseling/School-Counselor-Roles-Ratios | Counselor access (N4, R5, policy) |
 | `nces_ecls` | NCES, Early Childhood Longitudinal Study (ECLS-K) | https://nces.ed.gov/ecls/ | Kindergarten readiness and reading at home |
 
 ## Activities and social life
 | id | Source | Link | Use it for |
 |---|---|---|---|
-| `snellman_engagement_gap` | Snellman, Silva, Frederick & Putnam (2015), "The Engagement Gap," *Annals of the American Academy of Political and Social Science* | https://journals.sagepub.com/doi/10.1177/0002716214548398 | Class gaps in extracurriculars (D5, D9) |
-| `aspen_state_of_play` | Aspen Institute Project Play, *State of Play* | https://projectplay.org/research | Youth sports costs and participation by income (D5) |
-| `cdc_yrbs` | CDC, Youth Risk Behavior Survey | https://www.cdc.gov/yrbs/ | Teen drinking and risk rates (D10) |
-| `add_health` | Add Health, National Longitudinal Study of Adolescent to Adult Health | https://addhealth.cpc.unc.edu/ | Adolescent social life and adult outcomes (D6, D10) |
+| `snellman_engagement_gap` | Snellman, Silva, Frederick & Putnam (2015), "The Engagement Gap," *Annals of the American Academy of Political and Social Science* | https://journals.sagepub.com/doi/10.1177/0002716214548398 | Class gaps in extracurriculars and sports (D5, D7, D10, D11) |
+| `aspen_state_of_play` | Aspen Institute Project Play, *State of Play* | https://projectplay.org/research | Youth sports costs and participation by income (D5, D7, D10) |
+| `aspen_parent_survey_2024` | Dorsch & Blazo (2025), *2024 Parenting Survey: Final Report*, for the Aspen Institute Project Play | https://www.aspeninstitute.org/wp-content/uploads/2025/03/National-Youth-Sports-Parent-Survey-FINAL.pdf | Youth sports spending and club or travel participation by household income (D7, D10, policy) |
+| `cdc_yrbs` | CDC, Youth Risk Behavior Survey | https://www.cdc.gov/yrbs/ | Teen drinking and risk rates (D12) |
+| `add_health` | Add Health, National Longitudinal Study of Adolescent to Adult Health | https://addhealth.cpc.unc.edu/ | Adolescent social life and adult outcomes (D6, D12) |
 | `surgeon_general_social_media` | U.S. Surgeon General, *Social Media and Youth Mental Health* advisory (2023) | https://www.hhs.gov/surgeongeneral/reports-and-publications/youth-mental-health/social-media/index.html | First phone and social media (D6) |
 
 ## After high school, careers, and income
 | id | Source | Link | Use it for |
 |---|---|---|---|
-| `oi_college_admissions` | Chetty, Deming & Friedman (2023), "Diversifying Society's Leaders? The Determinants and Causal Effects of Admission to Highly Selective Private Colleges" | https://opportunityinsights.org/paper/collegeadmissions/ | Elite admissions odds by family income, legacy, athletics; effects on top jobs (D11, R4, R7, policy) |
-| `oi_mobility_report_cards` | Chetty, Friedman, Saez, Turner & Yagan (2020), "Income Segregation and Intergenerational Mobility Across Colleges in the United States," *QJE* | https://opportunityinsights.org/paper/mobilityreportcards/ | Who attends which colleges and their later earnings (D11, policy) |
-| `college_scorecard` | U.S. Department of Education, College Scorecard | https://collegescorecard.ed.gov/ | Net price by income, earnings by college and field (R5, D12, `net-price.json`, `salaries.json`) |
-| `cb_trends` | College Board, *Trends in College Pricing and Student Aid* | https://research.collegeboard.org/trends | Prices, aid, and debt (R5, N5, N6) |
-| `fsa_pell` | Federal Student Aid, Pell Grants | https://studentaid.gov/understand-aid/types/grants/pell | Grant eligibility and amounts (R5, policy) |
-| `nsc_completion` | National Student Clearinghouse Research Center, *Completing College* | https://nscresearchcenter.org/completing-college/ | Completion rates by sector (R6, N5) |
-| `dol_apprenticeship` | U.S. Department of Labor, Apprenticeship data and statistics | https://www.apprenticeship.gov/data-and-statistics | Apprenticeship wages and completion (D11, income model, policy) |
+| `oi_college_admissions` | Chetty, Deming & Friedman (2023), "Diversifying Society's Leaders? The Determinants and Causal Effects of Admission to Highly Selective Private Colleges" | https://opportunityinsights.org/paper/collegeadmissions/ | Elite admissions odds by family income, legacy, athletics; effects on top jobs (D10 recruiting card, D13, R5, R8, policy) |
+| `oi_mobility_report_cards` | Chetty, Friedman, Saez, Turner & Yagan (2020), "Income Segregation and Intergenerational Mobility Across Colleges in the United States," *QJE* | https://opportunityinsights.org/paper/mobilityreportcards/ | Who attends which colleges and their later earnings (D13, policy) |
+| `college_scorecard` | U.S. Department of Education, College Scorecard | https://collegescorecard.ed.gov/ | Net price by income, earnings by college and field (R6, D14, `net-price.json`, `salaries.json`) |
+| `cb_trends` | College Board, *Trends in College Pricing and Student Aid* | https://research.collegeboard.org/trends | Prices, aid, and debt (R6, N5, N6) |
+| `fsa_pell` | Federal Student Aid, Pell Grants | https://studentaid.gov/understand-aid/types/grants/pell | Grant eligibility and amounts (R6, policy) |
+| `nsc_completion` | National Student Clearinghouse Research Center, *Completing College* | https://nscresearchcenter.org/completing-college/ | Completion rates by sector (R7, N5) |
+| `dol_apprenticeship` | U.S. Department of Labor, Apprenticeship data and statistics | https://www.apprenticeship.gov/data-and-statistics | Apprenticeship wages and completion (D13, income model, policy) |
 | `dfas_pay` | Defense Finance and Accounting Service, Military Pay Tables | https://www.dfas.mil/MilitaryMembers/payentitlements/Pay-Tables/ | Military pay (income model) |
-| `nyfed_recent_grads` | Federal Reserve Bank of New York, The Labor Market for Recent College Graduates | https://www.newyorkfed.org/research/college-labor-market | Early-career wages and underemployment by major (D12, R7) |
+| `nyfed_recent_grads` | Federal Reserve Bank of New York, The Labor Market for Recent College Graduates | https://www.newyorkfed.org/research/college-labor-market | Early-career wages and underemployment by major (D14, R8) |
 | `bls_ooh` | U.S. Bureau of Labor Statistics, *Occupational Outlook Handbook* | https://www.bls.gov/ooh/ | Pay and education requirements by role (`salaries.json`) |
 | `bls_oews_technical` | U.S. Bureau of Labor Statistics, Technical Notes for May 2024 OEWS Estimates | https://www.bls.gov/oes/current/oes_tec.htm | The 2,080-hour work year BLS uses to annualize hourly wages (`salaries.json`) |
 | `cew_college_payoff` | Georgetown University Center on Education and the Workforce, *The College Payoff* (2021) | https://cew.georgetown.edu/cew-reports/collegepayoff2021/ | Lifetime earnings by education (projection beyond 25) |
-| `pew` | Pew Research Center | https://www.pewresearch.org/ | Young-adult living arrangements, debt, attitudes (D13) |
+| `pew` | Pew Research Center | https://www.pewresearch.org/ | Young-adult living arrangements, debt, attitudes (D15) |
 
 ## Shocks and safety nets
 | id | Source | Link | Use it for |

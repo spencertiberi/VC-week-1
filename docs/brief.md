@@ -33,8 +33,9 @@ first jobs, debt), and they are old enough to vote, organize, and push for polic
   notice (for example: childcare costs, school funding, legacy admissions, student debt).
 
 ## Experience goals
-- One playthrough takes 12–15 minutes: about **13 decisions**, plus random-event cards,
-  results (admissions, financial aid, job offers), and short research notes.
+- One playthrough takes 14–18 minutes: **15 decisions** (the most this brief allows), plus
+  random-event cards, results (tryouts, admissions, financial aid, job offers), and short
+  research notes.
 - Random events add variety, and **every event that happens is shown to the reader**.
 - Two playthroughs with different backgrounds and identical choices should look visibly
   different, especially in options available, college access, debt, and income at 25.
@@ -65,8 +66,8 @@ profile, always with a linked source.
   median (`census_h13`), so that option describes a master's degree, not a physician.
 
 ## In scope (v1)
-- 7 life stages, 13 decisions, 3 random-event slots, and automatic results screens
-  (school lottery, admissions, financial aid, degree completion, job offers, yearly income)
+- 7 life stages, 15 decisions, 3 random-event slots, and automatic results screens
+  (school lottery, sports tryout, college recruiting, admissions, financial aid, degree completion, job offers, yearly income)
 - A random name and pronouns from SSA's top 200 names for the latest year
 - Hidden stats plus an explicit economy model (family income, debt, salary, income 18–25)
 - A research note at the end of each stage, with a linked source

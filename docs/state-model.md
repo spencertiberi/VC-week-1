@@ -54,10 +54,10 @@ with source ids.
 |---|---|---|
 | `familyIncome` | D1 + D2, then changed by events (job loss, illness) | `family-income.json`: median household income by parents' education (`bls_education_pays`, `census_acs`) |
 | `familyIncomeBracket` | Derived from `familyIncome`: `low` · `lower_middle` · `middle` · `upper_middle` · `high` | Bracket edges match College Scorecard net-price bands |
-| `collegeTier` | D11 + R4 | `elite_private` · `flagship` · `regional` · `community` · `none` |
-| `credential` | R6 | `hs_diploma` · `certificate` · `associate` · `bachelors` · `graduate` · `apprenticeship` · `military_service` |
-| `studentDebt` | R5, grows with grad school | `net-price.json` (`college_scorecard`, `cb_trends`, `fsa_pell`) |
-| `job` | D13 | `salaries.json` (`bls_ooh`, `nyfed_recent_grads`, `college_scorecard`) |
+| `collegeTier` | D13 + R5 | `elite_private` · `flagship` · `regional` · `community` · `none` |
+| `credential` | R7 | `hs_diploma` · `certificate` · `associate` · `bachelors` · `graduate` · `apprenticeship` · `military_service` |
+| `studentDebt` | R6, grows with grad school | `net-price.json` (`college_scorecard`, `cb_trends`, `fsa_pell`) |
+| `job` | D15 | `salaries.json` (`bls_ooh`, `nyfed_recent_grads`, `college_scorecard`) |
 | `incomeByAge` | Income model, ages 18–25 | Derived |
 
 ## Option availability
@@ -100,7 +100,7 @@ background.
 Probabilities are formula objects (see `content-schema.md`), clamped between 0.02 and 0.95.
 The result card lists each factor that applied, in plain language.
 
-### Elite private college admission (R4)
+### Elite private college admission (R5)
 Modeled on `oi_college_admissions`, which finds that among applicants with the same test
 scores, children from the richest families are admitted more often, mainly because of
 legacy preferences, recruited athletics, and higher non-academic ratings.
@@ -112,10 +112,10 @@ legacy preferences, recruited athletics, and higher non-academic ratings.
 | Strong activities (`activity_deep`, `leadership`, or `varsity`) | +0.04 |
 | `network` ≥ 65 (counselor attention, essay help, test prep) | +0.05 |
 | `legacy` flag (set at D1 for some graduate-degree families) | +0.15 |
-| `recruited_athlete` flag (varsity in some sports) | +0.20 |
+| `recruited_athlete` flag (set by the recruiting card at age 17) | +0.20 |
 | Cap | 0.60 |
 
-The R4 card names the factors, for example: "Factors that helped: grades, debate team.
+The R5 card names the factors, for example: "Factors that helped: grades, debate team.
 Factors that weren't available to {name}: legacy status, private counseling."
 
 Public flagship: base 0.50, +0.08 per 10 `academics` above 55, cap 0.92.
@@ -123,26 +123,58 @@ Regional public universities, HBCUs, community colleges, apprenticeships, and th
 are available to everyone with a diploma. An apprenticeship may involve a short waitlist
 event.
 
-### Financial aid (R5)
-Net price comes from `net-price.json`, by `collegeTier` × `familyIncomeBracket`. The R5 card
+### Sports tryout (R4)
+**TODO(author):** no source yet supports these odds, so they are placeholders. Keep the
+effects small until one is found.
+
+| Factor | Effect on probability |
+|---|---|
+| Base | 0.30 |
+| `activity_sport` (played at D5 or D7) | +0.25 |
+| `activity_deep` (stuck with one activity since childhood) | +0.15 |
+| `finances` ≥ 60 (private coaching or camps); its `missingLabel` lists it as "wasn't available" | +0.10 |
+| Cap | 0.90 |
+
+Success sets `varsity`. A failed roll shows the card and sends {name} back to the other
+D10 options (`retryOf`). The result scene uses `resultType: "lottery"`, the plain long-shot
+card, so it isn't styled like a college admissions decision.
+
+### Recruiting card (age 17)
+An `event_slot` with its own `probability` formula (scene `hs_recruiting`, event
+`college_recruiting`). Only players with `varsity` or `club_sport` can get it. Base 0.03;
+`club_sport` +0.07 (showcases where coaches scout); `activity_deep` +0.05; cap 0.25. If it
+fires, a card shows it and sets `recruited_athlete`. **TODO(author):** these odds need a
+source; NCAA research on how many high school athletes go on to play in college is a
+candidate to verify and add.
+
+### Activity and club costs
+`aspen_parent_survey_2024` reports what families spend on a child's main sport by household
+income, and how many play on travel or club teams, but not what a club team costs. So the
+travel and club options at D7 and D10 have no cost cutoff. They are a **stretch** for the
+`low` and `lower_middle` brackets, and the button shows the real spending and participation
+gaps from `benchmarks.json`. Matching those two brackets to the survey's "under $50,000"
+group is an assumption.
+
+### Financial aid (R6)
+Net price comes from `net-price.json`, by `collegeTier` × `familyIncomeBracket`. The R6 card
 shows: sticker price, grants, net price, how it's covered (family, work, loans), and
 projected debt at graduation. Choosing to work more lowers debt and lowers the completion
 odds.
 
-### Completion (R6)
+### Completion (R7)
 Base by tier, from `nsc_completion`. Modifiers: `finances` (+/−), work hours above 20 a
 week (−), `wellbeing` < 35 (−), and a negative E3 (−). If {name} doesn't finish, the card
 explains why and what comes next (some credits, a certificate, re-enrolling later).
 
 ## Income model (ages 18–25)
-Computed once a year and stored in `incomeByAge`. The R8 cards show each year from 23 to
+Computed once a year and stored in `incomeByAge`. The R9 cards show each year from 23 to
 25, and the profile shows a chart covering 18–25.
 
 1. **While in school full time:** part-time earnings only (if working), from `salaries.json`.
 2. **Apprenticeship:** wages rise each year on a schedule (`dol_apprenticeship`).
 3. **Military:** basic pay by rank and year (`dfas_pay`); show housing and benefits as a note.
 4. **Working after high school:** entry wage for high-school-diploma jobs in the region (`bls_ooh`).
-5. **After the credential:** starting salary from the chosen offer (D13).
+5. **After the credential:** starting salary from the chosen offer (D15).
 6. **Each later year:** salary × (1 + base growth for the field) + any career event.
 7. **Modifiers** applied when offers are generated (not silently each year):
    - `collegeTier`: offer quality and count (elite > flagship > regional), from
@@ -150,7 +182,7 @@ Computed once a year and stored in `incomeByAge`. The R8 cards show each year fr
    - `network`: number of offers and chance of a referral-based offer
    - Region: wage level (and the profile mentions cost of living)
 8. **Debt:** standard 10-year repayment from age 22 (or after grad school); show the
-   monthly payment and remaining balance on R8 cards.
+   monthly payment and remaining balance on R9 cards.
 
 Career events (promotion, layoff, side income, employer-paid certification) are rolled each
 year, and **every one that fires is shown on that year's card**.
@@ -159,7 +191,7 @@ year, and **every one that fires is shown on that year's card**.
 - Use a seeded random number generator saved in state, so a playthrough can be replayed
   exactly and tests are reproducible.
 - Slots: E1 (age 9), E2 (age 16), E3 (age 20), plus chance events attached to specific
-  choices (party consequence) and career events in R8.
+  choices (party consequence) and career events in R9.
 - Each slot has a 70% chance that an event fires. **Every event that fires gets a card.** A
   slot that fires nothing shows nothing.
 - Event probabilities depend on state where research supports it: a parent's job loss is
@@ -178,7 +210,7 @@ For any change caused by `event` or `roll`, the log must show that a card was di
 ## Attribution (for the profile)
 Each history entry is tagged:
 - `start`: D1, D2, and their starting adjustments
-- `choice`: reader decisions D3–D13
+- `choice`: reader decisions D3–D15
 - `chance`: random events, lotteries, and long-shot rolls
 
 The profile totals the absolute stat changes in each category (and the dollar effects where
