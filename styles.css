@@ -285,3 +285,39 @@ dl.snapshot dd { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   .choice { transition: none; }
 }
+
+/* Admission decision, styled like an applicant portal */
+.notice {
+  margin: 1.25rem 0 1.5rem;
+  border: 1px solid var(--raised);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+}
+.card .notice__bar {
+  margin: 0;
+  padding: 0.55rem 1rem;
+  background: var(--raised);
+  color: var(--lavender);
+  font-family: system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.notice__dot { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--teal); }
+.notice__status { padding: 1.25rem 1rem 1.4rem; }
+.card .notice__label { margin: 0; color: var(--muted); font-family: system-ui, sans-serif; font-size: 0.85rem; }
+.card .notice__update { margin: 0.2rem 0 1rem; font-size: 1.1rem; }
+.notice__letter { background: var(--cream); color: var(--ink); padding: 1.4rem 1.25rem 1.25rem; }
+.card .notice__letter h2 { color: var(--ink); margin: 0 0 0.75rem; font-size: 1.5rem; }
+.notice__heading:focus { outline: none; }
+.card .notice__signoff { margin: 1rem 0 0; font-family: system-ui, sans-serif; font-size: 0.9rem; font-weight: 700; }
+.confetti { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 20; }
+@media (prefers-reduced-motion: no-preference) {
+  .notice__letter:not([hidden]) { animation: letter-in 320ms ease-out; }
+  @keyframes letter-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+}

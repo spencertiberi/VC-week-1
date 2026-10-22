@@ -5,6 +5,7 @@ import { test } from './conditions.js';
 import { param } from './state.js';
 import { decisionChoices, makeCtx } from './story.js';
 import { renderProfile } from '../profile/render.js';
+import { confetti } from './confetti.js';
 
 export function h(tag, attrs = {}, ...children) {
   const el = document.createElement(tag);
@@ -264,8 +265,55 @@ export function createUI(content, handlers) {
     ];
   }
 
+  // Admission decisions open like a college applicant portal: a status update first, then
+  // the letter. Acceptances get confetti. Both outcomes use the same reveal, so the
+  // button doesn't give the result away.
+  // True for a long-shot result whose success places the child in a college, so the
+  // portal never appears for other tryouts, lotteries, or selective high schools.
+  function admitsToCollege(c) {
+    if (!c.choiceId) return false;
+    return Object.values(content.scenes).some((s) => (s.choices || []).some((ch) =>
+      ch.id === c.choiceId
+      && ch.longShot?.resultScene === c.sceneId
+      && ch.longShot.onSuccess?.economy?.set?.collegeTier));
+  }
+
+  function renderAdmission(state, c, scene) {
+    const n = ui.results.admissionNotice;
+    const reveal = h('div', { class: 'reveal', hidden: true },
+      renderLongShot(state, c, scene),
+      sourceList(c.sourceIds),
+      continueButton());
+    const letter = h('div', { class: 'notice__letter', hidden: true },
+      h('h2', { class: 'notice__heading', tabindex: '-1' }, t(c.success ? n.acceptHeading : n.rejectHeading, state)),
+      h('p', {}, t(c.success ? n.acceptBody : n.rejectBody, state)),
+      h('p', { class: 'notice__signoff' }, n.signoff));
+    const status = h('div', { class: 'notice__status' },
+      h('p', { class: 'notice__label' }, n.status),
+      h('p', { class: 'notice__update' }, n.updated),
+      h('button', { type: 'button', class: 'button', onclick: open }, n.view));
+    function open() {
+      status.remove();
+      letter.hidden = false;
+      reveal.hidden = false;
+      letter.querySelector('h2').focus();
+      if (c.success) {
+        const css = getComputedStyle(document.documentElement);
+        confetti(['--pink', '--teal', '--lavender', '--cream'].map((v) => css.getPropertyValue(v).trim()));
+      }
+    }
+    return card(
+      heading(t(scene.title, state)),
+      h('section', { class: 'notice', 'aria-label': n.portal },
+        h('p', { class: 'notice__bar' }, h('span', { class: 'notice__dot', 'aria-hidden': 'true' }), n.portal),
+        status,
+        letter),
+      reveal);
+  }
+
   function renderResult(state, c) {
     const scene = content.scenes[c.sceneId];
+    if (admitsToCollege(c)) return renderAdmission(state, c, scene);
     let title = scene.title;
     let body;
     if (c.resultType === 'birth_lottery') {

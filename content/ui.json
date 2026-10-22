@@ -75,7 +75,18 @@
       "grad_school": "In graduate school",
       "grad_finished": "Finished graduate school"
     },
-    "noInterestNote": "Loan interest isn't modeled yet."
+    "noInterestNote": "Loan interest isn't modeled yet.",
+    "admissionNotice": {
+      "portal": "Applicant Portal",
+      "status": "Application status",
+      "updated": "An update has been posted to your application.",
+      "view": "View update",
+      "acceptHeading": "Congratulations, {name}!",
+      "acceptBody": "On behalf of the Committee on Admission, I am delighted to offer you a place in the incoming first-year class. Your application stood out in a very large pool, and we hope you'll join us this fall.",
+      "rejectHeading": "Dear {name},",
+      "rejectBody": "Thank you for your interest and for the care you put into your application. After thorough review, we are unable to offer you a place in the incoming first-year class. We received far more applications from qualified students than we have room to admit.",
+      "signoff": "Office of Undergraduate Admission"
+    }
   },
   "profile": {
     "heading": "{name} at 25",
