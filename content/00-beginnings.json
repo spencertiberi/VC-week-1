@@ -244,7 +244,7 @@
   ],
   "researchNote": {
     "id": "n0_birth",
-    "title": "Behind the Story: Where a Life Starts",
+    "title": "Where a Life Starts",
     "text": "Children's adult incomes track their parents'. On average, every 10-percentile rise in parent income comes with a {stat:mobility_parent_income}-percentile rise in the child's adult income. Place matters too: a child from the bottom fifth had a {stat:mobility_bottom_to_top_charlotte} chance of reaching the top fifth in Charlotte, and a {stat:mobility_bottom_to_top_san_jose} chance in San Jose.",
     "benchmarkIds": [
       "mobility_parent_income",

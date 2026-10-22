@@ -128,7 +128,7 @@
   ],
   "researchNote": {
     "id": "n6_young_adults",
-    "title": "Behind the Story: Twenty-Five",
+    "title": "Twenty-Five",
     "text": "Young full-time workers with a bachelor's degree earn a median of {stat:recent_grad_median_wage} a year, compared with {stat:recent_hs_median_wage} for those with only a high school diploma. The gap is real, but so is the debt, and the degree has to be finished to pay off.",
     "benchmarkIds": [
       "recent_grad_median_wage",

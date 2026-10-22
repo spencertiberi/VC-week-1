@@ -95,7 +95,7 @@
   ],
   "researchNote": {
     "id": "n4_counselors",
-    "title": "Behind the Story: Who Gets Help Applying",
+    "title": "Who Gets Help Applying",
     "text": "School counselors help students choose classes, find scholarships, and apply to college. The national average is {stat:counselor_ratio} students per counselor, compared with the {stat:counselor_ratio_recommended} the American School Counselor Association recommends. Families who can pay for private admissions help can make up the difference. Many can't.",
     "benchmarkIds": [
       "counselor_ratio",

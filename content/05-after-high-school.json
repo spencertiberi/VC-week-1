@@ -500,7 +500,7 @@
   ],
   "researchNote": {
     "id": "n5_completion",
-    "title": "Behind the Story: Who Finishes College",
+    "title": "Who Finishes College",
     "text": "Getting in is only half of it. Students from lower-income families are less likely to finish a degree once they start, often because of cost, work hours, and family emergencies rather than grades. At public research universities, {stat:flagship_completion_rate} of students finish within six years at the college where they started.",
     "benchmarkIds": [
       "flagship_completion_rate"

@@ -132,7 +132,7 @@
   ],
   "researchNote": {
     "id": "n2_school_spending",
-    "title": "Behind the Story: School Funding",
+    "title": "School Funding",
     "text": "Many public schools are funded partly by local property taxes, so spending per student depends on where a family can afford to live. A large study found that raising per-pupil spending by 10% in every year of school led to {stat:school_spending_effect} higher adult wages, with much larger effects for children from low-income families.",
     "benchmarkIds": [
       "school_spending_effect"

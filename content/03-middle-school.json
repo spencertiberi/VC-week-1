@@ -82,7 +82,7 @@
   ],
   "researchNote": {
     "id": "n3_connectedness",
-    "title": "Behind the Story: Friendship and Mobility",
+    "title": "Friendship and Mobility",
     "text": "Researchers mapping friendships across the US found that how often friendships cross class lines in a community is one of the strongest predictors of upward mobility there. If children from low-income families grew up with the cross-class connections of the average higher-income child, their adult incomes would rise by {stat:economic_connectedness_effect} on average.",
     "benchmarkIds": [
       "economic_connectedness_effect"
