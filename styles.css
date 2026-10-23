@@ -196,6 +196,9 @@ main:focus { outline: none; }
 .choice--unavailable .choice__label { color: var(--muted); }
 .choice--unavailable .choice__badge { background: transparent; color: var(--pink); border: 1px solid var(--pink); }
 .choice--unavailable:hover { border-color: var(--raised); background: transparent; }
+/* Clicking an unavailable choice does nothing; this pulse (plus a shake, see below) is the
+   visible signal for a sighted or mouse user that the click registered but can't proceed. */
+.choice--unavailable.choice--flash { border-color: var(--pink); background: rgba(255, 178, 198, 0.12); }
 
 .lottery { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); }
 .lottery p { color: var(--muted); font-size: 0.95rem; }
@@ -281,6 +284,13 @@ dl.snapshot dd { margin: 0; }
 @media (prefers-reduced-motion: no-preference) {
   .card { animation: fade-in 180ms ease-out; }
   @keyframes fade-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+  .choice--flash { animation: choice-shake 420ms ease; }
+  @keyframes choice-shake {
+    10%, 90% { transform: translateX(-1px); }
+    20%, 80% { transform: translateX(2px); }
+    30%, 50%, 70% { transform: translateX(-4px); }
+    40%, 60% { transform: translateX(4px); }
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .choice { transition: none; }

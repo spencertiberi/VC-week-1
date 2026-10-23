@@ -35,6 +35,16 @@ export function createUI(content, handlers) {
     }, 50);
   }
 
+  // A brief visual pulse on a choice, so a sighted or mouse user who clicks an unavailable
+  // choice sees something happen too (announce() alone only reaches screen readers).
+  function flash(el) {
+    window.clearTimeout(el._flashTimer);
+    el.classList.remove('choice--flash');
+    void el.offsetWidth; // restart the effect if the choice is clicked again quickly
+    el.classList.add('choice--flash');
+    el._flashTimer = window.setTimeout(() => el.classList.remove('choice--flash'), 1100);
+  }
+
   function show(article, { focusSelector = 'h1' } = {}) {
     main.replaceChildren(article);
     window.scrollTo(0, 0);
@@ -142,12 +152,21 @@ export function createUI(content, handlers) {
       parts.push(h('span', { class: 'choice__note' }, h('span', { class: 'choice__badge' }, ui.longShot)));
     }
     const unavailable = status === 'unavailable';
-    return h('button', {
+    const onclick = () => {
+      if (unavailable) {
+        announce(t(option.reason, state, extra));
+        flash(btn);
+      } else {
+        handlers.onChoose(choice.id);
+      }
+    };
+    const btn = h('button', {
       type: 'button',
       class: `choice choice--${status}`,
       'aria-disabled': unavailable ? 'true' : null,
-      onclick: () => (unavailable ? announce(t(option.reason, state, extra)) : handlers.onChoose(choice.id)),
+      onclick,
     }, parts);
+    return btn;
   }
 
   function renderDecision(state, c) {
